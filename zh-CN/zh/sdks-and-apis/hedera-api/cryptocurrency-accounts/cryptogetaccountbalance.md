@@ -2,7 +2,7 @@
 
 ## CryptoGetAccountBalanceQuery
 
-Get the balance of a cryptocurrency account. This returns only the balance, so it is a smaller and faster reply than CryptoGetInfo, which returns the balance plus additional information.
+Get the balance of a cryptocurrency account. Get the balance of a cryptocurrency account. This returns only the balance, so it is a smaller and faster reply than CryptoGetInfo, which returns the balance plus additional information.
 
 | Field        | Type                                           | Description                                                                                                                                         |
 | ------------ | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,6 +1,6 @@
 # Submit a message
 
-A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages to subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash.
+A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages to subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages to subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash.
 
 **Transaction Signing Requirements**
 
@@ -34,7 +34,7 @@ new ConsensusMessageSubmitTransaction()
 | `setMessage(<message>)`    | String                  | The message in a String format                                              | Optional    |
 | `setMessage(<message>)`    | byte \[ ]              | The message in a byte array format                                          | Optional    |
 | `setMessage(<message>)`    | ByteString              | The message in a ByteString format                                          | Optional    |
-| `setMaxChunk(<maxChunks>)` | int                     | The number of chunks to break the message into. Default:10                  | Optional    |
+| `setMaxChunk(<maxChunks>)` | int                     | The number of chunks to break the message into. Default:10 Default:10       | Optional    |
 | <p><code>setMaxChunkInfo(&#x3C;initial</code><br><code>Transactionid</code><br><code>,totalNumber, number>)</code></p>        | TransactionId, int, int | <p>initialId: TransactionID of the first chunk, gets copied to every subsequent chunk in a fragmented message.</p><p>total: total number of chunks</p><p>number: The sequence number (from 1 to total) of the current chunk in the message.</p> | Optional    |
 
 {% code title="Java" %}
@@ -43,6 +43,11 @@ new ConsensusMessageSubmitTransaction()
 new ConsensusMessageSubmitTransaction()
     .setTopicId(topicId)
     .setMessage("hello, HCS! " + i)
+    .build(client)
+    .execute(client)
+    .getReceipt(client);
+
+//v1.3.2 " + i)
     .build(client)
     .execute(client)
     .getReceipt(client);
@@ -57,6 +62,11 @@ new ConsensusMessageSubmitTransaction()
 await new ConsensusMessageSubmitTransaction()
     .setTopicId(topicId)
     .setMessage("hello, HCS! " + i)
+    .build(client)
+    .execute(client)
+    .getReceipt(client);
+
+//v1.4.4 " + i)
     .build(client)
     .execute(client)
     .getReceipt(client);
@@ -86,6 +96,10 @@ TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
 
 //Get the transaction message
 ByteString getMessage = transaction.getMessage();
+//v2.0.0 ");
+
+//Get the transaction message
+ByteString getMessage = transaction.getMessage();
 //v2.0.0
 ```
 {% endcode %}
@@ -100,6 +114,11 @@ const transaction = await new TopicMessageSubmitTransaction()
 //Get the transaction message
 const getMessage = transaction.getMessage();
 
+//v2.0.0 ");
+
+//Get the transaction message
+const getMessage = transaction.getMessage();
+
 //v2.0.0
 ```
 {% endcode %}
@@ -107,6 +126,9 @@ const getMessage = transaction.getMessage();
 {% code title="Go" %}
 ```java
 //Create the transaction
+transaction := hedera.NewTopicSubmitTransaction().
+        SetTopicID(topicID).
+        //Create the transaction
 transaction := hedera.NewTopicSubmitTransaction().
         SetTopicID(topicID).
         SetMessage([]byte(content))

@@ -1,14 +1,14 @@
 # Transactions
 
-Transactions are requests that are submitted by a client to a node in the Hedera network. Every transaction has a fee associated with it that will pay for processing the transaction. The following table lists the transaction type requests for each service.
+Transactions are requests that are submitted by a client to a node in the Hedera network. Every transaction has a fee associated with it that will pay for processing the transaction. The following table lists the transaction type requests for each service. Every transaction has a fee associated with it that will pay for processing the transaction. The following table lists the transaction type requests for each service.
 
 {% hint style="info" %}
-Transactions have a 6,144 bytes size limit. This includes the signatures on the transaction. The estimated single signature size is about 80-100 bytes.
+Transactions have a 6,144 bytes size limit. This includes the signatures on the transaction. The estimated single signature size is about 80-100 bytes. This includes the signatures on the transaction. The estimated single signature size is about 80-100 bytes.
 {% endhint %}
 
 {% hint style="info" %}
 **Transfers**\
-With the R4 release, how the HBAR balance changes of accounts involved in the transaction (either directly or node) are represented within the transaction record has been modified. In the past, each transfer of HBARs , whether a payment from one account to another or a fee paid to a Hedera node or to Hedera – was listed individually. The list of transfers might include one for the payer making the fundamental payment, one for that same account paying a fee to the network, and another for the same account paying a fee to the node. The new model combines all those individual transfers and shows, for each account involved in the transaction, only the net transfer value.
+With the R4 release, how the HBAR balance changes of accounts involved in the transaction (either directly or node) are represented within the transaction record has been modified. In the past, each transfer of HBARs , whether a payment from one account to another or a fee paid to a Hedera node or to Hedera – was listed individually. The list of transfers might include one for the payer making the fundamental payment, one for that same account paying a fee to the network, and another for the same account paying a fee to the node. The new model combines all those individual transfers and shows, for each account involved in the transaction, only the net transfer value. In the past, each transfer of HBARs , whether a payment from one account to another or a fee paid to a Hedera node or to Hedera – was listed individually. The list of transfers might include one for the payer making the fundamental payment, one for that same account paying a fee to the network, and another for the same account paying a fee to the node. The new model combines all those individual transfers and shows, for each account involved in the transaction, only the net transfer value.
 {% endhint %}
 
 | Cryptocurrency Accounts                                                                     | Consensus                                                                            | Tokens                                                                                     | File Service                                                            | Smart Contracts                                                                       |

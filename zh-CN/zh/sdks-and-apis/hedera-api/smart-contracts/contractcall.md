@@ -2,7 +2,7 @@
 
 ## **ContractCallTransactionBody**
 
-Call a function of the given smart contract instance, giving it functionParameters as its inputs. The call can use at maximum the given amount of gas – the paying account will not be charged for any unspent gas.\
+Call a function of the given smart contract instance, giving it functionParameters as its inputs. Call a function of the given smart contract instance, giving it functionParameters as its inputs. The call can use at maximum the given amount of gas – the paying account will not be charged for any unspent gas.\
 \
 If this function results in data being stored, an amount of gas is calculated that reflects this storage burden.\
 \

@@ -1,6 +1,6 @@
 # TokenUnfreezeAccount
 
-Unfreezes transfers of the specified token for the account. Must be signed by the Token's freezeKey.
+Unfreezes transfers of the specified token for the account. Must be signed by the Token's freezeKey. Must be signed by the Token's freezeKey.
 
 If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 
@@ -14,11 +14,11 @@ If an Association between the provided token and account is not found, the trans
 
 If no Freeze Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY.
 
-Once executed the Account is marked as Unfrozen and will be able to receive or send tokens. The operation is idempotent.
+Once executed the Account is marked as Unfrozen and will be able to receive or send tokens. The operation is idempotent. The operation is idempotent.
 
 ## TokenUnfreezeAccountTransactionBody
 
-| Field     | Type                                     | Description                                                                                                               |
-| --------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `token`   | [TokenID](../basic-types/tokenid.md)     | The token for which this account will be unfrozen. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
-| `account` | [AccountID](../basic-types/accountid.md) | The account to be unfrozen                                                                                                |
+| Field     | Type                                     | Description                                                                                                                                                                  |
+| --------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`   | [TokenID](../basic-types/tokenid.md)     | The token for which this account will be unfrozen. The token for which this account will be unfrozen. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
+| `account` | [AccountID](../basic-types/accountid.md) | The account to be unfrozen                                                                                                                                                   |

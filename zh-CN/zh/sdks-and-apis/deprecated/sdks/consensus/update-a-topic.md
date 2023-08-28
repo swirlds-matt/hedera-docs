@@ -1,17 +1,17 @@
 # Update a topic
 
-A transaction that updates the properties of an existing topic. This includes the topic memo, admin key, submit key, auto renew account, and auto renew period.
+A transaction that updates the properties of an existing topic. A transaction that updates the properties of an existing topic. This includes the topic memo, admin key, submit key, auto renew account, and auto renew period.
 
 #### Topic Properties
 
-| Field                  | Description                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| **Topic ID**           | Update the topic ID                                                                                 |
-| **Admin Key**          | Set a new admin key that authorizes update topic and delete topic transactions.                     |
-| **Submit Key**         | Set a new submit key for a topic that authorizes sending messages to this topic.                    |
-| **Topic Memo**         | Set a new short publicly visible memo on the new topic and is stored with the topic. (100 bytes)    |
-| **Auto Renew Account** | Set a new auto-renew account ID for this topic (once autoRenew functionality is supported by HAPI). |
-| **Auto Renew Period**  | Set a new auto -enew period for this topic (once autoRenew functionality is supported by HAPI).     |
+| Field                  | Description                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Topic ID**           | Update the topic ID                                                                                          |
+| **Admin Key**          | Set a new admin key that authorizes update topic and delete topic transactions.                              |
+| **Submit Key**         | Set a new submit key for a topic that authorizes sending messages to this topic.                             |
+| **Topic Memo**         | Set a new short publicly visible memo on the new topic and is stored with the topic. (100 bytes) (100 bytes) |
+| **Auto Renew Account** | Set a new auto-renew account ID for this topic (once autoRenew functionality is supported by HAPI).          |
+| **Auto Renew Period**  | Set a new auto -enew period for this topic (once autoRenew functionality is supported by HAPI).              |
 
 **Transaction Signing Requirements**
 

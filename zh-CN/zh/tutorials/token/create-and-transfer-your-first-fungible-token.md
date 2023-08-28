@@ -2,21 +2,21 @@
 
 ## Summary
 
-Fungible tokens share a single set of properties and have interchangeable value with one another. Use cases for fungible tokens include applications like stablecoins, in-game rewards systems, crypto tokens, loyalty program points, and much more.
+Fungible tokens share a single set of properties and have interchangeable value with one another. Fungible tokens share a single set of properties and have interchangeable value with one another. Use cases for fungible tokens include applications like stablecoins, in-game rewards systems, crypto tokens, loyalty program points, and much more.
 
 ## Prerequisites
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples. This example does not build upon the previous examples.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"> <a href="../../getting-started/introduction.md"><mark style="color:purple;"><strong>INTRODUCTION</strong></mark></a></td><td><a href="../../getting-started/introduction.md">introduction.md</a></td></tr><tr><td align="center"><a href="../../getting-started/environment-set-up.md"><mark style="color:purple;"><strong>ENVIRONMENT SETUP</strong></mark></a></td><td><a href="../../getting-started/environment-set-up.md">environment-set-up.md</a></td></tr></tbody></table>
 
-## 1. Create a Fungible Token
+## 1. 1. Create a Fungible Token
 
-Use _<mark style="color:purple;">**`TokenCreateTransaction()`**</mark>_ to create a fungible token and configure its properties. At a minimum, this constructor requires setting a name, symbol, and treasury account ID. All other fields are optional, so if they’re not specified then default values are used. For instance, not specifying an _admin key_, makes a token immutable (can’t change or add properties); not specifying a _supply key_, makes a token supply fixed (can’t mint new or burn existing tokens); not specifying a _token type_, makes a token fungible.
+Use _<mark style="color:purple;">**`TokenCreateTransaction()`**</mark>_ to create a fungible token and configure its properties. At a minimum, this constructor requires setting a name, symbol, and treasury account ID. All other fields are optional, so if they’re not specified then default values are used. For instance, not specifying an _admin key_, makes a token immutable (can’t change or add properties); not specifying a _supply key_, makes a token supply fixed (can’t mint new or burn existing tokens); not specifying a _token type_, makes a token fungible. At a minimum, this constructor requires setting a name, symbol, and treasury account ID. All other fields are optional, so if they’re not specified then default values are used. For instance, not specifying an _admin key_, makes a token immutable (can’t change or add properties); not specifying a _supply key_, makes a token supply fixed (can’t mint new or burn existing tokens); not specifying a _token type_, makes a token fungible.
 
 After submitting the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt.
 
-Unlike NFTs, fungible tokens do not require the decimals and initial supply to be set to zero during creation. In this case, we set the initial supply to 100 units, which is shown in the code as 10000 to account to 2 decimals.
+Unlike NFTs, fungible tokens do not require the decimals and initial supply to be set to zero during creation. In this case, we set the initial supply to 100 units, which is shown in the code as 10000 to account to 2 decimals. In this case, we set the initial supply to 100 units, which is shown in the code as 10000 to account to 2 decimals.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -109,11 +109,35 @@ tokenId := *tokenCreateRx.TokenID
 
 //LOG THE TOKEN ID TO THE CONSOLE
 fmt.Println("Created fungible token with token ID", tokenId)
+    SetTokenName("USD Bar").
+    SetTokenSymbol("USDB").
+    SetTokenType(hedera.TokenTypeFungibleCommon).
+    SetDecimals(2).
+    SetInitialSupply(10000).
+    SetTreasuryAccountID(treasuryAccountId).
+    SetSupplyType(hedera.TokenSupplyTypeInfinite).
+    SetSupplyKey(supplyKey).
+    FreezeWith(client)
+
+//SIGN WITH TREASURY KEY
+tokenCreateSign := tokenCreateTx.Sign(treasuryKey)
+
+//SUBMIT THE TRANSACTION
+tokenCreateSubmit, err := tokenCreateSign.Execute(client)
+
+//GET THE TRANSACTION RECEIPT
+tokenCreateRx, err := tokenCreateSubmit.GetReceipt(client)
+
+//GET THE TOKEN ID
+tokenId := *tokenCreateRx.TokenID
+
+//LOG THE TOKEN ID TO THE CONSOLE
+fmt.Println("Created fungible token with token ID", tokenId)
 ```
 {% endtab %}
 {% endtabs %}
 
-## 2. Associate User Accounts with Token
+## 2. 2. Associate User Accounts with Token
 
 Before an account that is not the treasury for a token can receive or send this specific token ID, the account must become “associated” with the token.
 
@@ -164,6 +188,10 @@ console.log(`- Token association with Alice's account: ${associateAliceRx.status
 associateAliceTx, err := hedera.NewTokenAssociateTransaction().
     SetAccountID(aliceAccountId).
     SetTokenIDs(tokenId).
+    //TOKEN ASSOCIATION WITH ALICE's ACCOUNT
+associateAliceTx, err := hedera.NewTokenAssociateTransaction().
+    SetAccountID(aliceAccountId).
+    SetTokenIDs(tokenId).
     FreezeWith(client)
 
 //SIGN WITH ALICE'S KEY TO AUTHORIZE THE ASSOCIATION
@@ -181,7 +209,7 @@ fmt.Println("Non-fungible token association with Alice's account:", associateAli
 {% endtab %}
 {% endtabs %}
 
-## 3. Transfer the Token
+## 3. 3. Transfer the Token
 
 Now, transfer 25 units of the token from the Treasury to Alice and check the account balances before and after the transfer.
 
@@ -263,6 +291,28 @@ fmt.Println("Alice's balance:", balanceCheckAlice.Tokens, "units of token ID", t
 
 //TRANSFER THE STABLECOIN TO ALICE
 tokenTransferTx, err := hedera.NewTransferTransaction().
+    AddTokenTransfer(tokenId, treasuryAccountId, -2500).
+    AddTokenTransfer(tokenId, aliceAccountId, 2500).
+    FreezeWith(client)
+
+//SIGN WITH THE TREASURY KEY TO AUTHORIZE THE TRANSFER
+signTransferTx := tokenTransferTx.Sign(treasuryKey)
+
+//SUBMIT THE TRANSACTION
+tokenTransferSubmit, err := signTransferTx.Execute(client)
+
+//GET THE TRANSACTION RECEIPT
+tokenTransferRx, err := tokenTransferSubmit.GetReceipt(client)
+
+fmt.Println("Token transfer from Treasury to Alice:", tokenTransferRx.Status)
+
+//CHECK THE BALANCE AFTER THE TRANSFER FOR THE TREASURY ACCOUNT
+balanceCheckTreasury2, err := hedera.NewAccountBalanceQuery().SetAccountID(treasuryAccountId).Execute(client)
+fmt.Println("Treasury balance:", balanceCheckTreasury2.Tokens, "units of token", tokenId)
+
+//CHECK THE BALANCE AFTER THE TRANSFER FOR ALICE'S ACCOUNT
+balanceCheckAlice2, err := hedera.NewAccountBalanceQuery().SetAccountID(aliceAccountId).Execute(client)
+gofmt.Println("Alice's balance:", balanceCheckAlice2.Tokens, "units of token", tokenId)
     AddTokenTransfer(tokenId, treasuryAccountId, -2500).
     AddTokenTransfer(tokenId, aliceAccountId, 2500).
     FreezeWith(client)
@@ -526,6 +576,21 @@ func main() {
     //LOADS THE .ENV FILE AND THROWS AN EROOR IF IT CANNOT LOAD THE VARIABLES
     err := godotenv.Load(".env")
     if err != nil {
+        panic(fmt.Errorf("Unable to load enviroment variables from .env file. package main
+
+import (
+    "fmt"
+    "os"
+
+    "github.com/hashgraph/hedera-sdk-go/v2"
+    "github.com/joho/godotenv"
+)
+
+func main() {
+
+    //LOADS THE .ENV FILE AND THROWS AN EROOR IF IT CANNOT LOAD THE VARIABLES
+    err := godotenv.Load(".env")
+    if err != nil {
         panic(fmt.Errorf("Unable to load enviroment variables from .env file. Error:\n%v\n", err))
     }
 
@@ -662,10 +727,118 @@ func main() {
     fmt.Println("Alice's balance:", balanceCheckAlice2.Tokens, "units of token", tokenId)
 
 }
+        SetKey(treasuryPublicKey).
+        SetInitialBalance(hedera.NewHbar(10)).
+        Execute(client)
+
+    //GET THE RECEIPT OF THE TRANSACTION
+    receipt, err := treasuryAccount.GetReceipt(client)
+
+    //GET THE ACCOUNT ID
+    treasuryAccountId := *receipt.AccountID
+
+    //ALICE'S KEY
+    aliceKey, err := hedera.GeneratePrivateKey()
+    alicePublicKey := aliceKey.PublicKey()
+
+    //CREATE AILICE'S ACCOUNT
+    aliceAccount, err := hedera.NewAccountCreateTransaction().
+        SetKey(alicePublicKey).
+        SetInitialBalance(hedera.NewHbar(10)).
+        Execute(client)
+
+    //GET THE RECEIPT OF THE TRANSACTION
+    receipt2, err := aliceAccount.GetReceipt(client)
+
+    //GET ALICE'S ACCOUNT ID
+    aliceAccountId := *receipt2.AccountID
+
+    //CREATE SUPPLY KEY
+    supplyKey, err := hedera.GeneratePrivateKey()
+
+    //CREATE FUNGIBLE TOKEN (STABLECOIN)
+    tokenCreateTx, err := hedera.NewTokenCreateTransaction().
+        SetTokenName("USD Bar").
+        SetTokenSymbol("USDB").
+        SetTokenType(hedera.TokenTypeFungibleCommon).
+        SetDecimals(2).
+        SetInitialSupply(10000).
+        SetTreasuryAccountID(treasuryAccountId).
+        SetSupplyType(hedera.TokenSupplyTypeInfinite).
+        SetSupplyKey(supplyKey).
+        FreezeWith(client)
+
+    //SIGN WITH TREASURY KEY
+    tokenCreateSign := tokenCreateTx.Sign(treasuryKey)
+
+    //SUBMIT THE TRANSACTION
+    tokenCreateSubmit, err := tokenCreateSign.Execute(client)
+
+    //GET THE TRANSACTION RECEIPT
+    tokenCreateRx, err := tokenCreateSubmit.GetReceipt(client)
+
+    //GET THE TOKEN ID
+    tokenId := *tokenCreateRx.TokenID
+
+    //LOG THE TOKEN ID TO THE CONSOLE
+    fmt.Println("Created fungible token with token ID", tokenId)
+
+    //TOKEN ASSOCIATION WITH ALICE's ACCOUNT
+    associateAliceTx, err := hedera.NewTokenAssociateTransaction().
+        SetAccountID(aliceAccountId).
+        SetTokenIDs(tokenId).
+        FreezeWith(client)
+
+    //SIGN WITH ALICE'S KEY TO AUTHORIZE THE ASSOCIATION
+    signTx := associateAliceTx.Sign(aliceKey)
+
+    //SUBMIT THE TRANSACTION
+    associateAliceTxSubmit, err := signTx.Execute(client)
+
+    //GET THE RECEIPT OF THE TRANSACTION
+    associateAliceRx, err := associateAliceTxSubmit.GetReceipt(client)
+
+    //LOG THE TRANSACTION STATUS
+    fmt.Println("STABLECOIN token association with Alice's account:", associateAliceRx.Status)
+
+    //Check the balance before the transfer for the treasury account
+    balanceCheckTreasury, err := hedera.NewAccountBalanceQuery().SetAccountID(treasuryAccountId).Execute(client)
+    fmt.Println("Treasury balance:", balanceCheckTreasury.Tokens, "units of token ID", tokenId)
+
+    //Check the balance before the transfer for Alice's account
+    balanceCheckAlice, err := hedera.NewAccountBalanceQuery().SetAccountID(aliceAccountId).Execute(client)
+    fmt.Println("Alice's balance:", balanceCheckAlice.Tokens, "units of token ID", tokenId)
+
+    //Transfer the STABLECOIN from treasury to Alice
+    tokenTransferTx, err := hedera.NewTransferTransaction().
+        AddTokenTransfer(tokenId, treasuryAccountId, -2500).
+        AddTokenTransfer(tokenId, aliceAccountId, 2500).
+        FreezeWith(client)
+
+    //SIGN WITH THE TREASURY KEY TO AUTHORIZE THE TRANSFER
+    signTransferTx := tokenTransferTx.Sign(treasuryKey)
+
+    //SUBMIT THE TRANSACTION
+    tokenTransferSubmit, err := signTransferTx.Execute(client)
+
+    //GET THE TRANSACTION RECEIPT
+    tokenTransferRx, err := tokenTransferSubmit.GetReceipt(client)
+
+    fmt.Println("Token transfer from Treasury to Alice:", tokenTransferRx.Status)
+
+    //CHECK THE BALANCE AFTER THE TRANSFER FOR THE TREASURY ACCOUNT
+    balanceCheckTreasury2, err := hedera.NewAccountBalanceQuery().SetAccountID(treasuryAccountId).Execute(client)
+    fmt.Println("Treasury balance:", balanceCheckTreasury2.Tokens, "units of token", tokenId)
+
+    //CHECK THE BALANCE AFTER THE TRANSFER FOR ALICE'S ACCOUNT
+    balanceCheckAlice2, err := hedera.NewAccountBalanceQuery().SetAccountID(aliceAccountId).Execute(client)
+    fmt.Println("Alice's balance:", balanceCheckAlice2.Tokens, "units of token", tokenId)
+
+}
 ```
 
 </details>
 
 {% hint style="info" %}
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

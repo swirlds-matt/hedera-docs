@@ -2,7 +2,7 @@
 
 ## Hedera Mirror Node
 
-The Hedera Consensus Service \(HCS\) gRPC API is a public mirror node managed by Hedera. It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed. API docs for the mirror nodes can be found here:
+The Hedera Consensus Service \(HCS\) gRPC API is a public mirror node managed by Hedera. It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed. API docs for the mirror nodes can be found here: It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed. API docs for the mirror nodes can be found here:
 
 {% page-ref page="../../docs/mirror-node-api/" %}
 
@@ -30,9 +30,9 @@ If you don't have access to a Hedera mirror node, you can check out some of the 
 
 ### Overview
 
-A Beta Mirror Node is a node that receives pre-constructed files from the Hedera mainnet. These pre-constructed files include **transaction records** and **account balance files**. Transaction records include information about a transaction like the transaction ID, transaction hash, account, etc. The account balance files give you a snapshot of the balances for all accounts at a given timestamp.
+A Beta Mirror Node is a node that receives pre-constructed files from the Hedera mainnet. These pre-constructed files include **transaction records** and **account balance files**. Transaction records include information about a transaction like the transaction ID, transaction hash, account, etc. The account balance files give you a snapshot of the balances for all accounts at a given timestamp. These pre-constructed files include **transaction records** and **account balance files**. Transaction records include information about a transaction like the transaction ID, transaction hash, account, etc. The account balance files give you a snapshot of the balances for all accounts at a given timestamp.
 
- In this tutorial, you will run your own Beta Mirror Node. You will need to create a Google Cloud Platform account if you do not have one already. The Beta Mirror Node object storage bucket, where you will pull the account balance and transaction data from, is stored in Google Cloud bucket and is configured for [requester pays](https://cloud.google.com/storage/docs/requester-pays). This means the Beta Mirror Node operator is responsible for the operational costs of reading and retrieving data from the Google Cloud bucket. A Google Cloud Platform account will provide the necessary information to cover the costs of the requests and download of the data.
+ In this tutorial, you will run your own Beta Mirror Node. You will need to create a Google Cloud Platform account if you do not have one already. In this tutorial, you will run your own Beta Mirror Node. You will need to create a Google Cloud Platform account if you do not have one already. The Beta Mirror Node object storage bucket, where you will pull the account balance and transaction data from, is stored in Google Cloud bucket and is configured for [requester pays](https://cloud.google.com/storage/docs/requester-pays). This means the Beta Mirror Node operator is responsible for the operational costs of reading and retrieving data from the Google Cloud bucket. A Google Cloud Platform account will provide the necessary information to cover the costs of the requests and download of the data. This means the Beta Mirror Node operator is responsible for the operational costs of reading and retrieving data from the Google Cloud bucket. A Google Cloud Platform account will provide the necessary information to cover the costs of the requests and download of the data.
 
 ### Requirements
 
@@ -50,7 +50,7 @@ A Beta Mirror Node is a node that receives pre-constructed files from the Hedera
 * [Hedera Mirror Node Repository](https://github.com/hashgraph/hedera-mirror-node)
   * You will be prompted to download the repo in the following steps
 
-### 1. Obtain Google Cloud Platform Requester Pay Information
+### 1. 1. Obtain Google Cloud Platform Requester Pay Information
 
 You will need to grab the **secret key, access key**, and **project ID** from your Google Cloud Platform account
 
@@ -66,7 +66,7 @@ You will need to grab the **secret key, access key**, and **project ID** from yo
 * You should see the **access key** and **secret** columns populate on the table
 * You will use these keys to populate the **application.yml** configuration file in a later step
 
-### 2. Clone Hedera Mirror Node Repository
+### 2. 2. Clone Hedera Mirror Node Repository
 
 * Open your terminal
 * Download the hedera-mirror-node repository
@@ -81,7 +81,7 @@ git clone https://github.com/hashgraph/hedera-mirror-node
 cd hedera-mirror-node
 ```
 
-### 3. Configure your application.yml file
+### 3. 3. Configure your application.yml file
 
 * Open the **application.yml** file found in the root directory with a text editor of your choice
 * Input the following information and uncomment each line
@@ -107,11 +107,16 @@ hedera:
         secretKey: h+....
         gcpProjectId: 
       network: MAINNET
+        bucketName: hedera-mainnet-streams
+        cloudProvider: "GCP"
+        secretKey: h+....
+        gcpProjectId: 
+      network: MAINNET
 ```
 {% endtab %}
 {% endtabs %}
 
-### 4. Start Your Beta Mirror Node
+### 4. 4. Start Your Beta Mirror Node
 
 * From the hedera-mirror-node directory, run the following command:
 
@@ -122,7 +127,7 @@ docker-compose up
 * Upon successfully running your Beta Mirror Node, you will see two folders created in the hedera-mirror-node directory titled **data** and **db**
 * The **data** folder contains the information downloaded from the google cloud bucket including account balances and records streams
 
-### 5. Access Your Beta Mirror Node Data
+### 5. 5. Access Your Beta Mirror Node Data
 
 To access the mirror node data now available to you, enter the `hedera-mirror-node_db_1` container.
 
@@ -155,5 +160,5 @@ psql "dbname=mirror_node host=localhost user=mirror_node password=mirror_node_pa
 
 ### Contributing
 
-Contributions are welcome. Please see the [contributing](https://github.com/hashgraph/hedera-mirror-node/blob/master/CONTRIBUTING.md) guide to see how you can get involved.
+Contributions are welcome. Contributions are welcome. Please see the [contributing](https://github.com/hashgraph/hedera-mirror-node/blob/master/CONTRIBUTING.md) guide to see how you can get involved.
 

@@ -32,7 +32,7 @@ coverY: 0
 
 <details>
 
-<summary>Do you have a demo application to add to this list? Or want to request others to get built?</summary>
+<summary>Do you have a demo application to add to this list? Or want to request others to get built? Or want to request others to get built?</summary>
 
 Please refer to the [contributing guide](../support-and-community/contributing-guide.md) and open an issue in the `hedera-docs` [repository](https://github.com/hashgraph/hedera-docs) and include the following information within the issue:
 

@@ -1,6 +1,6 @@
 ---
 description: >-
-  Setup tutorial - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
+  Setup tutorial - HSCS workshop. Setup tutorial - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
 ---
 
 # Setup
@@ -13,7 +13,7 @@ Hedera Smart Contract Service Workshop Part 2/6 | Setup
 
 ## Set up the project
 
-The setup has already been (mostly) done. All that's left for you to do is clone the [accompanying tutorial GitHub repository](https://github.com/hedera-dev/hedera-smart-contracts-workshop) and install the dependencies:
+The setup has already been (mostly) done. The setup has already been (mostly) done. All that's left for you to do is clone the [accompanying tutorial GitHub repository](https://github.com/hedera-dev/hedera-smart-contracts-workshop) and install the dependencies:
 
 ```sh
 git clone -b main git@github.com:hedera-dev/hedera-smart-contracts-workshop.git
@@ -30,7 +30,7 @@ If you do not have SSH available on your system, or are unable to configure it f
 
 ### Step B1: Environment variables file
 
-In the root directory of the repo, you will find a file named `.env.example`. Make a copy of this file, and name it `.env`.
+In the root directory of the repo, you will find a file named `.env.example`. Make a copy of this file, and name it `.env`. Make a copy of this file, and name it `.env`.
 
 ```shell
 cp .env.example .env
@@ -38,7 +38,7 @@ cp .env.example .env
 
 ### Step B2: Operator account
 
-An operator account is used to obtain an initial sum of HBAR on Hedera Testnet, and then use that to pay for various Hedera network operations. This includes everything from basic transactions, to gas fees for HSCS interactions.
+An operator account is used to obtain an initial sum of HBAR on Hedera Testnet, and then use that to pay for various Hedera network operations. This includes everything from basic transactions, to gas fees for HSCS interactions. This includes everything from basic transactions, to gas fees for HSCS interactions.
 
 Visit the [Hedera Portal](https://portal.hedera.com/) to get started.
 
@@ -46,57 +46,47 @@ Visit the [Hedera Portal](https://portal.hedera.com/) to get started.
 
 <figure>
 
-<img src="https://i.stack.imgur.com/tgkvS.png" alt="" width="375" /><figcaption>
-
-Hedera Portal - Create Testnet Account</figcaption></figure>
+<img src="https://i.stack.imgur.com/tgkvS.png" alt="" width="375" /><figcaption> Hedera Portal - Create Testnet Account</figcaption></figure>
 
 (2) Copy-paste the confirmation code sent to your email.
 
 <figure>
 
-<img src="https://i.stack.imgur.com/4H9XT.png" alt="" width="375" /><figcaption>
-
-Hedera Portal - Email Verification</figcaption></figure>
+<img src="https://i.stack.imgur.com/4H9XT.png" alt="" width="375" /><figcaption> Hedera Portal - Email Verification</figcaption></figure>
 
 (3) Fill out this form with details for your profile.
 
 <figure>
 
-<img src="https://i.stack.imgur.com/atW69.png" alt="" width="375" /><figcaption>
-
-Hedera Portal - Profile Details</figcaption></figure>
+<img src="https://i.stack.imgur.com/atW69.png" alt="" width="375" /><figcaption> Hedera Portal - Profile Details</figcaption></figure>
 
 (4) In the top-left there is a drop down menu, select between Hedera Testnet (default) and Previewnet:
 
 <figure>
 
-<img src="https://i.stack.imgur.com/2A2ua.png" alt="" width="563" /><figcaption>
-
-Hedera Portal - Select Network</figcaption></figure>
+<img src="https://i.stack.imgur.com/2A2ua.png" alt="" width="563" /><figcaption> Hedera Portal - Select Network</figcaption></figure>
 
 (5) From the next screen that shows your accounts, copy the value of the "**DER-encoded private key**" and replace `OPERATOR_KEY` in the `.env` file with it.
 
 <figure>
 
-<img src="https://i.stack.imgur.com/MrBx0.png" alt="" width="563" /><figcaption>
-
-Hedera Portal - Account Details</figcaption></figure>
+<img src="https://i.stack.imgur.com/MrBx0.png" alt="" width="563" /><figcaption> Hedera Portal - Account Details</figcaption></figure>
 
 (6) From the same screen, copy the value of "**Account ID**" and replace the value of the `OPERATOR_ID` variable in the `.env` file with it.
 
 {% hint style="info" %}
-Note that private keys should be stored and managed securely. For the purposes of a tutorial, secure key management has been skipped, and you are storing your private keys in plain text on disk. Do **not** do this in production applications.
+Note that private keys should be stored and managed securely. Note that private keys should be stored and managed securely. For the purposes of a tutorial, secure key management has been skipped, and you are storing your private keys in plain text on disk. Do **not** do this in production applications. Do **not** do this in production applications.
 {% endhint %}
 
 ### Step B3: Seed phrase
 
-When developing smart contracts, you often need more than 1 account to do so. Thankfully we do not need to go through the somewhat cumbersome process of creating multiple accounts via the Hedera Portal - you only really need to do that once for the operator account.
+When developing smart contracts, you often need more than 1 account to do so. When developing smart contracts, you often need more than 1 account to do so. Thankfully we do not need to go through the somewhat cumbersome process of creating multiple accounts via the Hedera Portal - you only really need to do that once for the operator account.
 
 Any subsequent accounts that you wish to create can be generated programmatically, and funded with HBAR from your operator account.
 
 To do so, we will utilise something called a **seed phrase**, which is a sequence of selected dictionary words chosen at random. This process is defined in [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 
-Subsequently, we will use that seed phrase as an input and generate multiple accounts; each of which consists of a private key, a public key, and an address. This process is defined in [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
+Subsequently, we will use that seed phrase as an input and generate multiple accounts; each of which consists of a private key, a public key, and an address. This process is defined in [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki). This process is defined in [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
 
 <details>
 
@@ -108,7 +98,7 @@ Subsequently, we will use that seed phrase as an input and generate multiple acc
 
 </details>
 
-Interestingly these 2 BIPs were never adopted by the Bitcoin community, but are almost de-facto used by everyone in the Ethereum community. On Hedera, you can use these 2 BIPs to generate Hedera EVM accounts, but this is not possible for Hedera-native accounts (as they use a different type of public key algorithm).
+Interestingly these 2 BIPs were never adopted by the Bitcoin community, but are almost de-facto used by everyone in the Ethereum community. Interestingly these 2 BIPs were never adopted by the Bitcoin community, but are almost de-facto used by everyone in the Ethereum community. On Hedera, you can use these 2 BIPs to generate Hedera EVM accounts, but this is not possible for Hedera-native accounts (as they use a different type of public key algorithm).
 
 <details>
 
@@ -130,7 +120,7 @@ Visit [`iancoleman.io/bip39`](https://iancoleman.io/bip39/), and you can generat
 
 <figure>
 
-![Screenshot highlighting steps to generate a BIP39 seed phrase (using iancoleman.io/bip39).](../../../.gitbook/assets/bip39-seed-phrase-generate-iancolemanio.png)<figcaption></figcaption></figure>
+![![Screenshot highlighting steps to generate a BIP39 seed phrase (using iancoleman.io/bip39).](../../../.gitbook/assets/bip39-seed-phrase-generate-iancolemanio.png)](../../../.gitbook/assets/bip39-seed-phrase-generate-iancolemanio.png)<figcaption></figcaption></figure>
 
 \`
 
@@ -149,7 +139,7 @@ Replace the value of the `BIP39_SEED_PHRASE` variable in the `.env` file with th
 
 ### Step B4: Fund several Hedera EVM accounts
 
-At this point, you have an operator account, which is already funded with HBAR, and you have a seed phrase. Let's generate more accounts based on the seed phrase , and then transfer HBAR to them from the operator account.
+At this point, you have an operator account, which is already funded with HBAR, and you have a seed phrase. At this point, you have an operator account, which is already funded with HBAR, and you have a seed phrase. Let's generate more accounts based on the seed phrase , and then transfer HBAR to them from the operator account.
 
 First switch to the `intro` directory, and install dependencies using npm.
 
@@ -158,7 +148,7 @@ cd ./intro
 npm install
 ```
 
-Next, let's use a script already prepared for you. We want this script to generate 2 Hedera EVM accounts, and transfer 100 HBAR to each of them, so let's set those values in `generate-evm-accounts.js`.
+Next, let's use a script already prepared for you. Next, let's use a script already prepared for you. We want this script to generate 2 Hedera EVM accounts, and transfer 100 HBAR to each of them, so let's set those values in `generate-evm-accounts.js`.
 
 ```javascript
 const NUM_ACCOUNTS = 2;
@@ -170,7 +160,7 @@ const HD_PATH = "m/44'/60'/0'/0";
 
 <summary>Choice of derivation path</summary>
 
-Above, we're using `m/44'/60'/0'/0` as the derivation path. This value is the Ethereum derivation path, and we need to use this because Metamask does not allow it to be configured.
+Above, we're using `m/44'/60'/0'/0` as the derivation path. Above, we're using `m/44'/60'/0'/0` as the derivation path. This value is the Ethereum derivation path, and we need to use this because Metamask does not allow it to be configured.
 
 </details>
 
@@ -184,11 +174,18 @@ This should output something similar to the following:
 
 ```
 EVM account #0 generated.
+EVM account #0 generated.
 #0     HD path: m/44'/60'/0'/0/0
 #0 Private key: 3030020100300706052b8104000a04220420fb11afc5d508036ac7a9df9f1eb7cea551e4a7b738c2c70da099fe5f379f3364
 #0  Public key: 302d300706052b8104000a032200027a753c29cc9f0ea0b6ccf0614676daeba3da0dbd5f54ef9850ad3878ded4e077
 #0 EVM address: 07ffaadfe3a598b91ee08c88e5924be3eff35796
 EVM account #1 generated.
+#1     HD path: m/44'/60'/0'/0/1
+#1 Private key: 3030020100300706052b8104000a042204206e3ff9f1f1ae58248a5838ec877acc55d103009586224d76ab74a652d408cf12
+#1  Public key: 302d300706052b8104000a03220002c4c2ed7a682a601c9c61dec42e87442b63893a6e5efdf6dc327a4b3bcc62aba9
+#1 EVM address: 1c29e31d241f0d06f3763221f5224a6b82f09cce
+Transfer transaction ID: 0.0.3996280@1690161480.080071857
+HashScan URL: https://hashscan.io/testnet/transaction/0.0.3996280@1690161480.080071857
 #1     HD path: m/44'/60'/0'/0/1
 #1 Private key: 3030020100300706052b8104000a042204206e3ff9f1f1ae58248a5838ec877acc55d103009586224d76ab74a652d408cf12
 #1  Public key: 302d300706052b8104000a03220002c4c2ed7a682a601c9c61dec42e87442b63893a6e5efdf6dc327a4b3bcc62aba9
@@ -203,23 +200,21 @@ Copy the HashScan URL, paste it into a browser, and you will be see a "Transacti
 
 <figure>
 
-![Screenshot showing a single transaction with multiple recipients transferring HBAR (on hashscan.io).](../../../.gitbook/assets/hbar-transaction-multi-account-hbar-transfer-example-hashscanio.png)<figcaption>
+![Screenshot showing a single transaction with multiple recipients transferring HBAR (on hashscan.io).](../../../.gitbook/assets/hbar-transaction-multi-account-hbar-transfer-example-hashscanio.png)!\[Screenshot showing a single transaction with multiple recipients transferring HBAR (on hashscan.io).\](../../../.gitbook/assets/hbar-transaction-multi-account-hbar-transfer-example-hashscanio.png)<figcaption> Screenshot showing a single transaction with multiple recipients transferring HBAR (on hashscan.io).</figcaption></figure>
 
-Screenshot showing a single transaction with multiple recipients transferring HBAR (on hashscan.io).</figcaption></figure>
-
-Scroll down to the "Transfers" section, which should show the flow of HBAR between various accounts. In this case `-200` (and a fractional amount of `-0.00185217`) from the operator account, `+100.00000000` to each of the 2 EVM accounts, and fractional amounts to a couple of other accounts to pay for transaction processing. (Note that the fractional amounts may vary, they won't necessarily be `0.00185217` as above.)
+Scroll down to the "Transfers" section, which should show the flow of HBAR between various accounts. Scroll down to the "Transfers" section, which should show the flow of HBAR between various accounts. In this case `-200` (and a fractional amount of `-0.00185217`) from the operator account, `+100.00000000` to each of the 2 EVM accounts, and fractional amounts to a couple of other accounts to pay for transaction processing. (Note that the fractional amounts may vary, they won't necessarily be `0.00185217` as above.) (Note that the fractional amounts may vary, they won't necessarily be `0.00185217` as above.)
 
 Now you should have 1 Hedera-native account (previously funded), plus 2 new EVM accounts (freshly funded).
 
 ### Address formats
 
-Hedera networks have a native account address format, called the _Account ID_. An example of this would be: `0.0.3996280`.
+Hedera networks have a native account address format, called the _Account ID_. An example of this would be: `0.0.3996280`. An example of this would be: `0.0.3996280`.
 
-Hedera also supports EVM account address formats. This has 2 variants:
+Hedera also supports EVM account address formats. This has 2 variants: This has 2 variants:
 
-The _EVM Address Alias_. An example of this would be: `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This is sometimes referred to as the _non-long-zero_ address.
+The _EVM Address Alias_. An example of this would be: `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This is sometimes referred to as the _non-long-zero_ address. An example of this would be: `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This is sometimes referred to as the _non-long-zero_ address.
 
-The _Account Num Alias_. An example of this would be: `0x00000000000000000000000000000000003cfa78`. This is sometimes referred to as the _long-zero_ address.
+The _Account Num Alias_. An example of this would be: `0x00000000000000000000000000000000003cfa78`. The _Account Num Alias_. An example of this would be: `0x00000000000000000000000000000000003cfa78`. This is sometimes referred to as the _long-zero_ address.
 
 Finally Hedera also supports a _Key Alias_, and this is something that you're unlikely to encounter in most situations.
 

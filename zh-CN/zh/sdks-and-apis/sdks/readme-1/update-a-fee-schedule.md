@@ -1,6 +1,6 @@
 # Update token custom fees
 
-Update the custom fees for a given token. If the token does not have a fee schedule, the network response returned will be `CUSTOM_SCHEDULE_ALREADY_HAS_NO_FEES`. You will need to sign the transaction with the fee schedule key to update the fee schedule for the token. If you do not have a fee schedule key set for the token, you will not be able to update the fee schedule.
+Update the custom fees for a given token. If the token does not have a fee schedule, the network response returned will be `CUSTOM_SCHEDULE_ALREADY_HAS_NO_FEES`. Update the custom fees for a given token. If the token does not have a fee schedule, the network response returned will be `CUSTOM_SCHEDULE_ALREADY_HAS_NO_FEES`. You will need to sign the transaction with the fee schedule key to update the fee schedule for the token. If you do not have a fee schedule key set for the token, you will not be able to update the fee schedule. If you do not have a fee schedule key set for the token, you will not be able to update the fee schedule.
 
 **Transaction Signing Requirements**
 
@@ -73,6 +73,10 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% tab title="Go" %}
 ```go
 //Create the transaction and freeze for manual signing 
+transaction, err := hedera.NewTokenFeeScheduleUpdateTransaction().
+        SetCustomFees(customFees).
+        SetTokenID(tokenId).
+        //Create the transaction and freeze for manual signing 
 transaction, err := hedera.NewTokenFeeScheduleUpdateTransaction().
         SetCustomFees(customFees).
         SetTokenID(tokenId).

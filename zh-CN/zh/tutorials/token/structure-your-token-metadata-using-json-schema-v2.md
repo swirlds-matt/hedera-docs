@@ -2,9 +2,9 @@
 
 ## Summary
 
-When you create a new fungible or non-fungible token, you have the ability to add metadata. It's common to add metadata for NFTs, but also fungible tokens. The biggest problem with metadata is that it's often unstructured or doesn't follow a set of guidelines.&#x20;
+When you create a new fungible or non-fungible token, you have the ability to add metadata. When you create a new fungible or non-fungible token, you have the ability to add metadata. It's common to add metadata for NFTs, but also fungible tokens. The biggest problem with metadata is that it's often unstructured or doesn't follow a set of guidelines.&#x20; The biggest problem with metadata is that it's often unstructured or doesn't follow a set of guidelines.&#x20;
 
-Therefore, Hedera has developed the ["Token Metadata JSON Schema V2](https://github.com/hashgraph/hedera-improvement-proposal/blob/main/HIP/hip-412.md#reference-implementation)" for developers and creators who want to structure their metadata in an organized way. The biggest benefit of using this community-accepted standard is that most of the tooling on the Hedera network can scrape and interpret your metadata, like NFT explorers listing rarity attributes based on your metadata.
+Therefore, Hedera has developed the ["Token Metadata JSON Schema V2](https://github.com/hashgraph/hedera-improvement-proposal/blob/main/HIP/hip-412.md#reference-implementation)" for developers and creators who want to structure their metadata in an organized way. The biggest benefit of using this community-accepted standard is that most of the tooling on the Hedera network can scrape and interpret your metadata, like NFT explorers listing rarity attributes based on your metadata. The biggest benefit of using this community-accepted standard is that most of the tooling on the Hedera network can scrape and interpret your metadata, like NFT explorers listing rarity attributes based on your metadata.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><strong>1.</strong> <a href="structure-your-token-metadata-using-json-schema-v2.md#how-do-you-connect-metadata-to-a-token"><strong>CONNECT METADATA</strong></a></td><td><a href="structure-your-token-metadata-using-json-schema-v2.md#how-do-you-connect-metadata-to-a-token">#how-do-you-connect-metadata-to-a-token</a></td></tr><tr><td align="center"><strong>2.</strong> <a href="structure-your-token-metadata-using-json-schema-v2.md#what-does-the-token-metadata-json-schema-v2-look-like"><strong>METADATA SCHEMA</strong></a></td><td><a href="structure-your-token-metadata-using-json-schema-v2.md#what-does-the-token-metadata-json-schema-v2-look-like">#what-does-the-token-metadata-json-schema-v2-look-like</a></td></tr><tr><td align="center"><strong>3.</strong> <a href="structure-your-token-metadata-using-json-schema-v2.md#how-to-verify-your-token-metadata-is-correct"><strong>VERIFY METADATA</strong></a></td><td><a href="structure-your-token-metadata-using-json-schema-v2.md#how-to-verify-your-token-metadata-is-correct">#how-to-verify-your-token-metadata-is-correct</a></td></tr><tr><td align="center"><strong>4.</strong> <a href="structure-your-token-metadata-using-json-schema-v2.md#want-to-learn-more-about-token-metadata"><strong>VIDEO TUTORIAL</strong></a></td><td><a href="structure-your-token-metadata-using-json-schema-v2.md#want-to-learn-more-about-token-metadata">#want-to-learn-more-about-token-metadata</a></td></tr></tbody></table>
 
@@ -24,7 +24,7 @@ We recommend you complete one of the two tutorials below that teach you how to c
 
 It's essential to understand that the token metadata JSON schema V2 requires you to store metadata using a storage solution, centralized or decentralized, such as IPFS or Arweave.
 
-When creating a non-fungible token using the Hedera Token Service, you set the metadata value to the metadata JSON file to define your NFT, wherever it’s stored. This technique allows you to connect the metadata to the token created on the Hedera network. It's not allowed to use the "memo" or "symbol" fields on the NFT.&#x20;
+When creating a non-fungible token using the Hedera Token Service, you set the metadata value to the metadata JSON file to define your NFT, wherever it’s stored. This technique allows you to connect the metadata to the token created on the Hedera network. It's not allowed to use the "memo" or "symbol" fields on the NFT.&#x20; This technique allows you to connect the metadata to the token created on the Hedera network. It's not allowed to use the "memo" or "symbol" fields on the NFT.&#x20;
 
 An excerpt from the [NFT minting tutorial](https://docs.hedera.com/hedera/tutorials/token-service/create-and-transfer-your-first-nft#2.-mint-a-new-nft) shows this connection when minting a new NFT.
 
@@ -63,6 +63,9 @@ mintTx, err := hedera.NewTokenMintTransaction().
     SetTokenID(tokenId).
     SetMetadata([]byte(CID)).
     FreezeWith(client)
+    SetTokenID(tokenId).
+    SetMetadata([]byte(CID)).
+    FreezeWith(client)
 </code></pre>
 {% endtab %}
 {% endtabs %}
@@ -87,9 +90,9 @@ The schema defines three required fields:
 * **type**: [MIME type](https://github.com/hashgraph/hedera-improvement-proposal/blob/main/HIP/hip-412.md#mime-formatting) for the image
 * **image**: A URI pointing to an image (decentralized or centralized storage).&#x20;
 
-The `image` field can both serve as a preview or full-resolution image for your NFT to ensure cross-platform compatibility. The image field will be displayed in wallets and marketplaces by default.
+The `image` field can both serve as a preview or full-resolution image for your NFT to ensure cross-platform compatibility. The image field will be displayed in wallets and marketplaces by default. The image field will be displayed in wallets and marketplaces by default.
 
-Creators are recommended to point to a thumbnail in the `image` field and put the high-resolution image in the `files` array with the `is_default_file` boolean set to indicate that this file represents the default image for the NFT. (This is shown in the next section)
+Creators are recommended to point to a thumbnail in the `image` field and put the high-resolution image in the `files` array with the `is_default_file` boolean set to indicate that this file represents the default image for the NFT. (This is shown in the next section) (This is shown in the next section)
 
 Here's a small example of an implementation.
 
@@ -107,9 +110,9 @@ Here's a small example of an implementation.
 
 {% tabs %}
 {% tab title="files" %}
-The `files` field represents an array containing file objects. For collectible NFTs, the files array allows you to store the high-resolution image of your NFT. However, you can also use this field for multi-file NFTs. Each file object requires a **URI** and **type.**&#x20;
+The `files` field represents an array containing file objects. The `files` field represents an array containing file objects. For collectible NFTs, the files array allows you to store the high-resolution image of your NFT. However, you can also use this field for multi-file NFTs. Each file object requires a **URI** and **type.**&#x20; However, you can also use this field for multi-file NFTs. Each file object requires a **URI** and **type.**&#x20;
 
-It's recommended to use the **is\_default\_file** field to indicate which file is the main file for your NFT. Besides that, the files array allows you to upload or link file-specific metadata. This allows you to nest files indefinitely.&#x20;
+It's recommended to use the **is\_default\_file** field to indicate which file is the main file for your NFT. Besides that, the files array allows you to upload or link file-specific metadata. This allows you to nest files indefinitely.&#x20; Besides that, the files array allows you to upload or link file-specific metadata. This allows you to nest files indefinitely.&#x20;
 
 ```json
 {
@@ -141,7 +144,7 @@ It's not allowed to define additional fields on the root level of the metadata o
 }
 ```
 
-If you want to add custom fields, you can add them to the `properties` object. For example, you are linking to a website or social media pages. You can structure the metadata within the `properties` field as needed. Some developers even prefer defining their own standard for the properties field, not for the entire metadata object.
+If you want to add custom fields, you can add them to the `properties` object. For example, you are linking to a website or social media pages. You can structure the metadata within the `properties` field as needed. Some developers even prefer defining their own standard for the properties field, not for the entire metadata object. For example, you are linking to a website or social media pages. You can structure the metadata within the `properties` field as needed. Some developers even prefer defining their own standard for the properties field, not for the entire metadata object.
 
 <pre class="language-json"><code class="lang-json"><strong>// ✅ Good example
 </strong><strong>{
@@ -160,13 +163,13 @@ If you want to add custom fields, you can add them to the `properties` object. F
 {% endtab %}
 
 {% tab title="attributes" %}
-The `attributes` field is specifically used to calculate rarity of NFTs. It's an industry-accepted way to define traits and their values for a collectible NFT collection in order to calculate the rarity score of the NFT.&#x20;
+The `attributes` field is specifically used to calculate rarity of NFTs. The `attributes` field is specifically used to calculate rarity of NFTs. It's an industry-accepted way to define traits and their values for a collectible NFT collection in order to calculate the rarity score of the NFT.&#x20;
 
-The `attributes` fied consists of an array of `attribute` objects. This is the structure of such an object:
+The `attributes` fied consists of an array of `attribute` objects. This is the structure of such an object: This is the structure of such an object:
 
 * **trait\_type**: (required) Name of the trait.
 * **value**: (required) Value for the trait, e.g. for a `trait_type = clothing`, values can be `pants`, `shirt`, or `t-shirt`.
-* **display\_type**: (optional) Allows you to specify how the trait should be displayed. For instance, you can set it to `datetime` so the person or bot knows the value should be interpreted as a date.
+* **display\_type**: (optional) Allows you to specify how the trait should be displayed. For instance, you can set it to `datetime` so the person or bot knows the value should be interpreted as a date. For instance, you can set it to `datetime` so the person or bot knows the value should be interpreted as a date.
 * **max\_value**: (optional) It's possible to set a `max_value` for a numerical value.&#x20;
 
 <pre class="language-json"><code class="lang-json">{
@@ -212,9 +215,9 @@ The `attributes` fied consists of an array of `attribute` objects. This is the s
 {% endtab %}
 
 {% tab title="localization" %}
-The standard also allows for localization. Each locale links to another metadata file containing localized metadata and files. This allows for a clean metadata structure. Don't define a new localization object for a localized metadata file to avoid infinite looping when parsing an NFT's metadata file.&#x20;
+The standard also allows for localization. Each locale links to another metadata file containing localized metadata and files. This allows for a clean metadata structure. The standard also allows for localization. Each locale links to another metadata file containing localized metadata and files. This allows for a clean metadata structure. Don't define a new localization object for a localized metadata file to avoid infinite looping when parsing an NFT's metadata file.&#x20;
 
-Note that the `localization.uri` property contains `{locale}`. The `{locale}` part references a locale in the `locales` array. You should use two-letter language codes according to the [ISO 639-1 standard](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes) to define languages.
+Note that the `localization.uri` property contains `{locale}`. The `{locale}` part references a locale in the `locales` array. Note that the `localization.uri` property contains `{locale}`. The `{locale}` part references a locale in the `locales` array. You should use two-letter language codes according to the [ISO 639-1 standard](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes) to define languages.
 
 ```json
 {
@@ -229,14 +232,14 @@ Note that the `localization.uri` property contains `{locale}`. The `{locale}` pa
 }
 ```
 
-In this example, the default locale is set to English (`en`) and the schema provides localization for Spanish (`es`) and French (`fr`).  The schema assumes it can find the Spanish and French version under the following URIs because of the way it has been specified using the interpolation notation `{locale}.json`. This is what the resulting URIs should look like:
+In this example, the default locale is set to English (`en`) and the schema provides localization for Spanish (`es`) and French (`fr`).  In this example, the default locale is set to English (`en`) and the schema provides localization for Spanish (`es`) and French (`fr`).  The schema assumes it can find the Spanish and French version under the following URIs because of the way it has been specified using the interpolation notation `{locale}.json`. This is what the resulting URIs should look like: This is what the resulting URIs should look like:
 
 ```
 ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT/es.json
 ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT/fr.json
 ```
 
-A localized file would have the same structure, but doesn't specify any localization field. Here's an example for the French version.
+A localized file would have the same structure, but doesn't specify any localization field. Here's an example for the French version. Here's an example for the French version.
 
 <pre class="language-json"><code class="lang-json"><strong>// metadata for ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT/fr.json
 </strong><strong>{
@@ -253,7 +256,7 @@ Here's a list of remaining optional fields you can define according to the Token
 * **description**: A text that describes your token or NFT collection.
 * **creator**: Identifies the artist name(s).
 * **creatorDID**: Points to a decentralized identifier to identify the creator.
-* **checksum:** Cryptographic SHA-256 hash of the representation of the `image` resource or resources in the `files` array. It allows browsers or other tooling to verify the integrity of any file you list.
+* **checksum:** Cryptographic SHA-256 hash of the representation of the `image` resource or resources in the `files` array. It allows browsers or other tooling to verify the integrity of any file you list. It allows browsers or other tooling to verify the integrity of any file you list.
 * **format:** Indicates the implemented metadata schema specification. Currently, the default version (Token Metadata JSON Schema V2) is represented by `HIP412@2.0.0`. If you wonder why, each update to the JSON Schema requires a new Hedera Improvement Proposal (HIP). Therefore, the `format` field lists the HIP number and the associated version of the Token Metadata JSON Schema.
 {% endtab %}
 {% endtabs %}
@@ -312,7 +315,7 @@ This is what a full Token Metadata JSON Schema V2 specification looks like.
 
 ## How to verify your token metadata is correct?
 
-When you create token metadata for the first time, you want to verify your metadata against the Token Metadata JSON Schema V2. To help you in this, Hedera has created an [NFT utilities SDK](https://github.com/hashgraph/hedera-nft-utilities#token-metadata-validator) **(only for JavaScript)** to verify your metadata against the JSON Schema V2.&#x20;
+When you create token metadata for the first time, you want to verify your metadata against the Token Metadata JSON Schema V2. When you create token metadata for the first time, you want to verify your metadata against the Token Metadata JSON Schema V2. To help you in this, Hedera has created an [NFT utilities SDK](https://github.com/hashgraph/hedera-nft-utilities#token-metadata-validator) **(only for JavaScript)** to verify your metadata against the JSON Schema V2.&#x20;
 
 You can install the package using Yarn or NPM.
 
@@ -320,7 +323,7 @@ You can install the package using Yarn or NPM.
 npm i -s @hashgraph/nft-utilities
 ```
 
-Next, you need to import the `validator` function which accepts your metadata as a JSON object and the schema version against which you want to verify the metadata (`2.0.0`). Here's the code.
+Next, you need to import the `validator` function which accepts your metadata as a JSON object and the schema version against which you want to verify the metadata (`2.0.0`). Here's the code. Here's the code.
 
 ```javascript
 const metadata = {
@@ -335,7 +338,7 @@ const issues = validator(metadata, version);
 console.log(issues);
 ```
 
-The package will return errors and warnings using the below interface. This snippet of example output tells you that you have incorrectly used the `percentage` `display_type` in the attributes field, and you have defined a custom field called `imagePreview` on the root of the metadata object, which is not allowed (use the `properties` field).
+The package will return errors and warnings using the below interface. The package will return errors and warnings using the below interface. This snippet of example output tells you that you have incorrectly used the `percentage` `display_type` in the attributes field, and you have defined a custom field called `imagePreview` on the root of the metadata object, which is not allowed (use the `properties` field).
 
 ```json
 {
@@ -362,7 +365,7 @@ Here's a video that talks about the importance of structuring your token metadat
 
 {% embed url="https://www.youtube.com/watch?v=o8lY5nQ7pYo" %}
 
-You can find **examples** in this [blog post](https://hedera.com/blog/hedera-nft-metadata-hip412) in the section "Token Metadata V2 NFT Examples". If you still have questions, reach out on [Discord](https://hedera.com/discord) or ask it on [StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph).&#x20;
+You can find **examples** in this [blog post](https://hedera.com/blog/hedera-nft-metadata-hip412) in the section "Token Metadata V2 NFT Examples". If you still have questions, reach out on [Discord](https://hedera.com/discord) or ask it on [StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph).&#x20; If you still have questions, reach out on [Discord](https://hedera.com/discord) or ask it on [StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph).&#x20;
 
 Besides that, you can **read up on the full implementation** of token metadata in the Hedera Improvement Proposals [GitHub Repository under HIP-412](https://github.com/hashgraph/hedera-improvement-proposal/blob/main/HIP/hip-412.md).
 

@@ -1,6 +1,6 @@
 # TokenUnpause
 
-Unpauses the Token. Must be signed with the Token's pause key.
+Unpauses the Token. Unpauses the Token. Must be signed with the Token's pause key.
 
 * If the provided token is not found, the transaction will resolve to INVALID\_TOKEN\_ID
 * If the provided token has been deleted, the transaction will resolve to TOKEN\_WAS\_DELETED

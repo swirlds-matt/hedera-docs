@@ -11,7 +11,7 @@ all of the accounts proxy staking to a given account, and the amounts proxy stak
 
 ## CryptoGetStakersQuery
 
-Get all the accounts that are proxy staking to this account. For each of them, give the amount currently staked. This is not yet implemented, but will be in a future version of the API.
+Get all the accounts that are proxy staking to this account. For each of them, give the amount currently staked. This is not yet implemented, but will be in a future version of the API. For each of them, give the amount currently staked. This is not yet implemented, but will be in a future version of the API.
 
 | Field       | Type                                           | Description                                                                                                                                         |
 | ----------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

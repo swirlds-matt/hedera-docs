@@ -1,6 +1,6 @@
 # RealmID
 
-The ID for a realm. Within a given shard, every realm has a unique ID. Each account, file, and contract instance belongs to exactly one realm.
+The ID for a realm. Within a given shard, every realm has a unique ID. The ID for a realm. Within a given shard, every realm has a unique ID. Each account, file, and contract instance belongs to exactly one realm.
 
 | Field      | Description                    |
 | ---------- | ------------------------------ |

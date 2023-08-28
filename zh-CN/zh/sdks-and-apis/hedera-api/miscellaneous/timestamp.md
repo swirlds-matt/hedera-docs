@@ -2,14 +2,14 @@
 
 ## TokenUnitBalance
 
-| Field     | Description                                                                                                                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tokenId` | A unique token id                                                                                                                                                                                                   |
-| `balance` | Number of transferable units of the identified token. For token of type `FUNGIBLE_COMMON` - balance in the smallest denomination. For token of type `NON_FUNGIBLE_UNIQUE` - the number of NFTs held by the account. |
+| Field     | Description                                                                                                                                                                                                                                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tokenId` | A unique token id                                                                                                                                                                                                                                                                                                                                     |
+| `balance` | Number of transferable units of the identified token. For token of type `FUNGIBLE_COMMON` - balance in the smallest denomination. Number of transferable units of the identified token. For token of type `FUNGIBLE_COMMON` - balance in the smallest denomination. For token of type `NON_FUNGIBLE_UNIQUE` - the number of NFTs held by the account. |
 
 ## Timestamp
 
-An exact date and time. This is the same data structure as the protobuf Timestamp.proto (see the comments in https:github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto)
+An exact date and time. An exact date and time. This is the same data structure as the protobuf Timestamp.proto (see the comments in https:github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto)
 
 | Field     | Description                                              |
 | --------- | -------------------------------------------------------- |

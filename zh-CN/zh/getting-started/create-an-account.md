@@ -2,7 +2,7 @@
 
 ## Summary
 
-In this section, you will learn how to make a simple Hedera account. Hedera accounts are the entry point by which you can interact with the [Hedera APIs](../sdks-and-apis/hedera-api/). Accounts hold a balance of HBAR used to pay for API calls for the various transaction and query types.
+In this section, you will learn how to make a simple Hedera account. In this section, you will learn how to make a simple Hedera account. Hedera accounts are the entry point by which you can interact with the [Hedera APIs](../sdks-and-apis/hedera-api/). Accounts hold a balance of HBAR used to pay for API calls for the various transaction and query types. Accounts hold a balance of HBAR used to pay for API calls for the various transaction and query types.
 
 ## Prerequisites
 
@@ -101,9 +101,9 @@ newAccountPublicKey := newAccountPrivateKey.PublicKey()
 
 ## Step 3: Create a new account
 
-Create a new account using _`AccountCreateTransaction()`_. Use the public key created in the previous step to enter in the _`setKey()`_ field. This will associate the key pair generated in the previous step with the new account. The public key of the account is visible to the public and can be viewed in a mirror node explorer. The private key is used to authorize account-related transactions like transferring _HBAR_ or tokens from that account to another account. The account will have an initial balance of _1,000 tinybars_ funded from your testnet account created by the Hedera portal.
+Create a new account using _`AccountCreateTransaction()`_. Use the public key created in the previous step to enter in the _`setKey()`_ field. This will associate the key pair generated in the previous step with the new account. The public key of the account is visible to the public and can be viewed in a mirror node explorer. Create a new account using _`AccountCreateTransaction()`_. Use the public key created in the previous step to enter in the _`setKey()`_ field. This will associate the key pair generated in the previous step with the new account. The public key of the account is visible to the public and can be viewed in a mirror node explorer. The private key is used to authorize account-related transactions like transferring _HBAR_ or tokens from that account to another account. The account will have an initial balance of _1,000 tinybars_ funded from your testnet account created by the Hedera portal. The account will have an initial balance of _1,000 tinybars_ funded from your testnet account created by the Hedera portal.
 
-You can view transactions successfully submitted to the network by getting the transaction ID and searching for it in a mirror node explorer. The transaction ID is composed of the account ID that paid for the transaction and the transaction's valid start time e.g. _`0.0.1234@1609348302`_<mark style="color:blue;">.</mark> The transaction's valid start time is the time the transaction begins to be valid on the network. The SDK automatically generates a transaction ID for each transaction behind the scenes.
+You can view transactions successfully submitted to the network by getting the transaction ID and searching for it in a mirror node explorer. You can view transactions successfully submitted to the network by getting the transaction ID and searching for it in a mirror node explorer. The transaction ID is composed of the account ID that paid for the transaction and the transaction's valid start time e.g. _`0.0.1234@1609348302`_<mark style="color:blue;">.</mark> The transaction's valid start time is the time the transaction begins to be valid on the network. The SDK automatically generates a transaction ID for each transaction behind the scenes. The SDK automatically generates a transaction ID for each transaction behind the scenes.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -133,13 +133,16 @@ newAccount, err := hedera.NewAccountCreateTransaction().
     SetKey(newAccountPublicKey).
     SetInitialBalance(hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar)).
     Execute(client)
+    SetKey(newAccountPublicKey).
+    SetInitialBalance(hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar)).
+    Execute(client)
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Step 4: Get the new account ID
 
-The _account ID_ for the new account is returned in the receipt of the transaction that created the account. The receipt provides information about the transaction like whether it was successful or not and any new entity IDs that were created. Entities include accounts, smart contracts, tokens, files, topics, and scheduled transactions. The _account ID_ is in x.y.z format where z is the account number. The preceding values (x and y) default to zero today and represent the shard and realm number respectively. Your new _account ID_ should result in something like _`0.0.1234`_.
+The _account ID_ for the new account is returned in the receipt of the transaction that created the account. The receipt provides information about the transaction like whether it was successful or not and any new entity IDs that were created. Entities include accounts, smart contracts, tokens, files, topics, and scheduled transactions. The _account ID_ is in x.y.z format where z is the account number. The preceding values (x and y) default to zero today and represent the shard and realm number respectively. Your new _account ID_ should result in something like _`0.0.1234`_. The receipt provides information about the transaction like whether it was successful or not and any new entity IDs that were created. Entities include accounts, smart contracts, tokens, files, topics, and scheduled transactions. The _account ID_ is in x.y.z format where z is the account number. The preceding values (x and y) default to zero today and represent the shard and realm number respectively. Your new _account ID_ should result in something like _`0.0.1234`_.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -182,7 +185,7 @@ fmt.Printf("The new account ID is %v\n", newAccountId)
 
 ## Step 5: Verify the new account balance
 
-Next, you will submit a query to the Hedera test network to return the balance of the new account using the new _account ID_. The current account balance for the new account should be 1,000 _tinybars_. Getting the balance of an account is free today.
+Next, you will submit a query to the Hedera test network to return the balance of the new account using the new _account ID_. The current account balance for the new account should be 1,000 _tinybars_. Getting the balance of an account is free today. The current account balance for the new account should be 1,000 _tinybars_. Getting the balance of an account is free today.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -211,6 +214,8 @@ console.log("The new account balance is: " +accountBalance.hbars.toTinybars() +"
 ```go
 //Create the account balance query
 query := hedera.NewAccountBalanceQuery().
+     //Create the account balance query
+query := hedera.NewAccountBalanceQuery().
      SetAccountID(newAccountId)
 
 //Sign with client operator private key and submit the query to a Hedera network
@@ -226,7 +231,7 @@ fmt.Println("The account balance for the new account is ", accountBalance.Hbars.
 {% endtabs %}
 
 {% hint style="success" %}
-:star: **Congratulations! You have successfully completed the following:**
+:star: **Congratulations! You have successfully completed the following:** You have successfully completed the following:</strong>
 
 * Created a new Hedera account with an initial balance of 1,000 tinybars.
 * Obtained the new account ID by requesting the receipt of the transaction.
@@ -368,6 +373,11 @@ async function environmentSetup() {
   return newAccountId;
 }
 environmentSetup();
+  );
+
+  return newAccountId;
+}
+environmentSetup();
 ```
 {% endcode %}
 
@@ -379,6 +389,21 @@ environmentSetup();
 
 ```go
 package main
+
+import (
+    "fmt"
+    "os"
+
+    "github.com/hashgraph/hedera-sdk-go/v2"
+    "github.com/joho/godotenv"
+)
+
+func main() {
+
+    //Loads the .env file and throws an error if it cannot load the variables from that file correctly
+    err := godotenv.Load(".env")
+    if err != nil {
+        panic(fmt.Errorf("Unable to load environment variables from .env file. package main
 
 import (
     "fmt"
@@ -459,6 +484,36 @@ func main() {
     //Print the balance of tinybars
     fmt.Println("New account balance for the new account is", accountBalance.Hbars.AsTinybar())
 }
+        SetKey(newAccountPublicKey).
+        SetInitialBalance(hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar)).
+        Execute(client)
+
+    //Request the receipt of the transaction
+    receipt, err := newAccount.GetReceipt(client)
+    if err != nil {
+        panic(err)
+    }
+
+    //Get the new account ID from the receipt
+    newAccountId := *receipt.AccountID
+
+    //Print the new account ID to the console
+    fmt.Println("\n")
+    fmt.Printf("New account ID: %v\n", newAccountId)
+
+    //Create the account balance query
+    query := hedera.NewAccountBalanceQuery().
+        SetAccountID(newAccountId)
+
+    //Sign with client operator private key and submit the query to a Hedera network
+    accountBalance, err := query.Execute(client)
+    if err != nil {
+        panic(err)
+    }
+
+    //Print the balance of tinybars
+    fmt.Println("New account balance for the new account is", accountBalance.Hbars.AsTinybar())
+}
 
 ```
 
@@ -472,5 +527,5 @@ New account balance: 1000 tinybars.
 ```
 
 {% hint style="info" %}
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

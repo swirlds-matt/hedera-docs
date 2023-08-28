@@ -1,6 +1,6 @@
 # Get file contents
 
-A query to get the contents of a file. Queries do not change the state of the file or require network consensus. The information is returned from a single node processing the query.
+A query to get the contents of a file. A query to get the contents of a file. Queries do not change the state of the file or require network consensus. The information is returned from a single node processing the query. The information is returned from a single node processing the query.
 
 **Query Signing Requirements**
 
@@ -63,6 +63,8 @@ console.log(contents.toString());
 ```java
 //Create the query
 query := hedera.NewFileContentsQuery().
+        //Create the query
+query := hedera.NewFileContentsQuery().
         SetFileID(newFileId)
 
 //Sign with client operator private key and submit the query to a Hedera network
@@ -110,6 +112,12 @@ const getFileId = query.getFileId();
 ```java
 //Create the query
 query := hedera.NewFileContentsQuery().
+        SetFileID(newFileId)
+
+//Get file ID
+getFileId := query.GetFileID()
+
+//v2.0.0
         SetFileID(newFileId)
 
 //Get file ID

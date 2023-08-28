@@ -1,6 +1,6 @@
 # Sign a scheduled transaction
 
-A transaction that appends signatures to a schedule transaction. You will need to know the schedule ID to reference the schedule transaction to submit signatures to. A record will be generated for each ScheduleSign transaction that is successful and the schedule entity will subsequently update with the public keys that have signed the schedule transaction. To view the keys that have signed the schedule transaction, you can query the network for the schedule info. Once a schedule transaction receives the last required signature, the schedule transaction executes.
+A transaction that appends signatures to a schedule transaction. You will need to know the schedule ID to reference the schedule transaction to submit signatures to. A record will be generated for each ScheduleSign transaction that is successful and the schedule entity will subsequently update with the public keys that have signed the schedule transaction. A transaction that appends signatures to a schedule transaction. You will need to know the schedule ID to reference the schedule transaction to submit signatures to. A record will be generated for each ScheduleSign transaction that is successful and the schedule entity will subsequently update with the public keys that have signed the schedule transaction. To view the keys that have signed the schedule transaction, you can query the network for the schedule info. Once a schedule transaction receives the last required signature, the schedule transaction executes. Once a schedule transaction receives the last required signature, the schedule transaction executes.
 
 **Transaction Signing Requirements**
 
@@ -73,6 +73,9 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% code title="Go" %}
 ```go
 //Create the transaction and freeze the unsigned transaction
+transaction, err := hedera.NewScheduleSignTransaction().
+            SetScheduleID(scheduleId).
+            //Create the transaction and freeze the unsigned transaction
 transaction, err := hedera.NewScheduleSignTransaction().
             SetScheduleID(scheduleId).
             FreezeWith(client)

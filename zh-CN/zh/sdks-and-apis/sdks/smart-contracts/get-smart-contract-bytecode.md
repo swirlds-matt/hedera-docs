@@ -1,6 +1,6 @@
 # Get smart contract bytecode
 
-A query that returns the bytecode for a smart contract instance\*\*.\*\* Anyone can request the byte code of a smart contract instance on the network. Queries do not change the state of the smart contract or require network consensus. The information is returned from a single node processing the query.
+A query that returns the bytecode for a smart contract instance\*\*.\*\* Anyone can request the byte code of a smart contract instance on the network. Queries do not change the state of the smart contract or require network consensus. The information is returned from a single node processing the query. Queries do not change the state of the smart contract or require network consensus. The information is returned from a single node processing the query.
 
 **Query Signing Requirements**
 
@@ -43,6 +43,8 @@ const bytecode = await query.execute(client);
 {% tab title="Go" %}
 ```java
 //Create the query
+query := hedera.NewContractByteCodeQuery().
+    //Create the query
 query := hedera.NewContractByteCodeQuery().
     SetContractID(contractId)
 
@@ -93,6 +95,11 @@ query.getContractId()
 ```java
 //Create the query
 query := hedera.NewContractByteCodeQuery().
+    SetContractID(contractId)
+
+query.GetContractID()
+
+//v2.0.0
     SetContractID(contractId)
 
 query.GetContractID()

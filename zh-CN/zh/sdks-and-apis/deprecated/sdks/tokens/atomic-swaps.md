@@ -1,13 +1,13 @@
 # Atomic swaps
 
-An atomic swap is when you swap tokens between two accounts without using a third-party intermediary, such as a centralized exchange or custody provider, to facilitate the transfer. Native tokens issued using the Hedera Token Service (HTS) can be swapped with another or with hbars in a single transaction using the `TransferTransaction` API call. For each atomic swap within a single transaction, you’ll need to designate an account to be debited (-) any number of tokens and the corresponding account which will receive those tokens.
+An atomic swap is when you swap tokens between two accounts without using a third-party intermediary, such as a centralized exchange or custody provider, to facilitate the transfer. Native tokens issued using the Hedera Token Service (HTS) can be swapped with another or with hbars in a single transaction using the `TransferTransaction` API call. For each atomic swap within a single transaction, you’ll need to designate an account to be debited (-) any number of tokens and the corresponding account which will receive those tokens. Native tokens issued using the Hedera Token Service (HTS) can be swapped with another or with hbars in a single transaction using the `TransferTransaction` API call. For each atomic swap within a single transaction, you’ll need to designate an account to be debited (-) any number of tokens and the corresponding account which will receive those tokens.
 
 **Signing Requirements**
 
 The private keys for the accounts which are being debited tokens are required to sign the transaction.
 
 {% hint style="info" %}
-Hedera accounts must be associated to the specified token before you can transfer a token to their account. Please see how to associate a token to an account [here](../../../sdks/token-service/associate-tokens-to-an-account.md).
+Hedera accounts must be associated to the specified token before you can transfer a token to their account. Hedera accounts must be associated to the specified token before you can transfer a token to their account. Please see how to associate a token to an account [here](../../../sdks/token-service/associate-tokens-to-an-account.md).
 {% endhint %}
 
 {% tabs %}

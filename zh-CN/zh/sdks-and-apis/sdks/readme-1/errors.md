@@ -65,6 +65,6 @@ Network response messages and their descriptions.
 | `INSUFFICIENT_SENDER_ACCOUNT_BALANCE_FOR_CUSTOM_FEE`        | The sender account in the token transfer transaction could not afford a custom fee                       |
 | `SERIAL_NUMBER_LIMIT_REACHED`                               | Currently no more than 4,294,967,295 NFTs may be minted for a given unique token type                    |
 | `CUSTOM_ROYALTY_FEE_ONLY_ALLOWED_FOR_NON_FUNGIBLE_UNIQUE`   | Only tokens of type NON\_FUNGIBLE\_UNIQUE can have royalty fees                                      |
-| `TOKEN_IS_PAUSED`                                           | Token is paused. This Token cannot be a part of any kind of Transaction until unpaused.                  |
+| `TOKEN_IS_PAUSED`                                           | Token is paused. Token is paused. This Token cannot be a part of any kind of Transaction until unpaused. |
 | `TOKEN_HAS_NO_PAUSE_KEY`                                    | Pause key is not set on token                                                                            |
 | `INVALID_PAUSE_KEY`                                         | The provided pause key was invalid                                                                       |

@@ -1,6 +1,6 @@
 # TokenGrantKyc
 
-Grants KYC to the account for the given token. Must be signed by the Token's kycKey.
+Grants KYC to the account for the given token. Must be signed by the Token's kycKey. Must be signed by the Token's kycKey.
 
 If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 
@@ -18,7 +18,7 @@ Once executed the Account is marked as KYC Granted.
 
 ## TokenGrantKycTransactionBody
 
-| Field     | Type                                     | Description                                                                                                                  |
-| --------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `token`   | [TokenID](../basic-types/tokenid.md)     | The token for which this account will be granted KYC. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
-| `account` | [AccountID](../basic-types/accountid.md) | The account to be KYCed                                                                                                      |
+| Field     | Type                                     | Description                                                                                                                                                                        |
+| --------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`   | [TokenID](../basic-types/tokenid.md)     | The token for which this account will be granted KYC. The token for which this account will be granted KYC. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
+| `account` | [AccountID](../basic-types/accountid.md) | The account to be KYCed                                                                                                                                                            |

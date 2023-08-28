@@ -78,11 +78,11 @@ hedera.HbarFrom(100, hedera.HbarUnits.Tinybar)
 
 Convert _**HBAR**_ to a different unit/format.
 
-| **Method**               | **Type** | **Description**                                                     |
-| ------------------------ | -------- | ------------------------------------------------------------------- |
-| `to(<unit>)`       | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go.            |
-| `toString(<unit>)` | HbarUnit | String value of the hbar unit to convert to. Use `String()` for Go. |
-| `toTinybars()`           | Long     | Hbar value converted to tinybars                                    |
+| **Method**               | **Type** | **Description**                                                                            |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------ |
+| `to(<unit>)`       | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. Use `As` for Go.                  |
+| `toString(<unit>)` | HbarUnit | String value of the hbar unit to convert to. Use `String()` for Go. Use `String()` for Go. |
+| `toTinybars()`           | Long     | Hbar value converted to tinybars                                                           |
 
 {% tabs %}
 {% tab title="Java" %}
@@ -228,10 +228,10 @@ hedera.HbarFrom(100, hedera.HbarUnits.Tinybar)
 
 ## HBAR decimal places
 
-The decimal precision of _**HBAR**_ varies across the different Hedera APIs. While HAPI, JSON-RPC Relay, and Hedera Smart Contract Service (EVM) provide 8 decimal places, the **`msg.value`** in JSON-RPC Relay provides 18 decimal places.
+The decimal precision of _**HBAR**_ varies across the different Hedera APIs. The decimal precision of _**HBAR**_ varies across the different Hedera APIs. While HAPI, JSON-RPC Relay, and Hedera Smart Contract Service (EVM) provide 8 decimal places, the **`msg.value`** in JSON-RPC Relay provides 18 decimal places.
 
 <table><thead><tr><th width="495">API</th><th>Decimal</th></tr></thead><tbody><tr><td>Hedera API (HAPI) (Crypto + SCS Service (<code>msg.value</code>))</td><td>8</td></tr><tr><td>Hedera Smart Contract Service (EVM)</td><td>8</td></tr><tr><td>JSON RPC Relay (passed as arguments)</td><td>8</td></tr><tr><td>JSON RPC Relay (<code>msg.value</code>)</td><td>18</td></tr></tbody></table>
 
 {% hint style="warning" %}
-_**Note:** The JSON-RPC Relay **`msg.value`** uses 18 decimals when it returns HBAR. As a result, the **`gasPrice`** also uses 18 decimal places since it is only utilized from the JSON-RPC Relay._
+_**Note:** The JSON-RPC Relay **`msg.value`** uses 18 decimals when it returns HBAR. As a result, the **`gasPrice`** also uses 18 decimal places since it is only utilized from the JSON-RPC Relay. As a result, the **`gasPrice`** also uses 18 decimal places since it is only utilized from the JSON-RPC Relay._
 {% endhint %}

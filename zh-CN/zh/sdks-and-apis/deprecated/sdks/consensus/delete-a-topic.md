@@ -1,6 +1,6 @@
 # Delete a topic
 
-A transaction that deletes a topic from the Hedera network. Once a topic is deleted, the topic cannot be recovered to receive messages and all submitMessage calls will fail. Older messages can still be accessed, even after the topic is deleted, via the mirror node.
+A transaction that deletes a topic from the Hedera network. Once a topic is deleted, the topic cannot be recovered to receive messages and all submitMessage calls will fail. A transaction that deletes a topic from the Hedera network. Once a topic is deleted, the topic cannot be recovered to receive messages and all submitMessage calls will fail. Older messages can still be accessed, even after the topic is deleted, via the mirror node.
 
 **Transaction Signing Requirements**
 
@@ -107,6 +107,8 @@ const getTopicId = transaction.getTopicId();
 {% code title="Go" %}
 ```java
 //Create the transaction
+transaction := hedera.NewTopicDeleteTransaction().
+        //Create the transaction
 transaction := hedera.NewTopicDeleteTransaction().
         SetTopicID(topicID)
 

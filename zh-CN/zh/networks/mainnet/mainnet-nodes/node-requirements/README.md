@@ -5,11 +5,11 @@ description: >-
 
 # Node Requirements
 
-The following is provided to help [_Hedera Governing Council_](https://hedera.com/council) members deploy their permissioned mainnet consensus node. Please note, this information is not intended to apply to Hedera's transition to a permissionless network.
+The following is provided to help [_Hedera Governing Council_](https://hedera.com/council) members deploy their permissioned mainnet consensus node. Please note, this information is not intended to apply to Hedera's transition to a permissionless network. Please note, this information is not intended to apply to Hedera's transition to a permissionless network.
 
 ## Minimum Node Requirements
 
-Currently, the Hedera Mainnet will perform at a rate determined by the lowest-performing node. To ensure a common level of performance minimum hardware, connectivity, and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
+Currently, the Hedera Mainnet will perform at a rate determined by the lowest-performing node. Currently, the Hedera Mainnet will perform at a rate determined by the lowest-performing node. To ensure a common level of performance minimum hardware, connectivity, and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
 
 {% hint style="warning" %}
 To ensure accurate conformity with the minimum requirements, please provide node hardware, connectivity, and hosting details to Hedera prior to purchase (devops@hedera.com).
@@ -106,7 +106,7 @@ Considerations for future expansion (hardware-based deployments):
 
 ### Proxy
 
-Access to the node via public APIs must be mediated by an in-line proxy. Below are the specifications for establishing this proxy.
+Access to the node via public APIs must be mediated by an in-line proxy. Below are the specifications for establishing this proxy. Below are the specifications for establishing this proxy.
 
 * 2-CPU
 * 2GB RAM
@@ -141,7 +141,7 @@ Proxy Connectivity
 
 Interface Bonding (optional)
 
-* If using interface bonding, note that mutual TLS is in use, and Layer 3 Policy Based Routing (PBR) with dual-pathways is not supported. Only Layer 2 interface bonding using mode 1 (autonomous ports using active-backup) or mode 4 (LACP 802.3ad active/active) is supported.
+* If using interface bonding, note that mutual TLS is in use, and Layer 3 Policy Based Routing (PBR) with dual-pathways is not supported. Only Layer 2 interface bonding using mode 1 (autonomous ports using active-backup) or mode 4 (LACP 802.3ad active/active) is supported. Only Layer 2 interface bonding using mode 1 (autonomous ports using active-backup) or mode 4 (LACP 802.3ad active/active) is supported.
 
 ### Hosting
 

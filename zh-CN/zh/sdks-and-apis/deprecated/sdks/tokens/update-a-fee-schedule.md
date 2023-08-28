@@ -26,6 +26,7 @@ new TokenFeeScheduleUpdateTransaction()
 
 ## Methods
 
+Update the custom fees for a given token. If the token does not have a fee schedule, the network response returned will be `CUSTOM_SCHEDULE_ALREADY_HAS_NO_FEES`. You will need to sign the transaction with the fee schedule key to update the fee schedule for the token. If you do not have a fee schedule key set for the token, you will not be able to update the fee schedule.
 {% tabs %}
 {% tab title="V1" %}
 <table spaces-before="0">

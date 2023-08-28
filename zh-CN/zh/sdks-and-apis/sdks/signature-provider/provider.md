@@ -1,12 +1,12 @@
 # Provider
 
 {% hint style="info" %}
-This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0).
+This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0). (version >=2.14.0).
 {% endhint %}
 
-`Provider` provides access to a Hedera network to which requests should be submitted to. The Hedera network can be specified to `previewnet`, `testnet`, or `mainnet`.
+`Provider` provides access to a Hedera network to which requests should be submitted to. `Provider` provides access to a Hedera network to which requests should be submitted to. The Hedera network can be specified to `previewnet`, `testnet`, or `mainnet`.
 
-The most important method on the provider interface is the `call` method which allows a user to submit _any_ request and get the correct response for that request. For instance,Java
+The most important method on the provider interface is the `call` method which allows a user to submit _any_ request and get the correct response for that request. For instance,Java For instance,Java
 
 ```javascript
 // Balance of node account ID 0.0.3 

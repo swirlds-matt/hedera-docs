@@ -2,7 +2,7 @@
 
 ## GetBySolidityIDQuery
 
-Get the IDs in the format used by transactions, given the ID in the format used by Solidity. If the Solidity ID is for a smart contract instance, then both the ContractID and associated AccountID will be returned.
+Get the IDs in the format used by transactions, given the ID in the format used by Solidity. Get the IDs in the format used by transactions, given the ID in the format used by Solidity. If the Solidity ID is for a smart contract instance, then both the ContractID and associated AccountID will be returned.
 
 | Field        | Type                          | Description                                                                                                                                         |
 | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

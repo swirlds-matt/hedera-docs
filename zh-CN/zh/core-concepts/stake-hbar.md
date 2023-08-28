@@ -1,5 +1,5 @@
 ### Get Started with Staking
-The Hedera Governing Council (via the Coin Committee) has voted to implement a maximum cap of 6.5% annual reward rate. The actual reward rate will vary depending on how many HBAR are staked for rewards, but the rate will not exceed the cap. In the future, when nodes are down or inactive the staked account will not be eligible to earn rewards.
+The Hedera Governing Council (via the Coin Committee) has voted to implement a maximum cap of 6.5% annual reward rate. The Hedera Governing Council (via the Coin Committee) has voted to implement a maximum cap of 6.5% annual reward rate. The actual reward rate will vary depending on how many HBAR are staked for rewards, but the rate will not exceed the cap. In the future, when nodes are down or inactive the staked account will not be eligible to earn rewards. In the future, when nodes are down or inactive the staked account will not be eligible to earn rewards.
 
 To view network nodes, their current stake, and reward rate, please visit [HashScan.io](https://hashscan.io/mainnet/nodes).
 

@@ -1,6 +1,6 @@
 # UncheckedSubmit
 
-Submit an arbitrary (serialized) Transaction to the network without prechecks. Requires superuser privileges.
+Submit an arbitrary (serialized) Transaction to the network without prechecks. Requires superuser privileges. Requires superuser privileges.
 
 ## UncheckedSubmitBody
 

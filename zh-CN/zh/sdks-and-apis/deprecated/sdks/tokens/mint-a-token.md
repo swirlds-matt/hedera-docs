@@ -1,14 +1,14 @@
 # Mint a token
 
-Minting fungible token allows you to increase the total supply of the token. Minting a non-fungible token creates an NFT with its unique metadata for the class of NFTs defined by the token ID. The Supply Key must sign the transaction.
+Minting fungible token allows you to increase the total supply of the token. Minting fungible token allows you to increase the total supply of the token. Minting a non-fungible token creates an NFT with its unique metadata for the class of NFTs defined by the token ID. The Supply Key must sign the transaction. The Supply Key must sign the transaction.
 
-* If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. The maximum total supply a token can have is 2^63-1.
+* If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. The maximum total supply a token can have is 2^63-1. The maximum total supply a token can have is 2^63-1.
 * The amount provided must be in the lowest denomination possible.
-  * Example: Token A has 2 decimals. In order to mint 100 tokens, one must provide an amount of 10000. In order to mint 100.55 tokens, one must provide an amount of 10055.
-* The metadata field is specific to NFTs. Once an NFT is minted, the metadata cannot be changed and is immutable.
-  * You can use the metadata field to add a URI that contains additional information about the token. You can view the metadata schema [here](https://hips.hedera.com/hip/hip-412). The metadata field has a 100 character limit.
+  * Example: Token A has 2 decimals. In order to mint 100 tokens, one must provide an amount of 10000. Example: Token A has 2 decimals. In order to mint 100 tokens, one must provide an amount of 10000. In order to mint 100.55 tokens, one must provide an amount of 10055.
+* The metadata field is specific to NFTs. The metadata field is specific to NFTs. Once an NFT is minted, the metadata cannot be changed and is immutable.
+  * You can use the metadata field to add a URI that contains additional information about the token. You can view the metadata schema [here](https://hips.hedera.com/hip/hip-412). The metadata field has a 100 character limit. You can view the metadata schema [here](https://hips.hedera.com/hip/hip-412). The metadata field has a 100 character limit.
 * The serial number for the NFT is returned in the receipt of the transaction.
-* When minting NFTs, do not set the amount. The amount is used for minting fungible tokens only.
+* When minting NFTs, do not set the amount. The amount is used for minting fungible tokens only. The amount is used for minting fungible tokens only.
 * This transaction accepts zero unit minting operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564))
 
 **Transaction Signing Requirements**
@@ -33,13 +33,13 @@ new TokenMintTransaction()
 
 {% tabs %}
 {% tab title="V1" %}
-| Method                           | Type             | Description                                                                                                                                                                        | Requirement |
-| -------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `setTokenId(<tokenId>)`    | TokenId          | The token for which to mint tokens                                                                                                                                                 | Required    |
-| `setAmount(<amount>)`      | long             | The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than 2^63. | Required    |
-| `addMetadata(<metadata>)`  | byte\[]         | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created. The maximum allowed size of each metadata is 100 bytes.                             | Optional    |
-| `addMetadata(<metadatas>)` | List\<byte\[]> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created.The maximum allowed size of each metadata is 100 bytes.                              | Optional    |
-| `addMetadata(<metadatas>)` | String           | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created. The maximum allowed size of each metadata is 100 bytes.                             | Optional    |
+| Method                           | Type             | Description                                                                                                                                                                                                                                                            | Requirement |
+| -------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `setTokenId(<tokenId>)`    | TokenId          | The token for which to mint tokens                                                                                                                                                                                                                                     | Required    |
+| `setAmount(<amount>)`      | long             | The amount to mint to the Treasury Account. The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than 2^63. The new supply must be lower than 2^63. | Required    |
+| `addMetadata(<metadata>)`  | byte\[]         | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created. The maximum allowed size of each metadata is 100 bytes.                                                                                                                 | Optional    |
+| `addMetadata(<metadatas>)` | List\<byte\[]> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created.The maximum allowed size of each metadata is 100 bytes.                                                              | Optional    |
+| `addMetadata(<metadatas>)` | String           | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created. The maximum allowed size of each metadata is 100 bytes.                                                                                                                 | Optional    |
 
 {% code title="Java" %}
 ```java

@@ -2,19 +2,19 @@
 
 ## Summary
 
-Using the Hedera Token Service, you can create non-fungible tokens (NFTs). NFTs are uniquely identifiable. On the Hedera network, the token ID represents a collection of NFTs of the same class, and the serial number of each token uniquely identifies each NFT in the class.
+Using the Hedera Token Service, you can create non-fungible tokens (NFTs). NFTs are uniquely identifiable. Using the Hedera Token Service, you can create non-fungible tokens (NFTs). NFTs are uniquely identifiable. On the Hedera network, the token ID represents a collection of NFTs of the same class, and the serial number of each token uniquely identifies each NFT in the class.
 
 ## Prerequisites
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples. This example does not build upon the previous examples.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><a href="../../getting-started/introduction.md"><mark style="color:purple;"><strong>INTRODUCTION</strong></mark></a></td><td><a href="../../getting-started/introduction.md">introduction.md</a></td></tr><tr><td align="center"><a href="../../getting-started/environment-set-up.md"><mark style="color:purple;"><strong>ENVIRONMENT SETUP</strong></mark></a></td><td><a href="../../getting-started/environment-set-up.md">environment-set-up.md</a></td></tr></tbody></table>
 
-## 1. Create a Non-Fungible Token (NFT)
+## 1. 1. Create a Non-Fungible Token (NFT)
 
-Use _<mark style="color:blue;">**`TokenCreateTransaction()`**</mark>_ to configure and set the token properties. At a minimum, this constructor requires setting a name, symbol, and treasury account ID. All other fields are optional, so if they’re not specified then default values are used. For instance, not specifying an _admin key_, makes a token immutable (can’t change or add properties); not specifying a _supply key_, makes a token supply fixed (can’t mint new or burn existing tokens); not specifying a _token type_, makes a token fungible.
+Use _<mark style="color:blue;">**`TokenCreateTransaction()`**</mark>_ to configure and set the token properties. At a minimum, this constructor requires setting a name, symbol, and treasury account ID. All other fields are optional, so if they’re not specified then default values are used. For instance, not specifying an _admin key_, makes a token immutable (can’t change or add properties); not specifying a _supply key_, makes a token supply fixed (can’t mint new or burn existing tokens); not specifying a _token type_, makes a token fungible. At a minimum, this constructor requires setting a name, symbol, and treasury account ID. All other fields are optional, so if they’re not specified then default values are used. For instance, not specifying an _admin key_, makes a token immutable (can’t change or add properties); not specifying a _supply key_, makes a token supply fixed (can’t mint new or burn existing tokens); not specifying a _token type_, makes a token fungible.
 
-After submitting the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. This token ID represents an NFT class.
+After submitting the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. This token ID represents an NFT class. This token ID represents an NFT class.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -95,6 +95,17 @@ nftCreate, err := hedera.NewTokenCreateTransaction().
      SetSupplyType(hedera.TokenSupplyTypeFinite).
      SetMaxSupply(250).
      SetSupplyKey(supplyKey).
+     //Create the NFT
+nftCreate, err := hedera.NewTokenCreateTransaction().
+     SetTokenName("diploma").
+     SetTokenSymbol("GRAD").
+     SetTokenType(hedera.TokenTypeNonFungibleUnique).
+     SetDecimals(0). 
+     SetInitialSupply(0).
+     SetTreasuryAccountID(treasuryAccountId).
+     SetSupplyType(hedera.TokenSupplyTypeFinite).
+     SetMaxSupply(250).
+     SetSupplyKey(supplyKey).
      FreezeWith(client)
 
 //Sign the transaction with the treasury key
@@ -115,15 +126,15 @@ fmt.Println("Created NFT with token ID ", tokenId)
 {% endtab %}
 {% endtabs %}
 
-## 2. Mint a New NFT
+## 2. 2. Mint a New NFT
 
 {% hint style="info" %}
-🔔 **NOTE:** Reflecting significant growth in Hedera's NFT ecosystem, network fee changes for bulk minting NFTs will be implemented in the v0.41 release. See [this](https://hedera.com/blog/hederas-expanding-nft-ecosystem-new-pricing-to-meet-growing-demand) blog post for more details.
+🔔 **NOTE:** Reflecting significant growth in Hedera's NFT ecosystem, network fee changes for bulk minting NFTs will be implemented in the v0.41 release. See [this](https://hedera.com/blog/hederas-expanding-nft-ecosystem-new-pricing-to-meet-growing-demand) blog post for more details. See [this](https://hedera.com/blog/hederas-expanding-nft-ecosystem-new-pricing-to-meet-growing-demand) blog post for more details.
 {% endhint %}
 
-When creating an NFT, the decimals and initial supply must be set to zero. After the token is created, you mint each NFT using the token mint operation. Specifying a _supply key_ during token creation is a requirement to be able to [mint](https://docs.hedera.com/guides/docs/sdks/tokens/mint-a-token) and [burn](https://docs.hedera.com/guides/docs/sdks/tokens/burn-a-token) tokens. The supply key is required to sign mint and burn transactions.
+When creating an NFT, the decimals and initial supply must be set to zero. After the token is created, you mint each NFT using the token mint operation. When creating an NFT, the decimals and initial supply must be set to zero. After the token is created, you mint each NFT using the token mint operation. Specifying a _supply key_ during token creation is a requirement to be able to [mint](https://docs.hedera.com/guides/docs/sdks/tokens/mint-a-token) and [burn](https://docs.hedera.com/guides/docs/sdks/tokens/burn-a-token) tokens. The supply key is required to sign mint and burn transactions. The supply key is required to sign mint and burn transactions.
 
-Both the NFT image and metadata live in the InterPlanetary File System (IPFS), which provides decentralized storage. The file diploma\_metadata.json contains the metadata for the NFT. A content identifier (CID) pointing to the metadata file is used during minting of the new NFT. Notice that the metadata file contains a URI pointing to the NFT image.
+Both the NFT image and metadata live in the InterPlanetary File System (IPFS), which provides decentralized storage. The file diploma\_metadata.json contains the metadata for the NFT. A content identifier (CID) pointing to the metadata file is used during minting of the new NFT. Notice that the metadata file contains a URI pointing to the NFT image. The file diploma\_metadata.json contains the metadata for the NFT. A content identifier (CID) pointing to the metadata file is used during minting of the new NFT. Notice that the metadata file contains a URI pointing to the NFT image.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -241,6 +252,22 @@ mintRx, err := mintTxSubmit.GetReceipt(client)
 
 // Log the serial number
 fmt.Printf("Created NFT %s with serial: %d\n", tokenId, mintRx.SerialNumbers[0])
+    SetTokenID(tokenId).
+    SetMetadata(CID).
+    SetMaxTransactionFee(hedera.HbarFromTinybars(maxTransactionFee)).
+    FreezeWith(client)
+
+// Sign the transaction with the supply key
+mintTxSign := mintTx.Sign(supplyKey)
+
+// Submit the transaction to a Hedera network
+mintTxSubmit, err := mintTxSign.Execute(client)
+
+// Get the transaction receipt
+mintRx, err := mintTxSubmit.GetReceipt(client)
+
+// Log the serial number
+fmt.Printf("Created NFT %s with serial: %d\n", tokenId, mintRx.SerialNumbers[0])
 ```
 {% endtab %}
 {% endtabs %}
@@ -268,7 +295,7 @@ fmt.Printf("Created NFT %s with serial: %d\n", tokenId, mintRx.SerialNumbers[0])
 
 ### **🚨 Throttle cap warning**&#x20;
 
-Batch minting of 10+ NFTs can run into throughput issues and potentially hit the [transaction limit (throttle cap)](../../networks/mainnet/#network-throttles), causing the SDK to throw `BUSY` exceptions. Adding an application-level retry loop can help manage these exceptions and increase the robustness of the batch-minting process.
+Batch minting of 10+ NFTs can run into throughput issues and potentially hit the [transaction limit (throttle cap)](../../networks/mainnet/#network-throttles), causing the SDK to throw `BUSY` exceptions. Adding an application-level retry loop can help manage these exceptions and increase the robustness of the batch-minting process. Adding an application-level retry loop can help manage these exceptions and increase the robustness of the batch-minting process.
 
 The following are examples of retry loops:
 
@@ -352,9 +379,9 @@ func executeWithRetry(fn func() error) error {
 {% endtab %}
 {% endtabs %}
 
-## 3. Associate User Accounts with the NFT
+## 3. 3. Associate User Accounts with the NFT
 
-Before an account that is not the treasury for a token can receive or send this specific token ID, the account must become “associated” with the token. To associate a token to an account the account owner must sign the associate transaction.
+Before an account that is not the treasury for a token can receive or send this specific token ID, the account must become “associated” with the token. To associate a token to an account the account owner must sign the associate transaction. To associate a token to an account the account owner must sign the associate transaction.
 
 If you have an account with the automatic token association property set you do not need to associate the token before transferring it the receiving account.
 
@@ -405,6 +432,10 @@ console.log(`- NFT association with Alice's account: ${associateAliceRx.status}\
 associateAliceTx, err := hedera.NewTokenAssociateTransaction().
     SetAccountID(aliceAccountId).
     SetTokenIDs(tokenId).
+    //Create the associate transaction
+associateAliceTx, err := hedera.NewTokenAssociateTransaction().
+    SetAccountID(aliceAccountId).
+    SetTokenIDs(tokenId).
     FreezeWith(client)
 
 //Sign with Alice's key
@@ -422,9 +453,9 @@ fmt.Println("NFT association with Alice's account:", associateAliceRx.Status)
 {% endtab %}
 {% endtabs %}
 
-## 4. Transfer the NFT
+## 4. 4. Transfer the NFT
 
-Now, transfer the NFT and check the account balances before and after the send! After the transfer you should expect to the NFT to be removed from the treasury account and available in Alice's account. The treasury account key has to sign the transfer transaction to authorize the transfer to Alice's account.
+Now, transfer the NFT and check the account balances before and after the send! Now, transfer the NFT and check the account balances before and after the send! After the transfer you should expect to the NFT to be removed from the treasury account and available in Alice's account. The treasury account key has to sign the transfer transaction to authorize the transfer to Alice's account. The treasury account key has to sign the transfer transaction to authorize the transfer to Alice's account.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -1052,30 +1083,34 @@ func main() {
         // Transfer the NFT from treasury to Alice
         tokenTransferTx, err := hedera.NewTransferTransaction().
             AddNftTransfer(hedera.NftID{TokenID: tokenId, SerialNumber: 1}, treasuryAccountId, aliceAccountId).
-            FreezeWith(client)
+            //Transfer the NFT from treasury to Alice
+tokenTransferTx, err := hedera.NewTransferTransaction().
+    AddNftTransfer(hedera.NftID{TokenID: tokenId, SerialNumber: 1}, treasuryAccountId, aliceAccountId).
+    FreezeWith(client)
 
-        // Sign with the treasury key to authorize the transfer
-        signTransferTx := tokenTransferTx.Sign(treasuryKey)
+//Sign with the treasury key to authorize the transfer
+signTransferTx := tokenTransferTx.Sign(treasuryKey)
 
-        tokenTransferSubmit, err := signTransferTx.Execute(client)
-        tokenTransferRx, err := tokenTransferSubmit.GetReceipt(client)
+//Submit the transaction
+tokenTransferSubmit, err := signTransferTx.Execute(client)
 
-        fmt.Println("\nNFT transfer from Treasury to Alice:", tokenTransferRx.Status)
+//Get the transaction receipt
+tokenTransferRx, err := tokenTransferSubmit.GetReceipt(client)
 
-        // Check the balance of the treasury account after the transfer
-        balanceCheckTreasury2, err := hedera.NewAccountBalanceQuery().SetAccountID(treasuryAccountId).Execute(client)
-        fmt.Println("Treasury balance:", balanceCheckTreasury2.Tokens, "NFTs of ID", tokenId)
+//Log the transaction status
+fmt.Println("NFT transfer from Treasury to Alice:", tokenTransferRx.Status)
 
-        // Check the balance of Alice's account after the transfer
-        balanceCheckAlice2, err := hedera.NewAccountBalanceQuery().SetAccountID(aliceAccountId).Execute(client)
-        fmt.Println("Alice's balance:", balanceCheckAlice2.Tokens, "NFTs of ID", tokenId)
+// Check the balance of the treasury account after the transfer
+balanceCheckTreasury2, err := hedera.NewAccountBalanceQuery().SetAccountID(treasuryAccountId).Execute(client)
+fmt.Println("Treasury balance:", balanceCheckTreasury2.Tokens, "NFTs of ID", tokenId)
 
-    }
-}
+// Check the balance of Alice's account after the transfer
+balanceCheckAlice2, err := hedera.NewAccountBalanceQuery().SetAccountID(aliceAccountId).Execute(client)
+fmt.Println("Alice's balance:", balanceCheckAlice2.Tokens, "NFTs of ID", tokenId)
 ```
 
 </details>
 
 {% hint style="info" %}
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

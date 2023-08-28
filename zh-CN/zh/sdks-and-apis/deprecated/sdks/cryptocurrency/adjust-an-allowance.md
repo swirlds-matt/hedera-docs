@@ -1,6 +1,6 @@
 # Delete an allowance
 
-A transaction called by the token owner to delete allowances for NFTs only. In order to delete an existing hbar or fungible token allowance the `AccountAllowanceApproveTransaction` API should be used with an `amount` of 0.
+A transaction called by the token owner to delete allowances for NFTs only. A transaction called by the token owner to delete allowances for NFTs only. In order to delete an existing hbar or fungible token allowance the `AccountAllowanceApproveTransaction` API should be used with an `amount` of 0.
 
 The total number of NFT serial number deletions contained within the transaction body cannot exceed 20.
 
@@ -76,6 +76,8 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 {% tab title="Go" %}
 ```go
 //Create the transaction
+transaction := hedera.NewAccountAllowanceDeleteTransaction().
+     //Create the transaction
 transaction := hedera.NewAccountAllowanceDeleteTransaction().
      DeleteAllTokenNftAllowances(nftId , ownerAccountId)
 

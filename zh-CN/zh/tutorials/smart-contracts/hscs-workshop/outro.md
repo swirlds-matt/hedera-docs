@@ -1,6 +1,6 @@
 ---
 description: >-
-  Outro - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
+  Outro - HSCS workshop. Outro - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
 ---
 
 # Outro
@@ -29,7 +29,7 @@ If you've completed this entire tutorial, wondering what Trogdor was all about..
 
 There's much more involved in developing smart contracts - here are several things to consider looking into after completing this workshop.
 
-Solidity is a fairly compact language in terms of syntax, and we've covered the essentials already. However there is still quite a bit that was not covered here:
+Solidity is a fairly compact language in terms of syntax, and we've covered the essentials already. However there is still quite a bit that was not covered here: However there is still quite a bit that was not covered here:
 
 * constructor
 * function parameters
@@ -45,8 +45,8 @@ Solidity is a fairly compact language in terms of syntax, and we've covered the 
 
 The [Solidity language documentation](https://docs.soliditylang.org/en/v0.8.19/) is a great reference to explore on this front
 
-Since a smart contract's code is immutable once deployed, it is extremely important to "get it right" prior to deployment. Therefore testing smart contracts becomes even more important. Hardhat has a built-in testing facility (test runner plus various test utilities and conveniences) that we have not explored here, and has a great [smart contract testing tutorial](https://hardhat.org/tutorial/testing-contracts).
+Since a smart contract's code is immutable once deployed, it is extremely important to "get it right" prior to deployment. Therefore testing smart contracts becomes even more important. Since a smart contract's code is immutable once deployed, it is extremely important to "get it right" prior to deployment. Therefore testing smart contracts becomes even more important. Hardhat has a built-in testing facility (test runner plus various test utilities and conveniences) that we have not explored here, and has a great [smart contract testing tutorial](https://hardhat.org/tutorial/testing-contracts).
 
-Owing to the same immutable aspect mentioned above, smart contract security is also very important. Look into security audits, static analysis, and dynamic analysis methods.
+Owing to the same immutable aspect mentioned above, smart contract security is also very important. Look into security audits, static analysis, and dynamic analysis methods. Look into security audits, static analysis, and dynamic analysis methods.
 
 Finally, verifying smart contracts such that their code and ABI are publicly available on the network explorer is important in building trust in the ecosystem. However, this feature is a still a work in progress on Hashscan at the time of writing (July 2023). When this feature lands, we'll have other niceties as well, for example event logs displayed on transactions can show their parsed values, instead of their raw form.

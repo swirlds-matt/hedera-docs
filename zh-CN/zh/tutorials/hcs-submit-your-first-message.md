@@ -2,14 +2,14 @@
 
 ## Background
 
-With the Hedera Consensus Service you can develop applications like stock markets, audit logs, stable coins, or new network services that require high throughput and decentralized trust. This is made possible by having direct access to the native speed, security, and fair ordering guarantees of the hashgraph consensus algorithm, with the full trust of the Hedera ledger.
+With the Hedera Consensus Service you can develop applications like stock markets, audit logs, stable coins, or new network services that require high throughput and decentralized trust. This is made possible by having direct access to the native speed, security, and fair ordering guarantees of the hashgraph consensus algorithm, with the full trust of the Hedera ledger. This is made possible by having direct access to the native speed, security, and fair ordering guarantees of the hashgraph consensus algorithm, with the full trust of the Hedera ledger.
 
 ## Components of the Hedera Consensus Service/Terminology
 
-* **Hedera client** - a Hedera client sends transactions to a Hedera network node for consensus. The corresponding transaction types for the Hedera Consensus Service include create a topic, update a topic, submit messages, delete a topic, and get the info for a topic.
+* **Hedera client** - a Hedera client sends transactions to a Hedera network node for consensus. The corresponding transaction types for the Hedera Consensus Service include create a topic, update a topic, submit messages, delete a topic, and get the info for a topic. The corresponding transaction types for the Hedera Consensus Service include create a topic, update a topic, submit messages, delete a topic, and get the info for a topic.
 * **Hedera network node** - receives transactions from a client and submits it to the Hedera network for consensus
 * **Mirror node client** - a mirror node client is used to subscribe to a topic and get messages that are in consensus order from a mirror node.
-* **Mirror node**: Mirror nodes receive information from Hedera network consensus nodes, but do not participate in consensus themselves. You can get more information about mirror nodes [here](https://docs.hedera.com/guides/core-concepts/mirror-nodes).
+* **Mirror node**: Mirror nodes receive information from Hedera network consensus nodes, but do not participate in consensus themselves. You can get more information about mirror nodes [here](https://docs.hedera.com/guides/core-concepts/mirror-nodes). You can get more information about mirror nodes [here](https://docs.hedera.com/guides/core-concepts/mirror-nodes).
 * **Topic** - a topic is the subject of information you would like to send messages to and what clients would subscribe to
 * **Message** - a message is the content published to the Hedera network
 
@@ -31,15 +31,15 @@ What you will need to be successful with this tutorial:
 💥 [Mirror node](https://learn.hedera.com/l/576593/2020-01-13/7z5jb) `host:port`    
 💥 IDE of your choice
 
-### 1. Get a testnet account
+### 1. 1. Get a testnet account
 
-* You will need a testnet account ID and private key to use HCS. If you do not already have one, visit the Hedera [portal](https://portal.hedera.com/register) to create your profile and receive your testnet account ID. A friend already on testnet could also generously create one for you.
+* You will need a testnet account ID and private key to use HCS. You will need a testnet account ID and private key to use HCS. If you do not already have one, visit the Hedera [portal](https://portal.hedera.com/register) to create your profile and receive your testnet account ID. A friend already on testnet could also generously create one for you. A friend already on testnet could also generously create one for you.
 
-### 2. Get access to a mirror node
+### 2. 2. Get access to a mirror node
 
-* You will need a mirror node's `host:port` information so that you can subscribe to topics and receive the associated messages. If you do not have access to a mirror node, you can use the mirror node endpoints managed by Hedera [here](https://docs.hedera.com/guides/docs/mirror-node-api/hedera-consensus-service-api-1).
+* You will need a mirror node's `host:port` information so that you can subscribe to topics and receive the associated messages. You will need a mirror node's `host:port` information so that you can subscribe to topics and receive the associated messages. If you do not have access to a mirror node, you can use the mirror node endpoints managed by Hedera [here](https://docs.hedera.com/guides/docs/mirror-node-api/hedera-consensus-service-api-1).
 
-### 3. Create a new maven project in your favorite IDE
+### 3. 3. Create a new maven project in your favorite IDE
 
 * Add the following dependencies to your pom.xml file
 
@@ -77,7 +77,7 @@ What you will need to be successful with this tutorial:
 
 ```
 
-### 4. Set-up your environment variables
+### 4. 4. Set-up your environment variables
 
 * Create a .env file in the projects root directory
 * Add the following:
@@ -97,13 +97,13 @@ OPERATOR_KEY=
 MIRROR_NODE_ADDRESS=
 ```
 
-### 5. Create a new HCS class
+### 5. 5. Create a new HCS class
 
 * Create a new class and title it something like HederaConsensusService.java
 
-### 6. Connect to the Hedera testnet
+### 6. 6. Connect to the Hedera testnet
 
-* Here we are going to connect to the Hedera testnet and and set the operator information with your testnet account ID and private key. The operator is responsible to pay transaction fees and sign all transactions that will be generated in this tutorial. Luckily, this is testnet so you will have unlimited hbars to use in this development environment!
+* Here we are going to connect to the Hedera testnet and and set the operator information with your testnet account ID and private key. The operator is responsible to pay transaction fees and sign all transactions that will be generated in this tutorial. Luckily, this is testnet so you will have unlimited hbars to use in this development environment! The operator is responsible to pay transaction fees and sign all transactions that will be generated in this tutorial. Luckily, this is testnet so you will have unlimited hbars to use in this development environment!
 
 ```java
 // Grab the OPERATOR_ID and OPERATOR_KEY from the .env file
@@ -117,7 +117,7 @@ Client client = Client.forTestnet();
 client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ```
 
-### 7. Connect to a Hedera mirror node
+### 7. 7. Connect to a Hedera mirror node
 
 ```java
 // Grab the mirror node endpoint from the .env file
@@ -127,7 +127,7 @@ private static final String MIRROR_NODE_ADDRESS = Objects.requireNonNull(Dotenv.
 final MirrorClient mirrorClient = new MirrorClient(MIRROR_NODE_ADDRESS);
 ```
 
-### 8. Create your first topic!
+### 8. 8. Create your first topic!
 
 * To create you first topic, we will use the CreateTopicTransaction constructor, set its properties, and submit it to the Hedera network
 * You will want to grab the topic ID so later you can subscribe to that topic via the mirror node client
@@ -144,7 +144,7 @@ final ConsensusTopicId topicId = transactionId.getReceipt(client).getConsensusTo
 System.out.println("Your topic ID is: " +topicId);
 ```
 
-### 9. Subscribe to a topic
+### 9. 9. Subscribe to a topic
 
 * Now we will shift our attention the mirror node client and subscribe to the topic created
 * We will achieve this by referencing the topics `topicId`
@@ -162,7 +162,7 @@ new MirrorConsensusTopicQuery()
         Throwable::printStackTrace);
 ```
 
-### 10. Submit a message to a topic
+### 10. 10. Submit a message to a topic
 
 * Now that we have created a topic and subscribed to that topic, we are ready to submit a message using the ConsensusSubmitTransaction constructor and submit to the Hedera network
 * The below example will submit a message with the message as "hello, HCS!"
@@ -172,6 +172,8 @@ new MirrorConsensusTopicQuery()
     new ConsensusMessageSubmitTransaction()
         .setTopicId(topicId)
         .setMessage("hello, HCS! ")
+        .execute(client)
+        .getReceipt(client); ")
         .execute(client)
         .getReceipt(client);       
 ```
@@ -186,4 +188,4 @@ Having trouble or have any comments, suggestions, or feedback?
 
 Connect with us on [Discord](http://hedera.com/discord)🤓!
 
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)

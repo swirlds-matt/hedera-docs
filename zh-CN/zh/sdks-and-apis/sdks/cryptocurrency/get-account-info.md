@@ -1,6 +1,6 @@
 # Get account info
 
-A query that returns the current state of the account. This query **does not** include the list of records associated with the account. Anyone on the network can request account info for a given account. Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query.\
+A query that returns the current state of the account. This query **does not** include the list of records associated with the account. Anyone on the network can request account info for a given account. Queries do not change the state of the account or require network consensus. A query that returns the current state of the account. This query **does not** include the list of records associated with the account. Anyone on the network can request account info for a given account. Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query.\
 \
 **Account Properties**
 
@@ -57,6 +57,8 @@ console.log(accountInfo);
 {% tab title="Go" %}
 ```go
 //Create the account info query
+query := hedera.NewAccountInfoQuery().
+     //Create the account info query
 query := hedera.NewAccountInfoQuery().
      SetAccountID(newAccountId)
 

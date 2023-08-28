@@ -1,6 +1,6 @@
 # FractionalFee
 
-A fraction of the transferred units of a token to assess as a fee. The amount assessed will never be less than the given minimum\_amount, and never greater than the given maximum\_amount. The denomination is always units of the token to which this fractional fee is attached.
+A fraction of the transferred units of a token to assess as a fee. A fraction of the transferred units of a token to assess as a fee. The amount assessed will never be less than the given minimum\_amount, and never greater than the given maximum\_amount. The denomination is always units of the token to which this fractional fee is attached. The denomination is always units of the token to which this fractional fee is attached.
 
 | Field               | Type                                      | Description                                                                                                                                                                                                                                                              |
 | ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

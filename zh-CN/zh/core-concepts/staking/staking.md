@@ -8,7 +8,7 @@ The staking functionality is now available and live on both the Hedera Testnet a
 
 **Phase II: Ecosystem Development \[Complete]**
 
-During this phase, supported exchanges and wallets will be able to integrate the staking functionality to provide account holders an easy way to stake their HBAR, but will not distribute rewards. In addition, web applications for delegating stake will likely be built for utilization by the retail ecosystem. During this phase, there will be visibility of stake per node, and staking to a node will affect its consensus weight (voting power) with monthly updates.
+During this phase, supported exchanges and wallets will be able to integrate the staking functionality to provide account holders an easy way to stake their HBAR, but will not distribute rewards. In addition, web applications for delegating stake will likely be built for utilization by the retail ecosystem. During this phase, there will be visibility of stake per node, and staking to a node will affect its consensus weight (voting power) with monthly updates. In addition, web applications for delegating stake will likely be built for utilization by the retail ecosystem. During this phase, there will be visibility of stake per node, and staking to a node will affect its consensus weight (voting power) with monthly updates.
 
 #### **Phase III: Staking Rewards Program Launch \[Complete]**
 
@@ -18,7 +18,7 @@ Once updated, the staking reward account (0.0.800) will be eligible to distribut
 
 #### Phase IV: Complete Staking Implementation
 
-In this phase, 24-hour updates for visibility into stake per node and the node uptime feature will be released. This means that instead of updating node stake visibility on a monthly basis, node stake visibility will be updated on a 24-hour epoch interval. When the uptime feature takes effect, staked accounts will not earn rewards when nodes are unable to participate in consensus (unavailable or offline).
+In this phase, 24-hour updates for visibility into stake per node and the node uptime feature will be released. In this phase, 24-hour updates for visibility into stake per node and the node uptime feature will be released. This means that instead of updating node stake visibility on a monthly basis, node stake visibility will be updated on a 24-hour epoch interval. When the uptime feature takes effect, staked accounts will not earn rewards when nodes are unable to participate in consensus (unavailable or offline). When the uptime feature takes effect, staked accounts will not earn rewards when nodes are unable to participate in consensus (unavailable or offline).
 
 ### **Staking Nodes**
 
@@ -28,7 +28,7 @@ The Hedera Governing Council voted to change the min stake value from half of th
 
 All consensus nodes run by the Hedera Governing Council participate in distributing rewards to the accounts that are staked to them. You can find information about each node in the network by visiting one of the Hedera network explorers or getting the network [address book](../../sdks-and-apis/rest-api.md#api-v1-network-nodes). In the future, network participation will open up to community nodes and eventually to the public as part of Hedera’s decentralization efforts.
 
-Nodes have a **minimum stake** and **maximum stake**. The node's minimum stake must be met for the accounts staked to that node to be eligible to earn staking rewards. Staked tokens that go over the maximum stake will no longer impact the proportion of rewards returned. The maximum stake threshold for each node will be the total number of HBAR divided by the total number of nodes in the network. The minimum node stake threshold value will be 1/4 of the maximum node stake value. These values will change as more nodes are added to the network or can change by vote of the Hedera Governing Council.
+Nodes have a **minimum stake** and **maximum stake**. The node's minimum stake must be met for the accounts staked to that node to be eligible to earn staking rewards. Staked tokens that go over the maximum stake will no longer impact the proportion of rewards returned. The maximum stake threshold for each node will be the total number of HBAR divided by the total number of nodes in the network. The minimum node stake threshold value will be 1/4 of the maximum node stake value. These values will change as more nodes are added to the network or can change by vote of the Hedera Governing Council. The node's minimum stake must be met for the accounts staked to that node to be eligible to earn staking rewards. Staked tokens that go over the maximum stake will no longer impact the proportion of rewards returned. The maximum stake threshold for each node will be the total number of HBAR divided by the total number of nodes in the network. The minimum node stake threshold value will be 1/4 of the maximum node stake value. These values will change as more nodes are added to the network or can change by vote of the Hedera Governing Council.
 
 Example:
 
@@ -38,7 +38,7 @@ Maximum Stake: ​50,000,000,000 hbars\*(1/26nodes)
 
 ### **Lockup Period**
 
-There is **no lock-up period** when accounts are staked to a node. Stakers do not need to choose an amount of HBAR to stake from their account. The entire balance of the account is staked automatically to the selected node or account. There is no concept of “bonding” or “slashing” of your tokens. The staked account balance is liquid at all times.
+There is **no lock-up period** when accounts are staked to a node. Stakers do not need to choose an amount of HBAR to stake from their account. The entire balance of the account is staked automatically to the selected node or account. There is no concept of “bonding” or “slashing” of your tokens. The staked account balance is liquid at all times. Stakers do not need to choose an amount of HBAR to stake from their account. The entire balance of the account is staked automatically to the selected node or account. There is no concept of “bonding” or “slashing” of your tokens. The staked account balance is liquid at all times.
 
 ### **Staking Reward Account**
 
@@ -46,15 +46,15 @@ The staking reward account is the account that will distribute rewards to the el
 
 The staking reward account needs to meet a minimum balance before rewards can begin to distribute rewards earned to the eligible staked accounts. The minimum HBAR balance threshold for the reward account is 250 million HBAR voted on by the Hedera Governing Council. If this balance is not met staking rewards will not be distributed. You can view the balance of this account by visiting any of the Hedera network explorers.
 
-Once the minimum threshold is met, rewards will continue to be distributed to staked accounts as long as there is a balance in the rewards account even if it falls below the initial minimum threshold. The reward rate will initially be set to zero. The Hedera Governing Council will vote and update the reward rate when the Hedera Staking Reward Program goes live.
+Once the minimum threshold is met, rewards will continue to be distributed to staked accounts as long as there is a balance in the rewards account even if it falls below the initial minimum threshold. The reward rate will initially be set to zero. Once the minimum threshold is met, rewards will continue to be distributed to staked accounts as long as there is a balance in the rewards account even if it falls below the initial minimum threshold. The reward rate will initially be set to zero. The Hedera Governing Council will vote and update the reward rate when the Hedera Staking Reward Program goes live.
 
 ### **Staking Rewards**
 
-The staking reward rate will initially be set to zero in Phase I. The Hedera Governing Council will determine when the Hedera ecosystem has reached a minimum viable set of integrations to enable staking rewards. Once this is determined, the council (through CoinCom) will vote to update the reward rate, and subsequently, the mainnet will be updated with the agreed-upon reward rate.
+The staking reward rate will initially be set to zero in Phase I. The Hedera Governing Council will determine when the Hedera ecosystem has reached a minimum viable set of integrations to enable staking rewards. Once this is determined, the council (through CoinCom) will vote to update the reward rate, and subsequently, the mainnet will be updated with the agreed-upon reward rate. Once this is determined, the council (through CoinCom) will vote to update the reward rate, and subsequently, the mainnet will be updated with the agreed-upon reward rate.
 
-Any account can elect to stake to a node or another account. The **minimum staking period** is the minimum amount of time an account needs to be staked to a consensus node before the account is eligible to earn rewards. The minimum staking period is **one day (24 hours).** The staking period begins at midnight UTC and the staking period ends at midnight UTC. The staking period is defined by the Hedera Governing Council. The earned rewards are not transferred to the staked account immediately after an account has been staked for one full staking period. Please see the Staking Reward Distribution section for what scenarios trigger the payment of a reward.
+Any account can elect to stake to a node or another account. Any account can elect to stake to a node or another account. The **minimum staking period** is the minimum amount of time an account needs to be staked to a consensus node before the account is eligible to earn rewards. The minimum staking period is **one day (24 hours).** The staking period begins at midnight UTC and the staking period ends at midnight UTC. The staking period is defined by the Hedera Governing Council. The earned rewards are not transferred to the staked account immediately after an account has been staked for one full staking period. Please see the Staking Reward Distribution section for what scenarios trigger the payment of a reward. The minimum staking period is **one day (24 hours).** The staking period begins at midnight UTC and the staking period ends at midnight UTC. The staking period is defined by the Hedera Governing Council. The earned rewards are not transferred to the staked account immediately after an account has been staked for one full staking period. Please see the Staking Reward Distribution section for what scenarios trigger the payment of a reward.
 
-Accounts staked for less than the defined minimum staking period are not eligible to earn rewards for that period. Nodes and accounts accumulate stake and rewards per whole HBAR. Fractions are rounded down.
+Accounts staked for less than the defined minimum staking period are not eligible to earn rewards for that period. Nodes and accounts accumulate stake and rewards per whole HBAR. Fractions are rounded down. Nodes and accounts accumulate stake and rewards per whole HBAR. Fractions are rounded down.
 
 In order for a staked account to be eligible to earn rewards the following must be true:
 
@@ -68,6 +68,6 @@ Rewards will continue to be earned when a node is down or inactive in the first 
 
 This staking system offers additional unique functionality: **indirect staking**. If account A stakes to node N, then the stake increases the consensus weight of N, and account A is rewarded for every 24-hour period that it stakes. If account A stakes to account B, and account B stakes to node N, then the stake from both A and B will increase the consensus weight of N, but the rewards for both A and B will be received by B.
 
-An account can optionally decline to earn rewards when staked. The account will still be counted towards meeting the node’s minimum stake value.
+An account can optionally decline to earn rewards when staked. An account can optionally decline to earn rewards when staked. The account will still be counted towards meeting the node’s minimum stake value.
 
 **📣 If you're interested in checking out the wallets and exchanges supporting staking HBAR, head to the** [**Stake HBAR**](stake-hbar.md) **page.**

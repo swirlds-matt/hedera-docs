@@ -15,14 +15,14 @@ A transaction that allows you to modify the smart contract entity state like adm
 
 **Smart Contract Properties**
 
-<table><thead><tr><th width="243">Field</th><th>Description</th></tr></thead><tbody><tr><td><strong>Admin Key</strong></td><td>Sets the new admin key and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. The bytecode will also be immutable.</td></tr><tr><td><strong>Expiration Time</strong></td><td>The new expiry of the contract, no earlier than the current expiry (resolves to EXPIRATION_REDUCTION_NOT_ALLOWED otherwise).</td></tr><tr><td><strong>Staked ID</strong></td><td>The new node account ID or node ID this contract is being staked to. If set to the sentinel 1, this removes the contract's staked node ID. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a><br><br><strong>Note:</strong> Accounts cannot stake to contract accounts. This will fixed in a future release.</td></tr><tr><td><strong>Decline Rewards</strong></td><td>Updates the contract to decline receiving staking rewards if set to true. The default value is false. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a></td></tr><tr><td><strong>Auto Renew Period</strong></td><td>The new period that the instance will charge its account every this many seconds to renew.</td></tr><tr><td><strong>Auto Renew Account ID</strong></td><td>Indicates the account that will pay the contract's auto-renew fee. If the Auto Renew account id is cleared, then the smart contract's account will be charged the auto-renew fee</td></tr><tr><td><strong>Automatic Token Associations</strong></td><td>The maximum number of tokens that this contract can be automatically associated with (i.e., receive air-drops from).</td></tr><tr><td><strong>Memo</strong></td><td>The new memo to be associated with this contract.</td></tr></tbody></table>
+<table><thead><tr><th width="243">Field</th><th>Description</th></tr></thead><tbody><tr><td><strong>Admin Key</strong></td><td>Sets the new admin key and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. The bytecode will also be immutable. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. The bytecode will also be immutable.</td></tr><tr><td><strong>Expiration Time</strong></td><td>The new expiry of the contract, no earlier than the current expiry (resolves to EXPIRATION_REDUCTION_NOT_ALLOWED otherwise).</td></tr><tr><td><strong>Staked ID</strong></td><td>The new node account ID or node ID this contract is being staked to. If set to the sentinel 1, this removes the contract's staked node ID. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a><br><br><strong>Note:</strong> Accounts cannot stake to contract accounts. This will fixed in a future release. If set to the sentinel 1, this removes the contract's staked node ID. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a><br><br><strong>Note:</strong> Accounts cannot stake to contract accounts. This will fixed in a future release.</td></tr><tr><td><strong>Decline Rewards</strong></td><td>Updates the contract to decline receiving staking rewards if set to true. The default value is false. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a> The default value is false. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a></td></tr><tr><td><strong>Auto Renew Period</strong></td><td>The new period that the instance will charge its account every this many seconds to renew.</td></tr><tr><td><strong>Auto Renew Account ID</strong></td><td>Indicates the account that will pay the contract's auto-renew fee. Indicates the account that will pay the contract's auto-renew fee. If the Auto Renew account id is cleared, then the smart contract's account will be charged the auto-renew fee</td></tr><tr><td><strong>Automatic Token Associations</strong></td><td>The maximum number of tokens that this contract can be automatically associated with (i.e., receive air-drops from).</td></tr><tr><td><strong>Memo</strong></td><td>The new memo to be associated with this contract.</td></tr></tbody></table>
 
 ### Methods
 
 <table><thead><tr><th width="460.33333333333326">Method</th><th width="133">Type</th><th>Requirement</th></tr></thead><tbody><tr><td><code>setContractId(&#x3C;contractId>)</code></td><td><a href="../../deprecated/sdks/specialized-types.md#contractid">ContractId</a></td><td>Required</td></tr><tr><td><code>setAdminKey(&#x3C;keys>)</code></td><td>Key</td><td>Optional</td></tr><tr><td><code>setContractMemo(&#x3C;memo>)</code></td><td>String</td><td>Optional</td></tr><tr><td><code>setExpirationTime(&#x3C;expirationTime)</code></td><td>Instant</td><td>Optional</td></tr><tr><td><code>setMaxAutomaticTokenAssociations()</code></td><td>int</td><td>Optional</td></tr><tr><td><code>setContractMemo(&#x3C;memo>)</code></td><td>String</td><td>Optional</td></tr><tr><td><code>setStakedAccountId(&#x3C;stakedAccountId>)</code></td><td><a href="../../deprecated/sdks/specialized-types.md#accountid">AccountId</a></td><td>Optional</td></tr><tr><td><code>setStakedNodeId(&#x3C;stakedNodeId>)</code></td><td>long</td><td>Optional</td></tr><tr><td><code>setDeclineStakingReward(&#x3C;declineStakingReward>)</code></td><td>boolean</td><td>Optional</td></tr><tr><td><code>setAutoRenewPeriod(&#x3C;autoRenewPeriod>)</code></td><td>Duration</td><td>Optional</td></tr><tr><td><code>setAutoRenewAccountId(&#x3C;accountId>)</code></td><td><a href="../../deprecated/sdks/specialized-types.md#accountid">AccountId</a></td><td>Optional</td></tr><tr><td><code>clearAutoRenewAccountId()</code></td><td></td><td>Optional</td></tr></tbody></table>
 
 {% hint style="info" %}
-_**Note:** The new expiration time must be an instance of type **`Timestamp`**, thus, the **`Timestamp`** object has to be imported from the SDK package. The new expiration time has to be initialized as a new instance of that type._
+_**Note:** The new expiration time must be an instance of type **`Timestamp`**, thus, the **`Timestamp`** object has to be imported from the SDK package. The new expiration time has to be initialized as a new instance of that type. The new expiration time has to be initialized as a new instance of that type._
 {% endhint %}
 
 {% tabs %}
@@ -78,6 +78,10 @@ console.log("The consensus status of the transaction is " +transactionStatus);
 {% tab title="Go" %}
 ```go
 //Create the transaction
+transaction := hedera.NewContractUpdateTransaction().
+        SetContractID(contractId).
+        SetBytecodeFileID(byteCodeFileID).
+        //Create the transaction
 transaction := hedera.NewContractUpdateTransaction().
         SetContractID(contractId).
         SetBytecodeFileID(byteCodeFileID).
@@ -151,6 +155,14 @@ transaction.getAdminKey()
 ```java
 //Create the transaction
 transaction := hedera.NewContractUpdateTransaction().
+        SetContractID(contractId).
+        SetBytecodeFileID(byteCodeFileID).
+        SetAdminKey(adminKey)
+
+//Get admin key
+transaction.GetAdminKey()
+
+//v2.0.0
         SetContractID(contractId).
         SetBytecodeFileID(byteCodeFileID).
         SetAdminKey(adminKey)

@@ -1,6 +1,6 @@
 # TokenDissociate
 
-Dissociates the provided account with the provided tokens. Must be signed by the provided Account's key.
+Dissociates the provided account with the provided tokens. Dissociates the provided account with the provided tokens. Must be signed by the provided Account's key.
 
 If the provided account is not found, the transaction will resolve to `INVALID_ACCOUNT_ID`.
 

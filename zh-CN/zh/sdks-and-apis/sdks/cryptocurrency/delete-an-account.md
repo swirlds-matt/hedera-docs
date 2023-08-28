@@ -1,6 +1,6 @@
 # Delete an account
 
-A transaction that deletes an existing account from the Hedera network. Before deleting an account, the existing HBARs must be transferred to another account. If you fail to transfer the HBARs, you will receive an error message "setTransferAccountId() required." Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires. The expiration of a deleted account can be extended. The account that is being deleted is required to sign the transaction.
+A transaction that deletes an existing account from the Hedera network. Before deleting an account, the existing HBARs must be transferred to another account. If you fail to transfer the HBARs, you will receive an error message "setTransferAccountId() required." Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires. The expiration of a deleted account can be extended. The account that is being deleted is required to sign the transaction. Before deleting an account, the existing HBARs must be transferred to another account. If you fail to transfer the HBARs, you will receive an error message "setTransferAccountId() required." Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires. The expiration of a deleted account can be extended. The account that is being deleted is required to sign the transaction.
 
 **Transaction Fees**
 
@@ -65,6 +65,10 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% tab title="Go" %}
 ```java
 //Create the transaction to delete an account, freeze the transaction for signing
+transaction, err := hedera.NewAccountDeleteTransaction().
+        SetAccountID(newAccountID).
+        SetTransferAccountID(operatorAccountID).
+        //Create the transaction to delete an account, freeze the transaction for signing
 transaction, err := hedera.NewAccountDeleteTransaction().
         SetAccountID(newAccountID).
         SetTransferAccountID(operatorAccountID).
@@ -134,6 +138,13 @@ console.log("The account to be deleted in this transaction is " +transactionAcco
 ```java
 //Create the transaction to delete an account
 transaction, err := hedera.NewAccountDeleteTransaction().
+        SetAccountID(newAccountID).
+        SetTransferAccountID(operatorAccountID)
+
+//Get the account ID from the transaction
+transactionAccountId := transaction.GetAccountID()
+
+//v2.0.0
         SetAccountID(newAccountID).
         SetTransferAccountID(operatorAccountID)
 

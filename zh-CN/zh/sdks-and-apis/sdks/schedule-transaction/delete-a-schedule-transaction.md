@@ -1,6 +1,6 @@
 # Delete a scheduled transaction
 
-A transaction that deletes a scheduled transaction from the network. You can delete a scheduled transaction if only the admin key was set during the creation of the scheduled transaction. If an admin key was not set, the attempted deletion will result in "`SCHEDULE_IS_IMMUTABLE`" response from the network. Once the scheduled transaction is deleted, the scheduled transaction will be marked as deleted with the consensus timestamp the scheduled transaction was deleted at.
+A transaction that deletes a scheduled transaction from the network. A transaction that deletes a scheduled transaction from the network. You can delete a scheduled transaction if only the admin key was set during the creation of the scheduled transaction. If an admin key was not set, the attempted deletion will result in "`SCHEDULE_IS_IMMUTABLE`" response from the network. Once the scheduled transaction is deleted, the scheduled transaction will be marked as deleted with the consensus timestamp the scheduled transaction was deleted at. If an admin key was not set, the attempted deletion will result in "`SCHEDULE_IS_IMMUTABLE`" response from the network. Once the scheduled transaction is deleted, the scheduled transaction will be marked as deleted with the consensus timestamp the scheduled transaction was deleted at.
 
 **Transaction Signing Requirements**
 
@@ -60,6 +60,9 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% tab title="Go" %}
 ```go
 //Create the transaction and freeze the unsigned transaction
+transaction, err := hedera.NewScheduleDeleteTransaction()
+            SetScheduleID(scheduleId).
+            //Create the transaction and freeze the unsigned transaction
 transaction, err := hedera.NewScheduleDeleteTransaction()
             SetScheduleID(scheduleId).
             FreezeWith(client)

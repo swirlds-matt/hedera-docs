@@ -1,6 +1,6 @@
 # Pause a token
 
-A token pause transaction prevents the token from being involved in any kind of operation. The token's pause key is required to sign the transaction. This is a key that is specified during the creation of a token. If a token has no pause key, you will not be able to pause the token. If the pause key was not set during the creation of a token, you will not be able to update the token to add this key.
+A token pause transaction prevents the token from being involved in any kind of operation. The token's pause key is required to sign the transaction. This is a key that is specified during the creation of a token. A token pause transaction prevents the token from being involved in any kind of operation. The token's pause key is required to sign the transaction. This is a key that is specified during the creation of a token. If a token has no pause key, you will not be able to pause the token. If the pause key was not set during the creation of a token, you will not be able to update the token to add this key. If the pause key was not set during the creation of a token, you will not be able to update the token to add this key.
 
 The following operations cannot be performed when a token is paused and will result in a `TOKEN_IS_PAUSED` status.
 
@@ -14,7 +14,7 @@ The following operations cannot be performed when a token is paused and will res
 * Associating or disassociating a token
 * Wiping a token
 
-Once a token is paused, token status will update to `paused`. To verify if the token's status has been updated to `paused`, you can request the token info via the SDK or use the token info mirror node query. If the token is not paused the token status will be `unpaused`. The token status for tokens that do not have an assigned pause key will state `PauseNotApplicable`.
+Once a token is paused, token status will update to `paused`. Once a token is paused, token status will update to `paused`. To verify if the token's status has been updated to `paused`, you can request the token info via the SDK or use the token info mirror node query. If the token is not paused the token status will be `unpaused`. The token status for tokens that do not have an assigned pause key will state `PauseNotApplicable`. If the token is not paused the token status will be `unpaused`. The token status for tokens that do not have an assigned pause key will state `PauseNotApplicable`.
 
 **Transaction Signing Requirements**
 
@@ -90,6 +90,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 {% code title="Go" %}
 ```go
 //Create the token pause transaction, specify the token to pause, freeze the unsigned transaction for signing
+transaction, err := hedera.NewTokenPauseTransaction().
+        SetTokenID(tokenId).
+        //Create the token pause transaction, specify the token to pause, freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenPauseTransaction().
         SetTokenID(tokenId).
         FreezeWith(client)

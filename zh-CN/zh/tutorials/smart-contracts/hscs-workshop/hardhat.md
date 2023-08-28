@@ -1,6 +1,6 @@
 ---
 description: >-
-  Hardhat and EthersJs tutorial - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
+  Hardhat and EthersJs tutorial - HSCS workshop. Hardhat and EthersJs tutorial - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
 ---
 
 # Hardhat and EthersJs
@@ -13,7 +13,7 @@ Hedera Smart Contract Service Workshop Part 5/6 | Hardhat & EtherJs
 
 ## Hardhat and EthersJs
 
-[Hardhat](https://hardhat.org/) is a development framework, that is designed specifically to enable smart contract development workflows. [EthersJs](https://docs.ethers.org/v5/) is a software library, which enables client application development in Javascript. These two work very well together as hardhat integrates strongly with EthersJs by augmenting EthersJs with many convenience and utility functions that improve the developer experience of smart contract development.
+[Hardhat](https://hardhat.org/) is a development framework, that is designed specifically to enable smart contract development workflows. [EthersJs](https://docs.ethers.org/v5/) is a software library, which enables client application development in Javascript. These two work very well together as hardhat integrates strongly with EthersJs by augmenting EthersJs with many convenience and utility functions that improve the developer experience of smart contract development. [EthersJs](https://docs.ethers.org/v5/) is a software library, which enables client application development in Javascript. These two work very well together as hardhat integrates strongly with EthersJs by augmenting EthersJs with many convenience and utility functions that improve the developer experience of smart contract development.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ npm install
 
 ### Step J1: Copy smart contract
 
-We have already written the smart contract in the Intro section of this tutorial. Let's copy that into this directory so that we may continue working on it.
+We have already written the smart contract in the Intro section of this tutorial. Let's copy that into this directory so that we may continue working on it. Let's copy that into this directory so that we may continue working on it.
 
 ```shell
 cp ../intro/trogdor.sol ./contracts/trogdor.sol
@@ -41,7 +41,7 @@ cp ../intro/trogdor.sol ./contracts/trogdor.sol
 
 ## Hardhat REPL
 
-A Read-Evaluate-Print Loop (REPL) is an environment which takes input from you, executes that input, and prints the result as output; then start over again. The POSIX-compliant shell that you have been using, such as `bash` or `zsh`, is an example of this.
+A Read-Evaluate-Print Loop (REPL) is an environment which takes input from you, executes that input, and prints the result as output; then start over again. The POSIX-compliant shell that you have been using, such as `bash` or `zsh`, is an example of this. The POSIX-compliant shell that you have been using, such as `bash` or `zsh`, is an example of this.
 
 Hardhat has its own REPL feature, which executes commands in the context of the smart contract project you are developing, and does so while connected to a specific EVM-compatible network.
 
@@ -55,15 +55,15 @@ npx hardhat console --network hederatestnet
 Note that the network name here is `hederatestnet`, which is defined within the configuration file `hardhat.config.js`.
 {% endhint %}
 
-You will notice that the prompt prefix changes, and is now `>` . Whatever commands you enter now are no longer going to be executed by the regular shell, but instead by the Hardhat REPL. You can enter a `.exit` command to exit the Hardhat REPL, and return to your regular shell at any time. Let's execute a few commands within the Hardhat REPL before we do exit.
+You will notice that the prompt prefix changes, and is now `>` . You will notice that the prompt prefix changes, and is now `>` . Whatever commands you enter now are no longer going to be executed by the regular shell, but instead by the Hardhat REPL. You can enter a `.exit` command to exit the Hardhat REPL, and return to your regular shell at any time. Let's execute a few commands within the Hardhat REPL before we do exit. You can enter a `.exit` command to exit the Hardhat REPL, and return to your regular shell at any time. Let's execute a few commands within the Hardhat REPL before we do exit.
 
 ### Get block number
 
-Hedera is a distributed ledger technology (DLT), however, it is not a blockchain. A blockchain network groups transactions together into blocks, and achieves network consensus on whether or not a block of transactions is valid, and which block (and therefore transactions) is the next one that should be added to the network. Hedera does not do that, instead it using a different consensus algorithm (Hashgraph), which achieves consensus on individual transactions, and adds them to the network as individual transactions, without a grouping of any kind.
+Hedera is a distributed ledger technology (DLT), however, it is not a blockchain. A blockchain network groups transactions together into blocks, and achieves network consensus on whether or not a block of transactions is valid, and which block (and therefore transactions) is the next one that should be added to the network. Hedera does not do that, instead it using a different consensus algorithm (Hashgraph), which achieves consensus on individual transactions, and adds them to the network as individual transactions, without a grouping of any kind. A blockchain network groups transactions together into blocks, and achieves network consensus on whether or not a block of transactions is valid, and which block (and therefore transactions) is the next one that should be added to the network. Hedera does not do that, instead it using a different consensus algorithm (Hashgraph), which achieves consensus on individual transactions, and adds them to the network as individual transactions, without a grouping of any kind.
 
-That being said, in order to attain interoperability with EVM-compatible networks, the concept of blocks was introduced, in a manner that does not involve the consensus algorithm. In effect it simply deems all transactions successfully added to the network to be part of the same block based on their timestamp, once approximately every 2 seconds.
+That being said, in order to attain interoperability with EVM-compatible networks, the concept of blocks was introduced, in a manner that does not involve the consensus algorithm. That being said, in order to attain interoperability with EVM-compatible networks, the concept of blocks was introduced, in a manner that does not involve the consensus algorithm. In effect it simply deems all transactions successfully added to the network to be part of the same block based on their timestamp, once approximately every 2 seconds.
 
-JSON-RPC is a Remote Procedure Call protocol, where the requests and responses are serialised in JSON. Importantly, Ethereum has defined a JSON-RPC API, and this API has become the de-facto standard API to interact with EVM-compatible networks.
+JSON-RPC is a Remote Procedure Call protocol, where the requests and responses are serialised in JSON. JSON-RPC is a Remote Procedure Call protocol, where the requests and responses are serialised in JSON. Importantly, Ethereum has defined a JSON-RPC API, and this API has become the de-facto standard API to interact with EVM-compatible networks.
 
 {% hint style="info" %}
 * [Ref: Hedera: What is Hashgraph Consensus](https://hedera.com/learning/hedera-hashgraph/what-is-hashgraph-consensus)
@@ -72,7 +72,7 @@ JSON-RPC is a Remote Procedure Call protocol, where the requests and responses a
 * [Ref: Ethereum: JSON-RPC API](https://ethereum.org/en/developers/docs/apis/json-rpc/)
 {% endhint %}
 
-Let's verify that we are able to interact with Hedera Testnet using JSON-RPC by issuing an `eth_getBlockByNumber` JSON-RPC request. The expected response will be the most recent block's number on the network.
+Let's verify that we are able to interact with Hedera Testnet using JSON-RPC by issuing an `eth_getBlockByNumber` JSON-RPC request. The expected response will be the most recent block's number on the network. The expected response will be the most recent block's number on the network.
 
 ```js
 (await require('hardhat').network.provider.send('eth_getBlockByNumber', ['latest', false])).number
@@ -92,7 +92,7 @@ This does indeed respond with a block number, in hexadecimal.
 
 ### Address
 
-Let's continue with the REPL, and issue another command. This time it will not be a JSON-RPC request, but rather querying Hardhat itself to see which account we'll be using by default when performing any requests.
+Let's continue with the REPL, and issue another command. Let's continue with the REPL, and issue another command. This time it will not be a JSON-RPC request, but rather querying Hardhat itself to see which account we'll be using by default when performing any requests.
 
 {% hint style="info" %}
 The accounts that Hardhat uses are generated from the seed phrase in the `.env` file, plus the derivation path, using logic similar to the following code.
@@ -115,7 +115,7 @@ Note that this has already been done for you in `hardhat.config.js`.
 {% hint style="info" %}
 Here, `hre` is a global object exported by Hardhat, and it stands for Hardhat Runtime Environment.
 
-The `hre.ethers` object exposes an instance of the EthersJs software library that has been initialised by Hardhat using the configuration from `hardhat.config.js`. This includes the _signers_ which are a list of several accounts.
+The `hre.ethers` object exposes an instance of the EthersJs software library that has been initialised by Hardhat using the configuration from `hardhat.config.js`. This includes the _signers_ which are a list of several accounts. This includes the _signers_ which are a list of several accounts.
 {% endhint %}
 
 This outputs an EVM address of a Hedera EVM account.
@@ -124,7 +124,7 @@ This outputs an EVM address of a Hedera EVM account.
 '0x07ffAaDFe3a598b91ee08C88e5924be3EfF35796'
 ```
 
-If you have completed the Hedera SDK JS section of this tutorial, you will notice that this is **different** from the account used there, which was `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This i-s because the script used for the Hedera SDK JS account was configured to use the operator account. Hardhat, on the other hand, uses one of the EVM accounts generated using the BIP-39 seed phrase. These were generated during _Step B4: Fund several Hedera EVM accounts_ in the Intro section of this tutorial.
+If you have completed the Hedera SDK JS section of this tutorial, you will notice that this is **different** from the account used there, which was `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This i-s because the script used for the Hedera SDK JS account was configured to use the operator account. Hardhat, on the other hand, uses one of the EVM accounts generated using the BIP-39 seed phrase. These were generated during _Step B4: Fund several Hedera EVM accounts_ in the Intro section of this tutorial. This i-s because the script used for the Hedera SDK JS account was configured to use the operator account. Hardhat, on the other hand, uses one of the EVM accounts generated using the BIP-39 seed phrase. These were generated during _Step B4: Fund several Hedera EVM accounts_ in the Intro section of this tutorial.
 
 <details>
 
@@ -192,7 +192,7 @@ You do no need to do anything with these, just good to know what is happening be
 
 ## HAPIs and EVM transactions
 
-However, Hardhat + EthersJs do not understand HAPIs, and are only aware of the EVM transaction model. Thankfully, Hedera supports a HAPI named `EthereumTransaction`, defined in HIP-410. All the different types of EVM transactions are supported through this single HAPI.
+However, Hardhat + EthersJs do not understand HAPIs, and are only aware of the EVM transaction model. Thankfully, Hedera supports a HAPI named `EthereumTransaction`, defined in HIP-410. All the different types of EVM transactions are supported through this single HAPI. Thankfully, Hedera supports a HAPI named `EthereumTransaction`, defined in HIP-410. All the different types of EVM transactions are supported through this single HAPI.
 
 This is the low-level protocol supported by the Hedera network which is the gateway for software libraries, developer tools, developer frameworks, and even end use software such as wallets, which were originally designed to work with Ethereum, to also work on Hedera, and is an integral part of Hedera's EVM-compatibility.
 
@@ -202,7 +202,7 @@ This is the low-level protocol supported by the Hedera network which is the gate
 
 In this section of the tutorial, you are using Hardhat and EthersJs, and this framework/ software library are unaware of HAPIs, including `ContractCreateTransaction`, `ContractExecuteTransaction`, and `ContractCallQuery`, which you used earlier.
 
-The only API that they are able to use is JSON-RPC, and this is where the `EthereumTransaction` HAPI comes into play. When you send a JSON-RPC request to an RPC endpoint for a Hedera network, that gets converted into an `EthereumTransaction` HAPI. The same happens in reverse with the response.
+The only API that they are able to use is JSON-RPC, and this is where the `EthereumTransaction` HAPI comes into play. The only API that they are able to use is JSON-RPC, and this is where the `EthereumTransaction` HAPI comes into play. When you send a JSON-RPC request to an RPC endpoint for a Hedera network, that gets converted into an `EthereumTransaction` HAPI. The same happens in reverse with the response. The same happens in reverse with the response.
 
 ## Deploying smart contracts
 
@@ -222,7 +222,7 @@ Note that this will send an EVM deployment transaction to Hedera Testnet, using 
 `ContractFactory.deployTransaction` EthersJs Javascript API --> `eth_sendRawTransaction` JSON-RPC request --> `EthereumTransaction` HAPI
 {% endhint %}
 
-A deployment is performed via a transaction, just like any other interaction with the network which may change the state of the network. The transaction needs to be performed by an account, in this case, since you are performing an `EthereumTransaction`, the account needs to be an EVM account.
+A deployment is performed via a transaction, just like any other interaction with the network which may change the state of the network. A deployment is performed via a transaction, just like any other interaction with the network which may change the state of the network. The transaction needs to be performed by an account, in this case, since you are performing an `EthereumTransaction`, the account needs to be an EVM account.
 
 {% hint style="info" %}
 `EthereumTransaction`s may only be signed using ECDSA secp256k1 keys, which Hedera EVM accounts use.
@@ -230,7 +230,7 @@ A deployment is performed via a transaction, just like any other interaction wit
 Hedera-native accounts such as the operator account, on the other hand, use EdDSA Ed25519 keys, and therefore `EthereumTransaction`s may not be signed by them.
 {% endhint %}
 
-The account signing the transaction needs to pay for the cost of processing the transaction. This is a variable fee known as _gas_. The account that you'll use for signing is, by default, the first EVM account generated in the script from the Intro section of this tutorial, i.e. the one with the hierarchical derivation path of `m/44'/60'/0'/0/0`.
+The account signing the transaction needs to pay for the cost of processing the transaction. This is a variable fee known as _gas_. The account signing the transaction needs to pay for the cost of processing the transaction. This is a variable fee known as _gas_. The account that you'll use for signing is, by default, the first EVM account generated in the script from the Intro section of this tutorial, i.e. the one with the hierarchical derivation path of `m/44'/60'/0'/0/0`.
 
 <details>
 
@@ -238,10 +238,10 @@ The account signing the transaction needs to pay for the cost of processing the 
 
 On Hedera networks, gas is paid for using HBAR.
 
-**Gas** is denominated in tinybars, and is equal to **gas price** multiplied by **gas units**. Both of these are variable in different ways:
+**Gas** is denominated in tinybars, and is equal to **gas price** multiplied by **gas units**. Both of these are variable in different ways: Both of these are variable in different ways:
 
-* **Gas price** depends on the demand for, and supply of, computational resources of the nodes in the Hedera network. Gas price usually increases with demand levels, and against supply levels.
-* **Gas units** depend on the computational and storage costs as metered by the EVM when processing that specific transaction. When processing a transaction, each bytecode has a specific numeric cost, and a running tally of their sum is tracked during transaction processing.
+* **Gas price** depends on the demand for, and supply of, computational resources of the nodes in the Hedera network. Gas price usually increases with demand levels, and against supply levels. Gas price usually increases with demand levels, and against supply levels.
+* **Gas units** depend on the computational and storage costs as metered by the EVM when processing that specific transaction. When processing a transaction, each bytecode has a specific numeric cost, and a running tally of their sum is tracked during transaction processing. When processing a transaction, each bytecode has a specific numeric cost, and a running tally of their sum is tracked during transaction processing.
 
 </details>
 
@@ -271,7 +271,7 @@ SignerWithAddress {
 }
 ```
 
-Next, instantiate an instance of `ContractFactory`. The Hardhat-augmented version of EthersJs is aware of the directory structure, and where to find the Solidity compiler's outputs: The binary file containing the EVM bytecode, and the JSON file containing the ABI.
+Next, instantiate an instance of `ContractFactory`. Next, instantiate an instance of `ContractFactory`. The Hardhat-augmented version of EthersJs is aware of the directory structure, and where to find the Solidity compiler's outputs: The binary file containing the EVM bytecode, and the JSON file containing the ABI.
 
 ```javascript
 trogdorFactory = await hre.ethers.getContractFactory('Trogdor');
@@ -308,7 +308,7 @@ ContractFactory {
 
 You can observe that it has the EVM bytecode, and has parsed the ABI into an interface.
 
-Next, deploy the smart contract. Note that this transaction includes a network request, and so expect to wait for several seconds - it will not be instantaneous like the previous commands.
+Next, deploy the smart contract. Next, deploy the smart contract. Note that this transaction includes a network request, and so expect to wait for several seconds - it will not be instantaneous like the previous commands.
 
 ```javascript
 trogdor = await trogdorFactory.deploy();
@@ -459,7 +459,7 @@ When EthersJs, and other similar JavaScript libraries such as Web3Js, were origi
 
 Therefore, to be able to handle `uint256` and other large number types, the `BigNumber` library was used.
 
-Now this is redundant, because JavaScript has since added a `bigint` primitive type, which is able to comfortably handle `uint256` values. Future versions of EthersJs and Web3Js are likely to deprecate the use of `BigNumber`.
+Now this is redundant, because JavaScript has since added a `bigint` primitive type, which is able to comfortably handle `uint256` values. Future versions of EthersJs and Web3Js are likely to deprecate the use of `BigNumber`. Future versions of EthersJs and Web3Js are likely to deprecate the use of `BigNumber`.
 
 * [Ref: MDN - BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/BigInt)
 
@@ -477,7 +477,7 @@ This returns a value of `0`, which is to be expected, because we have yet to inv
 [ BigNumber { value: "0" } ]
 ```
 
-That is precisely what we'll do next: Invoke `burninate`. This is a `payable` function, which expects a the transaction to contain a minimum of `100` tinybars sent along with it. Let's sent `123` tinybars.
+That is precisely what we'll do next: Invoke `burninate`. That is precisely what we'll do next: Invoke `burninate`. This is a `payable` function, which expects a the transaction to contain a minimum of `100` tinybars sent along with it. Let's sent `123` tinybars. Let's sent `123` tinybars.
 
 ```javascript
 await trogdor.functions.burninate({ value: 123n * 10_000_000_000n });
@@ -505,11 +505,11 @@ You might think: Why does the number of tinybar need to be multiplied by 10 mill
 
 The _Value of gas price and value fields_ part of HIP-410 offers this explanation.
 
-_For Ethereum transactions, we introduce the concept of “WeiBars”, which are 1 to 10^-18th the value of a HBAR. This is to maximize compatibility with third party tools that expect ether units to be operated on in fractions of 10^18, also known as a Wei. Thus, 1 tinyBar is 10^10 weiBars or 10 gWei. When calculating gas prices and transferred value the fractional parts below a tiny bar are dropped when converted to tinyBars._
+_For Ethereum transactions, we introduce the concept of “WeiBars”, which are 1 to 10^-18th the value of a HBAR. This is to maximize compatibility with third party tools that expect ether units to be operated on in fractions of 10^18, also known as a Wei. Thus, 1 tinyBar is 10^10 weiBars or 10 gWei. When calculating gas prices and transferred value the fractional parts below a tiny bar are dropped when converted to tinyBars. This is to maximize compatibility with third party tools that expect ether units to be operated on in fractions of 10^18, also known as a Wei. Thus, 1 tinyBar is 10^10 weiBars or 10 gWei. When calculating gas prices and transferred value the fractional parts below a tiny bar are dropped when converted to tinyBars._
 
 * [Ref: HIP-410 - Wrapping Ethereum Transaction Bytes in a Hedera Transaction - Value of gas price and value fields](https://hips.hedera.com/hip/hip-410#value-of-gas-price-and-value-fields)
 
-The _compatibility_ above refers to may software libraries, developer tools, developer frameworks, and even end user software such as wallets, assuming/ hardcoding the value of the "full unit" in relation to the "fractional unit" of the native currency of that network. Since 1 HBAR = 10^8 tinybar, but 1 Ether = 10^18 wei, when using client software originally designed to interact with Ethereum, you need to be aware of this and convert between the two.
+The _compatibility_ above refers to may software libraries, developer tools, developer frameworks, and even end user software such as wallets, assuming/ hardcoding the value of the "full unit" in relation to the "fractional unit" of the native currency of that network. Since 1 HBAR = 10^8 tinybar, but 1 Ether = 10^18 wei, when using client software originally designed to interact with Ethereum, you need to be aware of this and convert between the two. Since 1 HBAR = 10^8 tinybar, but 1 Ether = 10^18 wei, when using client software originally designed to interact with Ethereum, you need to be aware of this and convert between the two.
 
 </details>
 
@@ -542,7 +542,7 @@ This will output some details about the transaction.
 
 However, there is nothing we really need to do with this information.
 
-Let's query both `MIN_FEE` and `totalBurnt` again. The value returned for `MIN_FEE` is expected to be the same, since there are no functions which modify its value, and in fact it is marked as `constant`. The value returned for `totalBurnt`, on the other hand, is expected to increase from its previous value, since the balance of the smart contract should increase each time the `burninate` function is successfully invoked.
+Let's query both `MIN_FEE` and `totalBurnt` again. The value returned for `MIN_FEE` is expected to be the same, since there are no functions which modify its value, and in fact it is marked as `constant`. The value returned for `totalBurnt`, on the other hand, is expected to increase from its previous value, since the balance of the smart contract should increase each time the `burninate` function is successfully invoked. The value returned for `MIN_FEE` is expected to be the same, since there are no functions which modify its value, and in fact it is marked as `constant`. The value returned for `totalBurnt`, on the other hand, is expected to increase from its previous value, since the balance of the smart contract should increase each time the `burninate` function is successfully invoked.
 
 Query `MIN_FEE`.
 
@@ -568,7 +568,7 @@ This returns a new value of `123`, as expected as well.
 [ BigNumber { value: "123" } ]
 ```
 
-Let's also query the `amounts` function, which was auto-generated by the Solidity compiler for the mapping of the same name. This function expects an `address` parameter. Let's use the address of the same Hedera EVM account that we used to invoke the `burninate` function.
+Let's also query the `amounts` function, which was auto-generated by the Solidity compiler for the mapping of the same name. This function expects an `address` parameter. Let's use the address of the same Hedera EVM account that we used to invoke the `burninate` function. This function expects an `address` parameter. Let's use the address of the same Hedera EVM account that we used to invoke the `burninate` function.
 
 ```javascript
 acc0EvmAddress = (await hre.ethers.getSigners())[0].address;

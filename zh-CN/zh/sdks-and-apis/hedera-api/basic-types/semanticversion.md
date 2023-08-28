@@ -1,6 +1,6 @@
 # SemanticVersion
 
-Hedera follows semantic versioning ([https://semver.org/](https://semver.org/)) for both the HAPI protobufs and the Services software. This type allows the getVersionInfo query in the NetworkService to return the deployed versions of both protobufs and software on the node answering the query.
+Hedera follows semantic versioning ([https://semver.org/](https://semver.org/)) for both the HAPI protobufs and the Services software. Hedera follows semantic versioning ([https://semver.org/](https://semver.org/)) for both the HAPI protobufs and the Services software. This type allows the getVersionInfo query in the NetworkService to return the deployed versions of both protobufs and software on the node answering the query.
 
 | Field   | Type   | Description                                                                                                                                                                                                                                                                                                    |
 | ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

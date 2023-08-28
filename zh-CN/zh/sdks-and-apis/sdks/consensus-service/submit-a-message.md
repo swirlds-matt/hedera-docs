@@ -1,6 +1,6 @@
 # Submit a message
 
-A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages to subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash.
+A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages to subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages to subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash.
 
 **Transaction Signing Requirements**
 
@@ -24,6 +24,9 @@ A transaction that submits a topic message to the Hedera network. To access the 
 {% tab title="Java" %}
 ```java
 //Create the transaction
+TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
+    .setTopicId(newTopicId)
+    .setMessage("hello, HCS! //Create the transaction
 TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
     .setTopicId(newTopicId)
     .setMessage("hello, HCS! ");
@@ -57,6 +60,9 @@ await new TopicMessageSubmitTransaction({
 {% tab title="Go" %}
 ```java
 //Create the transaction
+transaction := hedera.NewTopicSubmitTransaction().
+        SetTopicID(topicID).
+        //Create the transaction
 transaction := hedera.NewTopicSubmitTransaction().
         SetTopicID(topicID).
         SetMessage([]byte(content))
@@ -100,6 +106,10 @@ TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
 
 //Get the transaction message
 ByteString getMessage = transaction.getMessage();
+//v2.0.0 ");
+
+//Get the transaction message
+ByteString getMessage = transaction.getMessage();
 //v2.0.0
 ```
 {% endtab %}
@@ -114,6 +124,11 @@ const transaction = await new TopicMessageSubmitTransaction()
 //Get the transaction message
 const getMessage = transaction.getMessage();
 
+//v2.0.0 ");
+
+//Get the transaction message
+const getMessage = transaction.getMessage();
+
 //v2.0.0
 ```
 {% endtab %}
@@ -121,6 +136,9 @@ const getMessage = transaction.getMessage();
 {% tab title="Go" %}
 ```go
 //Create the transaction
+transaction := hedera.NewTopicSubmitTransaction().
+        SetTopicID(topicID).
+        //Create the transaction
 transaction := hedera.NewTopicSubmitTransaction().
         SetTopicID(topicID).
         SetMessage([]byte(content))

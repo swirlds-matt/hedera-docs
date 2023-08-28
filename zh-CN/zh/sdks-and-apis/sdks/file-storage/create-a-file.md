@@ -1,6 +1,6 @@
 # Create a file
 
-A transaction that creates a new file on a Hedera network. The file is referenced by its file ID which can be obtained from the receipt or record once the transaction reaches consensus on a Hedera network. The file does not have a file name. If the file is too big to create with a single `FileCreateTransaction()`, the file can be appended with the remaining content multiple times using the `FileAppendTransaction()`.
+A transaction that creates a new file on a Hedera network. The file is referenced by its file ID which can be obtained from the receipt or record once the transaction reaches consensus on a Hedera network. The file does not have a file name. If the file is too big to create with a single `FileCreateTransaction()`, the file can be appended with the remaining content multiple times using the `FileAppendTransaction()`. The file is referenced by its file ID which can be obtained from the receipt or record once the transaction reaches consensus on a Hedera network. The file does not have a file name. If the file is too big to create with a single `FileCreateTransaction()`, the file can be appended with the remaining content multiple times using the `FileAppendTransaction()`.
 
 {% hint style="info" %}
 The maximum file size is 1,024 kB.
@@ -17,12 +17,12 @@ The maximum file size is 1,024 kB.
 
 #### File Properties
 
-| Field               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Key(s)**          | Set the keys which must sign any transactions modifying this file (the owner(s) of the file). All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time (except the one for the operator account paying for the transaction). The network currently requires a file to have at least one key (or key list or threshold key) but this requirement may be lifted in the future. |
-| **Contents**        | The contents of the file. The file contents can be recovered from requesting the FileContentsQuery. Note that the total size for a given transaction is limited to 6KiB (as of March 2020) by the network; if you exceed this you may receive a TRANSACTION\_OVERSIZE error.                                                                                                                                                             |
-| **Expiration Time** | Set the instant at which this file will expire, after which its contents will no longer be available. Defaults to 1/4 of a Julian year from the instant was invoked.                                                                                                                                                                                                                                                                       |
-| **Memo**            | Short publicly visible memo about the file. No guarantee of uniqueness. (100 characters max)                                                                                                                                                                                                                                                                                                                                               |
+| Field               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Key(s)**          | Set the keys which must sign any transactions modifying this file (the owner(s) of the file). All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time (except the one for the operator account paying for the transaction). The network currently requires a file to have at least one key (or key list or threshold key) but this requirement may be lifted in the future. All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time (except the one for the operator account paying for the transaction). The network currently requires a file to have at least one key (or key list or threshold key) but this requirement may be lifted in the future. |
+| **Contents**        | The contents of the file. The file contents can be recovered from requesting the FileContentsQuery. The contents of the file. The file contents can be recovered from requesting the FileContentsQuery. Note that the total size for a given transaction is limited to 6KiB (as of March 2020) by the network; if you exceed this you may receive a TRANSACTION\_OVERSIZE error.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Expiration Time** | Set the instant at which this file will expire, after which its contents will no longer be available. Defaults to 1/4 of a Julian year from the instant was invoked. Defaults to 1/4 of a Julian year from the instant was invoked.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Memo**            | Short publicly visible memo about the file. No guarantee of uniqueness. (100 characters max) No guarantee of uniqueness. (100 characters max)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ### Methods
 
@@ -35,7 +35,7 @@ new FileCreateTransaction()
 ```
 
 {% hint style="info" %}
-The default max transaction fee (1 hbar) is not enough to create a a file. Use `setDefaultMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars.
+The default max transaction fee (1 hbar) is not enough to create a a file. The default max transaction fee (1 hbar) is not enough to create a a file. Use `setDefaultMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars.
 {% endhint %}
 
 | Method                                      | Type        | Requirement |
@@ -102,6 +102,9 @@ console.log("The new file ID is: " + newFileId);
 {% tab title="Go" %}
 ```go
 //Create the transaction
+transaction := hedera.NewFileCreateTransaction().
+        SetKeys(filePublicKey).
+        //Create the transaction
 transaction := hedera.NewFileCreateTransaction().
         SetKeys(filePublicKey).
         SetContents([]byte("Hello, World"))
@@ -173,6 +176,9 @@ const getContents = transaction.getContents();
 {% tab title="Go" %}
 ```java
 //Create the transaction
+transaction := hedera.NewFileCreateTransaction().
+        SetKeys(filePublicKey).
+        //Create the transaction
 transaction := hedera.NewFileCreateTransaction().
         SetKeys(filePublicKey).
         SetContents([]byte("Hello, World"))

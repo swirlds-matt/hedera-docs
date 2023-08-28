@@ -1,6 +1,6 @@
 # Delete a smart contract
 
-A transaction that deletes a smart contract from a Hedera network. Once a smart contract is marked deleted, you will not be able to modify any of the contract's properties. \*\*\*\* If a smart contract did not have an admin key defined, you cannot delete the smart contract. You can verify the smart contract was deleted by submitting a smart contract info query to the network. If a smart contract has an associated hbar balance, you will need to transfer the balance to another Hedera account.
+A transaction that deletes a smart contract from a Hedera network. Once a smart contract is marked deleted, you will not be able to modify any of the contract's properties. \*\*\*\* If a smart contract did not have an admin key defined, you cannot delete the smart contract. You can verify the smart contract was deleted by submitting a smart contract info query to the network. If a smart contract has an associated hbar balance, you will need to transfer the balance to another Hedera account. Once a smart contract is marked deleted, you will not be able to modify any of the contract's properties. \*\*\*\* If a smart contract did not have an admin key defined, you cannot delete the smart contract. You can verify the smart contract was deleted by submitting a smart contract info query to the network. If a smart contract has an associated hbar balance, you will need to transfer the balance to another Hedera account.
 
 **Transaction Signing Requirements**
 
@@ -71,6 +71,27 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```java
 //Create and freeze the transaction
 transaction := hedera.NewContractDeleteTransaction().
+      SetContractID(contractID)
+      FreezeWith(client)
+
+//Sign with the admin key on the contract, sign with the client operator private key and submit to a Hedera network
+txResponse. err := transaction.Sign(adminKey).Execute(client)
+if err != nil {
+        panic(err)
+}
+
+//Get the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+        panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status %v\n", transactionStatus)
+
+//v2.0.0
       SetContractID(contractID)
       FreezeWith(client)
 

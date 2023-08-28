@@ -6,16 +6,16 @@ description: Join a Hedera Testnet
 
 ## Overview
 
-Hedera Testnets provide developers access to a free testing environment for Hedera network services. Testnets simulate the exact same development environment as you would expect for mainnet. This includes transaction fees, throttles, available services, etc. To create a Hedera testnet or previewnet account, you can visit the [Hedera Developer Portal](https://portal.hedera.com/login).
+Hedera Testnets provide developers access to a free testing environment for Hedera network services. Testnets simulate the exact same development environment as you would expect for mainnet. This includes transaction fees, throttles, available services, etc. To create a Hedera testnet or previewnet account, you can visit the [Hedera Developer Portal](https://portal.hedera.com/login). Testnets simulate the exact same development environment as you would expect for mainnet. This includes transaction fees, throttles, available services, etc. To create a Hedera testnet or previewnet account, you can visit the [Hedera Developer Portal](https://portal.hedera.com/login).
 
 Once your application has been built and tested in this test environment you can expect to migrate your decentralized application to mainnet without any changes.
 
 **Test Networks:**
 
-| **Name**             | **Description**                                                                                                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Test Network         | Runs the same code as the Hedera mainnet, designed to provide a pre-production environment for developers about to move to mainnet. You can find compatible SDKs [here](../../sdks-and-apis/sdks/#hedera-supported-sdks). |
-| Preview Test Network | <p>Code that is under development by the Hedera team, and likely to be used in an upcoming release, designed to give developers early exposure to features coming down the pipe. Updates to the network are made frequently. There is no guarantee an SDK will readily support the up-and-coming features.</p><p><strong>Note:</strong> Updates to this network are triggered by a new release and are frequent. These updates will not be reflected on the status page.</p>                                                                                                                                                                        |
+| **Name**             | **Description**                                                                                                                                                                                                                                                                                                 |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Network         | Runs the same code as the Hedera mainnet, designed to provide a pre-production environment for developers about to move to mainnet. You can find compatible SDKs [here](../../sdks-and-apis/sdks/#hedera-supported-sdks). You can find compatible SDKs [here](../../sdks-and-apis/sdks/#hedera-supported-sdks). |
+| Preview Test Network | <p>Code that is under development by the Hedera team, and likely to be used in an upcoming release, designed to give developers early exposure to features coming down the pipe. Updates to the network are made frequently. There is no guarantee an SDK will readily support the up-and-coming features. Updates to the network are made frequently. There is no guarantee an SDK will readily support the up-and-coming features.</p><p><strong>Note:</strong> Updates to this network are triggered by a new release and are frequent. These updates will not be reflected on the status page. These updates will not be reflected on the status page.</p>                                                                                                                                                                                                                                                              |
 
 | Network Service        | Availability |
 | ---------------------- | ------------ |
@@ -27,9 +27,9 @@ Once your application has been built and tested in this test environment you can
 
 ### Test Network Resets
 
-The mirror node and consensus node test network are scheduled to reset once a quarter. When a testnet reset occurs all account, token, contract, topic, schedule, and file data are wiped.
+The mirror node and consensus node test network are scheduled to reset once a quarter. The mirror node and consensus node test network are scheduled to reset once a quarter. When a testnet reset occurs all account, token, contract, topic, schedule, and file data are wiped.
 
-Developers will no longer have access to the state data from test network consensus nodes. For example, you will not be able to perform transactions or queries on an account that existed before the reset.
+Developers will no longer have access to the state data from test network consensus nodes. For example, you will not be able to perform transactions or queries on an account that existed before the reset. For example, you will not be able to perform transactions or queries on an account that existed before the reset.
 
 The testnet resets do not include version updates to the network.&#x20;
 
@@ -58,7 +58,7 @@ If you have any questions or concerns, please connect with us via [Discord](http
 
 {% hint style="warning" %}
 **Limited Support**\
-Transactions are currently throttled for testnets. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value.
+Transactions are currently throttled for testnets. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value.
 {% endhint %}
 
 | **Network Request Type**    | **Throttle (tps)**                                                                                    |

@@ -5,7 +5,7 @@ coverY: '-625.86206896552'
 
 # Mainnet Accounts
 
-To interact with and access the various Hedera Mainnet services such as accounts, topics, tokens, files, and smart contracts, you will need a Hedera account. Your Hedera account also holds a balance of HBAR, which can be used to make transaction fee payments or transfers to other accounts.
+To interact with and access the various Hedera Mainnet services such as accounts, topics, tokens, files, and smart contracts, you will need a Hedera account. Your Hedera account also holds a balance of HBAR, which can be used to make transaction fee payments or transfers to other accounts. Your Hedera account also holds a balance of HBAR, which can be used to make transaction fee payments or transfers to other accounts.
 
 Create free mainnet accounts by visiting any of these wallet providers:
 
@@ -20,7 +20,7 @@ Create free mainnet accounts by visiting any of these wallet providers:
 
 Once you have obtained your mainnet account from a supported wallet, you can use the SDKs to create additional mainnet accounts.
 
-To do this, you will need to point your Hedera client to mainnet (`Client.forMainnet()`)and use the `AccountCreateTransaction` API to create a new account. The transaction fee payer (referred to as the `operator` in the SDKs) information should be set to the mainnet account you created from one of the above wallets (`setOperator(<mainnetAccountId, mainnetAccountPrivateKey)`).
+To do this, you will need to point your Hedera client to mainnet (`Client.forMainnet()`)and use the `AccountCreateTransaction` API to create a new account. The transaction fee payer (referred to as the `operator` in the SDKs) information should be set to the mainnet account you created from one of the above wallets (`setOperator(<mainnetAccountId, mainnetAccountPrivateKey)`). The transaction fee payer (referred to as the `operator` in the SDKs) information should be set to the mainnet account you created from one of the above wallets (`setOperator(<mainnetAccountId, mainnetAccountPrivateKey)`).
 
 {% content-ref url="../../sdks-and-apis/sdks/cryptocurrency/create-an-account.md" %}
 [create-an-account.md](../../sdks-and-apis/sdks/cryptocurrency/create-an-account.md)

@@ -1,6 +1,6 @@
 # Submit a transaction
 
-The `execute()` method submits a transaction to a Hedera network. This method will create the transaction ID from the client operator account ID, sign with the client operator private key, and pick a node from the defined network on the client to submit the transaction to. The transaction is also automatically signed with the client operator account private key. You do not need to manually sign transactions if this key is the required key on any given transaction. Once you submit the transaction, the response will include the following:
+The `execute()` method submits a transaction to a Hedera network. This method will create the transaction ID from the client operator account ID, sign with the client operator private key, and pick a node from the defined network on the client to submit the transaction to. The transaction is also automatically signed with the client operator account private key. You do not need to manually sign transactions if this key is the required key on any given transaction. Once you submit the transaction, the response will include the following: This method will create the transaction ID from the client operator account ID, sign with the client operator private key, and pick a node from the defined network on the client to submit the transaction to. The transaction is also automatically signed with the client operator account private key. You do not need to manually sign transactions if this key is the required key on any given transaction. Once you submit the transaction, the response will include the following:
 
 * The transaction ID of the transaction
 * The node ID of the node the transaction was submitted to
@@ -12,16 +12,16 @@ The `execute()` method submits a transaction to a Hedera network. This method wi
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                                                  | Type             | Description                                                                                                        |
-| ----------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `execute(<client>)`                                               | Client           | Sign with the client operator and submit to a Hedera network                                                       |
-| `execute(<client, timeout>)`                                      | Client, Duration | The duration of times the client will try to submit the transaction upon the network being busy                    |
-| `executeWithSigner(<signer>)`                                     |                  | Sign the transaction with a local wallet. This feature is available in the Hedera JavaScript SDK only. >=`v2.11.0` |
-| `<transactionResponse>.transactionId`                             | TransactionId    | Returns the transaction ID of the transaction                                                                      |
-| `<transactionResponse>.nodeId`                                    | AccountId        | Returns the node ID of the node that processed the transaction                                                     |
-| `<transactionResponse>.transactionHash`                           | byte \[ ]       | Returns the hash of the transaction                                                                                |
-| `<transactionResponse>.setValidateStatus(<validateStatus>)` | boolean          | Whether getReceipt() or getRecord() will throw an exception if the receipt status is not SUCCESS                   |
-| `<transactionResponse>.getValidateStatus`                         | boolean          | Return whether getReceipt() or getRecord() will throw an exception if the receipt status is not SUCCESS            |
+| Method                                                                  | Type             | Description                                                                                                                                                              |
+| ----------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `execute(<client>)`                                               | Client           | Sign with the client operator and submit to a Hedera network                                                                                                             |
+| `execute(<client, timeout>)`                                      | Client, Duration | The duration of times the client will try to submit the transaction upon the network being busy                                                                          |
+| `executeWithSigner(<signer>)`                                     |                  | Sign the transaction with a local wallet. Sign the transaction with a local wallet. This feature is available in the Hedera JavaScript SDK only. >=`v2.11.0` >=`v2.11.0` |
+| `<transactionResponse>.transactionId`                             | TransactionId    | Returns the transaction ID of the transaction                                                                                                                            |
+| `<transactionResponse>.nodeId`                                    | AccountId        | Returns the node ID of the node that processed the transaction                                                                                                           |
+| `<transactionResponse>.transactionHash`                           | byte \[ ]       | Returns the hash of the transaction                                                                                                                                      |
+| `<transactionResponse>.setValidateStatus(<validateStatus>)` | boolean          | Whether getReceipt() or getRecord() will throw an exception if the receipt status is not SUCCESS                                                                         |
+| `<transactionResponse>.getValidateStatus`                         | boolean          | Return whether getReceipt() or getRecord() will throw an exception if the receipt status is not SUCCESS                                                                  |
 
 {% code title="Java" %}
 ```java
@@ -80,6 +80,9 @@ console.log("The node ID is " +nodeId);
 {% code title="Go" %}
 ```java
 //Create the transaction
+transaction := hedera.NewAccountCreateTransaction().
+        SetKey(publicKey).
+        //Create the transaction
 transaction := hedera.NewAccountCreateTransaction().
         SetKey(publicKey).
         SetInitialBalance(hedera.NewHbar(1000))

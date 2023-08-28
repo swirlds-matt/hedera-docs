@@ -1,6 +1,6 @@
 # Get a transaction receipt
 
-The transaction receipt gives you information about a transaction including whether or not the transaction reached consensus on the network. You request the receipt for every transaction type and there is currently no transaction fee associated with this network request.
+The transaction receipt gives you information about a transaction including whether or not the transaction reached consensus on the network. The transaction receipt gives you information about a transaction including whether or not the transaction reached consensus on the network. You request the receipt for every transaction type and there is currently no transaction fee associated with this network request.
 
 {% hint style="info" %}
 Receipts can be requested from a Hedera network for up to 3 minutes.
@@ -59,12 +59,15 @@ new TransactionReceiptQuery()
 hedera.NewTransactionReceiptQuery().
     SetTransactionId(transactionId).
     Execute(client)
+    SetTransactionId(transactionId).
+    Execute(client)
 ```
 {% endtab %}
 {% endtabs %}
 
 ### Helper Methods
 
+{% tabs %}
 {% tabs %}
 {% tab title="V2" %}
 <table spaces-before="0">
@@ -120,7 +123,7 @@ hedera.NewTransactionReceiptQuery().
     </td>
     
     <td>
-      Returns the TransactionReceiptQuery response for a transaction. This will not error on bad status like <code>RECEIPT_NOT_FOUND</code> and will return information about a failed transaction if necessary.
+      Returns the TransactionReceiptQuery response for a transaction. Returns the TransactionReceiptQuery response for a transaction. This will not error on bad status like <code>RECEIPT_NOT_FOUND</code> and will return information about a failed transaction if necessary.
     </td>
   </tr>
   

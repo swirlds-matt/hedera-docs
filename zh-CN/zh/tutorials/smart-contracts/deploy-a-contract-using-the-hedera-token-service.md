@@ -2,34 +2,34 @@
 
 ## Summary
 
-In this example, you will learn how to create a Solidity contract that interacts with the Hedera Token Service (HTS). The initial release of this feature supports token mint, burn, associate, dissociate, and transfer transactions.
+In this example, you will learn how to create a Solidity contract that interacts with the Hedera Token Service (HTS). The initial release of this feature supports token mint, burn, associate, dissociate, and transfer transactions. The initial release of this feature supports token mint, burn, associate, dissociate, and transfer transactions.
 
-The example does not cover the environment setup or creating certain variables that may be seen in the code blocks. The full coding example can be found at the end of the page.
+The example does not cover the environment setup or creating certain variables that may be seen in the code blocks. The full coding example can be found at the end of the page. The full coding example can be found at the end of the page.
 
 {% hint style="warning" %}
-_Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out_ [_HIP-16_](https://hips.hedera.com/hip/hip-16) _for more information._
+_Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out_ [_HIP-16_](https://hips.hedera.com/hip/hip-16) _for more information._ Please check out</em> [_HIP-16_](https://hips.hedera.com/hip/hip-16) _for more information._
 {% endhint %}
 
 ## Prerequisites
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples. This example does not build upon the previous examples.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"> <a href="../../getting-started/introduction.md"><mark style="color:purple;"><strong>INTRODUCTION</strong></mark></a></td><td><a href="../../getting-started/introduction.md">introduction.md</a></td></tr><tr><td align="center"><a href="../../getting-started/environment-set-up.md"><mark style="color:purple;"><strong>ENVIRONMENT SETUP</strong></mark></a></td><td><a href="../../getting-started/environment-set-up.md">environment-set-up.md</a></td></tr></tbody></table>
 
 * Get a [Hedera testnet account](https://portal.hedera.com/register).
 * Set up your environment [here](../../getting-started/environment-set-up.md).
 
-## 1. Create Your "HTS" Smart Contract
+## 1. 1. Create Your "HTS" Smart Contract
 
-In this example, you will associate a token to an account and transfer tokens to the associated account by interacting with the HTS contract deployed to Hedera. The HTS contract has three functions that allow you to associate, transfer, and dissociate tokens from a Hedera account.
+In this example, you will associate a token to an account and transfer tokens to the associated account by interacting with the HTS contract deployed to Hedera. The HTS contract has three functions that allow you to associate, transfer, and dissociate tokens from a Hedera account. The HTS contract has three functions that allow you to associate, transfer, and dissociate tokens from a Hedera account.
 
 * <mark style="color:blue;">`tokenAssociate`</mark>
 * <mark style="color:blue;">`tokenTransfer`</mark>
 * <mark style="color:blue;">`tokenDissociate`</mark>
 
-The HTS.sol will serve as a reference to the contract that was compiled. The HTS.json file contains the <mark style="color:blue;">`data.bytecode.object`</mark> field that will be used to store the contract bytecode in a file on the Hedera network.
+The HTS.sol will serve as a reference to the contract that was compiled. The HTS.sol will serve as a reference to the contract that was compiled. The HTS.json file contains the <mark style="color:blue;">`data.bytecode.object`</mark> field that will be used to store the contract bytecode in a file on the Hedera network.
 
-To write a contract using HTS, you will need to add the HTS Solidity support libraries to your project and import them into your contract. Please see the HTS.sol example for reference. The IHederaTokenService.sol will need to be in the same directory as the other two files. An explanation of the functions can be found [here](../../sdks-and-apis/sdks/smart-contracts/hedera-service-solidity-libraries.md).
+To write a contract using HTS, you will need to add the HTS Solidity support libraries to your project and import them into your contract. Please see the HTS.sol example for reference. The IHederaTokenService.sol will need to be in the same directory as the other two files. An explanation of the functions can be found [here](../../sdks-and-apis/sdks/smart-contracts/hedera-service-solidity-libraries.md). Please see the HTS.sol example for reference. The IHederaTokenService.sol will need to be in the same directory as the other two files. An explanation of the functions can be found [here](../../sdks-and-apis/sdks/smart-contracts/hedera-service-solidity-libraries.md).
 
 * [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/HederaTokenService.sol)
 * [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/HederaResponseCodes.sol)
@@ -210,12 +210,12 @@ contract HTS is HederaTokenService {
 {% endtab %}
 {% endtabs %}
 
-## 2. Store the Smart Contract Bytecode on Hedera
+## 2. 2. Store the Smart Contract Bytecode on Hedera
 
-Create a file using the <mark style="color:blue;">`FileCreateTransaction()`</mark> API to store the hex-encoded byte code of the "HTS" contract. Once the file is created, you can obtain the file ID from the receipt of the transaction.
+Create a file using the <mark style="color:blue;">`FileCreateTransaction()`</mark> API to store the hex-encoded byte code of the "HTS" contract. Once the file is created, you can obtain the file ID from the receipt of the transaction. Once the file is created, you can obtain the file ID from the receipt of the transaction.
 
 {% hint style="warning" %}
-_**Note:** The bytecode is required to be hex-encoded. It should not be the actual data the hex represents._
+_**Note:** The bytecode is required to be hex-encoded. It should not be the actual data the hex represents. It should not be the actual data the hex represents._
 {% endhint %}
 
 {% tabs %}
@@ -320,16 +320,35 @@ if err != nil {
 byteCodeFileID := *fileTxReceipt.FileID
 
 fmt.Printf("The contract bytecode file ID: %v\n", byteCodeFileID)
+    SetContents([]byte(smartContractByteCode)).
+    Execute(client)
+
+if err != nil {
+    println(err.Error(), ": error creating file")
+    return
+}
+
+//Get the receipt of the transaction
+fileTxReceipt, err := fileCreateTx.GetReceipt(client)
+if err != nil {
+    println(err.Error(), ": error getting file create transaction receipt")
+    return
+}
+
+//Get the bytecode file ID
+byteCodeFileID := *fileTxReceipt.FileID
+
+fmt.Printf("The contract bytecode file ID: %v\n", byteCodeFileID)
 ```
 {% endtab %}
 {% endtabs %}
 
-## 3. Deploy a Hedera Smart Contract
+## 3. 3. Deploy a Hedera Smart Contract
 
 Create the contract and set the file ID to the file that contains the hex-encoded bytecode from the previous step. You will need to set the gas high enough to deploy the contract. The gas should be estimated to be within 25% of the actual gas cost to avoid paying extra gas. You can read more about gas and fees [here](../../core-concepts/smart-contracts/gas-and-fees.md).
 
 {% hint style="warning" %}
-_**Note:** You will need to set the gas value high enough to deploy the contract. If you don't have enough gas, you will receive an <mark style="color:blue;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction._
+_**Note:** You will need to set the gas value high enough to deploy the contract. If you don't have enough gas, you will receive an <mark style="color:blue;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction. If you don't have enough gas, you will receive an <mark style="color:blue;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction._
 {% endhint %}
 
 {% tabs %}
@@ -408,9 +427,9 @@ fmt.Printf("The contract ID %v\n", contractId)
 {% endtab %}
 {% endtabs %}
 
-## 4. Call the <mark style="color:purple;">`tokenAssociate`</mark> Contract Function
+## 4. 4. Call the <mark style="color:purple;">`tokenAssociate`</mark> Contract Function
 
-The <mark style="color:blue;">`tokenAssociate`</mark> function in the contract will associate a token that was created using the native Hedera Token Service. You can create a new token using HTS or using an existing token in this example. Use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API to call the contract's <mark style="color:blue;">`tokenAssociate`</mark> function. You will pass the token ID and account ID in Solidity <mark style="color:blue;">`address`</mark> format to the contract function. The contract function parameters must be provided in the order expected by the function to execute successfully.
+The <mark style="color:blue;">`tokenAssociate`</mark> function in the contract will associate a token that was created using the native Hedera Token Service. You can create a new token using HTS or using an existing token in this example. Use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API to call the contract's <mark style="color:blue;">`tokenAssociate`</mark> function. You will pass the token ID and account ID in Solidity <mark style="color:blue;">`address`</mark> format to the contract function. The contract function parameters must be provided in the order expected by the function to execute successfully. You can create a new token using HTS or using an existing token in this example. Use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API to call the contract's <mark style="color:blue;">`tokenAssociate`</mark> function. You will pass the token ID and account ID in Solidity <mark style="color:blue;">`address`</mark> format to the contract function. The contract function parameters must be provided in the order expected by the function to execute successfully.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -501,20 +520,40 @@ associateTxReceipt, err := associateTx.GetReceipt(client)
 txStatus := associateTxReceipt.Status
 
 fmt.Printf("The associate transaction status %v\n", txStatus)
+    //The contract ID
+    SetContractID(contractId).
+    //The max gas
+    SetGas(2000000).
+    //The contract function to call and parameters
+    SetFunction("tokenAssociate", contractParamsToken).
+    Execute(client)
+
+if err != nil {
+    println(err.Error(), ": error executing contract")
+    return
+}
+
+//Get the receipt
+associateTxReceipt, err := associateTx.GetReceipt(client)
+
+//Get transaction status
+txStatus := associateTxReceipt.Status
+
+fmt.Printf("The associate transaction status %v\n", txStatus)
 ```
 {% endtab %}
 {% endtabs %}
 
-## 5. Get the <mark style="color:purple;">`tokenAssociate`</mark> Transaction Record
+## 5. 5. Get the <mark style="color:purple;">`tokenAssociate`</mark> Transaction Record
 
-The contract execute transaction that triggered a subsequent token associate transaction in the contract is an example of a **nested transaction.** The contract execute transaction is the parent transaction and the token associate transaction is referred to as the child transaction. Both parent and child transactions share the same payer account ID and transaction valid duration with the exception of the child transaction having a nonce value at the end. The nonce value increments for each subsequent child transaction.
+The contract execute transaction that triggered a subsequent token associate transaction in the contract is an example of a **nested transaction.** The contract execute transaction is the parent transaction and the token associate transaction is referred to as the child transaction. Both parent and child transactions share the same payer account ID and transaction valid duration with the exception of the child transaction having a nonce value at the end. The nonce value increments for each subsequent child transaction. Both parent and child transactions share the same payer account ID and transaction valid duration with the exception of the child transaction having a nonce value at the end. The nonce value increments for each subsequent child transaction.
 
 * Parent Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>
 * Child Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">1</mark>
 
-The parent transaction record, receipt, or response will only return the parent transaction information. If you would like to get the child transaction record, receipt, or response you will need to use the <mark style="color:blue;">`TransactionRecordQuery()`</mark> or <mark style="color:blue;">`TransactionReceiptQuery()`</mark> and set children equal to true. The child transaction record will also have a <mark style="color:blue;">`parentConsensusTimestamp`</mark> field populated with the consensus timestamp of the parent transaction.
+The parent transaction record, receipt, or response will only return the parent transaction information. The parent transaction record, receipt, or response will only return the parent transaction information. If you would like to get the child transaction record, receipt, or response you will need to use the <mark style="color:blue;">`TransactionRecordQuery()`</mark> or <mark style="color:blue;">`TransactionReceiptQuery()`</mark> and set children equal to true. The child transaction record will also have a <mark style="color:blue;">`parentConsensusTimestamp`</mark> field populated with the consensus timestamp of the parent transaction. The child transaction record will also have a <mark style="color:blue;">`parentConsensusTimestamp`</mark> field populated with the consensus timestamp of the parent transaction.
 
-To confirm the account was associated with the token, request the balance of the account. The account balance should show the ID of the token that was associated with a zero balance.
+To confirm the account was associated with the token, request the balance of the account. To confirm the account was associated with the token, request the balance of the account. The account balance should show the ID of the token that was associated with a zero balance.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -594,11 +633,11 @@ fmt.Printf("The account token balance %v\n", accountBalance.Tokens)
 {% endtab %}
 {% endtabs %}
 
-## 6. Call the <mark style="color:purple;">`tokenTransfer`</mark> Contract Function
+## 6. 6. Call the <mark style="color:purple;">`tokenTransfer`</mark> Contract Function
 
-Transfer 100 units of the token to the account that was associated with the token. You will use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API and set the contract function to `tokenTransfer`. The contract function parameters must be provided in the order of the function expects to receive them.
+Transfer 100 units of the token to the account that was associated with the token. Transfer 100 units of the token to the account that was associated with the token. You will use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API and set the contract function to `tokenTransfer`. The contract function parameters must be provided in the order of the function expects to receive them. The contract function parameters must be provided in the order of the function expects to receive them.
 
-The transaction must be signed by the account that is sending the tokens. In this case, it is the treasury account.
+The transaction must be signed by the account that is sending the tokens. In this case, it is the treasury account. In this case, it is the treasury account.
 
 You can verify the transfer was successful by checking the account token balance!
 
@@ -727,7 +766,7 @@ fmt.Printf("The account token balance %v\n", transferAccountBalance.Tokens)
 _**Note:** Check out our_ [_smart contract mirror node rest APIs_](../../sdks-and-apis/rest-api.md#smart-contracts) _that return information about a contract like contract results and logs!_
 {% endhint %}
 
-#### Congratulations :tada:! You have learned how to deploy a contract using the Hedera Token Service and completed the following:
+#### Congratulations :tada:! Congratulations :tada:! You have learned how to deploy a contract using the Hedera Token Service and completed the following:
 
 * Created a smart contract that calls HTS transactions
 * Associated an HTS token by using the deployed contract
@@ -1244,27 +1283,27 @@ func main() {
     // Upload a file containing the byte code
     fileCreateTx, err := hedera.NewFileCreateTransaction().
         SetContents([]byte(smartContractByteCode)).
-        Execute(client)
+        // Deploy the contract instance
+contractTransactionID, err := hedera.NewContractCreateTransaction().
+    //The max gas for the transaction
+    SetGas(2000000).
+    //The contract bytecode file ID
+    SetBytecodeFileID(byteCodeFileID).
+    Execute(client)
 
-    if err != nil {
-        println(err.Error(), ": error creating file")
-        return
-    }
+if err != nil {
+    println(err.Error(), ": error creating contract")
+    return
+}
 
-    //Get the receipt of the transaction
-    fileTxReceipt, err := fileCreateTx.GetReceipt(client)
-    if err != nil {
-        println(err.Error(), ": error getting file create transaction receipt")
-        return
-    }
+//Get the contract receipt
+contractReceipt, err := contractTransactionID.GetReceipt(client)
 
-    //Get the bytecode file ID
-    byteCodeFileID := *fileTxReceipt.FileID
+//Get the contract contract ID
+contractId := *contractReceipt.ContractID
 
-    fmt.Printf("The contract bytecode file ID: %v\n", byteCodeFileID)
-
-    // Deploy the contract instance
-    contractTransactionID, err := hedera.NewContractCreateTransaction().
+//Log the contract ID
+fmt.Printf("The contract ID %v\n", contractId)
         //The max gas for the transaction
         SetGas(2000000).
         //The contract bytecode file ID
@@ -1323,17 +1362,33 @@ func main() {
     childRecord, err := hedera.NewTransactionRecordQuery().
         SetIncludeChildren(true).
         SetTransactionID(associateTx.TransactionID).
-        Execute(client)
-    if err != nil {
-        println(err.Error(), ": error getting record")
-        return
-    }
+        //Get the child transaction record
+childRecord, err := hedera.NewTransactionRecordQuery().
+    //Set boolean equal to true
+    SetIncludeChildren(true).
+    //Parent transaction ID
+    SetTransactionID(associateTx.TransactionID).
+    Execute(client)
 
-    //Log the child record
-    fmt.Printf("The associate child transaction record %v\n", childRecord.Children)
+if err != nil {
+    println(err.Error(), ": error getting record")
+    return
+}
 
-    //The balance of the account
-    accountBalance, err := hedera.NewAccountBalanceQuery().
+//Log the child record
+fmt.Printf("The associate child transaction record %v\n", childRecord.Children)
+
+//The balance of the account
+accountBalance, err := hedera.NewAccountBalanceQuery().
+    SetAccountID(accountIdTest).
+    Execute(client)
+
+if err != nil {
+    println(err.Error(), ": error getting balance")
+    return
+}
+
+fmt.Printf("The account token balance %v\n", accountBalance.Tokens)
         SetAccountID(accountIdTest).
         Execute(client)
 
@@ -1351,31 +1406,47 @@ func main() {
         SetContractID(contractId).
         //The max gas
         SetGas(2000000).
-        //The contract function to call and parameters
-        SetFunction("tokenTransfer", contractParamsAmount)
+        //Transfer the token
+transferTx := hedera.NewContractExecuteTransaction().
+    //The contract ID
+    SetContractID(contractId).
+    //The max gas
+    SetGas(2000000).
+    //The contract function to call and parameters
+    SetFunction("tokenTransfer", contractParamsAmount)
 
-    //Sign with treasury key to authorize the transfer from the treasury account
-    signTx, err := transferTx.Sign(treasuryKey).Execute(client)
+//Sign with treasury key to authorize the transfer from the treasury account
+signTx, err := transferTx.Sign(treasuryKey).Execute(client)
 
-    if err != nil {
-        println(err.Error(), ": error executing contract")
-        return
-    }
-    //Get the receipt
-    transferTxReceipt, err := signTx.GetReceipt(client)
+if err != nil {
+    println(err.Error(), ": error executing contract")
+    return
+}
+//Get the receipt
+transferTxReceipt, err := signTx.GetReceipt(client)
 
-    if err != nil {
-        println(err.Error(), ": error getting receipt")
-        return
-    }
+if err != nil {
+    println(err.Error(), ": error getting receipt")
+    return
+}
 
-    //Get transaction status
-    transferTxStatus := transferTxReceipt.Status
+//Get transaction status
+transferTxStatus := transferTxReceipt.Status
 
-    fmt.Printf("The transfer transaction status %v\n", transferTxStatus)
+fmt.Printf("The transfer transaction status %v\n", transferTxStatus)
 
-    //Verify the transfer by checking the balance
-    transferAccountBalance, err := hedera.NewAccountBalanceQuery().
+//Verify the transfer by checking the balance
+transferAccountBalance, err := hedera.NewAccountBalanceQuery().
+    SetAccountID(accountIdTest).
+    Execute(client)
+
+if err != nil {
+    println(err.Error(), ": error getting balance")
+    return
+}
+
+//Log the account token balance
+fmt.Printf("The account token balance %v\n", transferAccountBalance.Tokens)
         SetAccountID(accountIdTest).
         Execute(client)
 
@@ -1392,10 +1463,10 @@ func main() {
 
 </details>
 
-Happy Building! Feel free to reach out if you have any questions:
+Happy Building! Happy Building! Feel free to reach out if you have any questions:
 
 {% hint style="info" %}
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><p>Writer: Simi, Sr. Software Manager </p><p><a href="https://github.com/ed-marquez">GitHub</a> | <a href="https://www.linkedin.com/in/shunjan">LinkedIn</a></p></td><td></td><td></td><td><a href="https://www.linkedin.com/in/shunjan">https://www.linkedin.com/in/shunjan </a></td></tr><tr><td align="center"><p>Editor: Krystal, Technical Writer</p><p><a href="https://github.com/theekrystallee">GitHub</a> | <a href="https://twitter.com/theekrystallee">Twitter</a></p></td><td></td><td></td><td><a href="https://twitter.com/theekrystallee">https://twitter.com/theekrystallee</a></td></tr></tbody></table>

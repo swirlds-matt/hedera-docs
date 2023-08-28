@@ -1,6 +1,6 @@
 # Queries
 
-Queries are requests that do not require network consensus. Queries are processed only by the single node the request is sent to. Below is a list of network queries by service.
+Queries are requests that do not require network consensus. Queries are requests that do not require network consensus. Queries are processed only by the single node the request is sent to. Below is a list of network queries by service. Below is a list of network queries by service.
 
 | Cryptocurrency Accounts                                                 | Consensus                                                              | Tokens                                                                | File Service                                                      | Smart Contracts                                                                                                                      | Schedule Service                                                          |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
@@ -11,6 +11,7 @@ Queries are requests that do not require network consensus. Queries are processe
 
 A query that returns the cost of a query prior to submitting the query to network node for processing. If the cost of the query greater than the default max query payment (1 hbar) you can use `setMaxQueryPayment(<hbar>)` to change the default.
 
+A query that returns the cost of a query prior to submitting the query to network node for processing. If the cost of the query greater than the default max query payment (1 hbar) you can use `setMaxQueryPayment(<hbar>)` to change the default.
 {% tabs %}
 {% tab title="V1" %}
 <table spaces-before="0">

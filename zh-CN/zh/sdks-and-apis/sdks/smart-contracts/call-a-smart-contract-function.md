@@ -1,6 +1,6 @@
 # Call a smart contract function
 
-The transaction calls a function of the given smart contract instance, giving it `functionParameters` as its input. The call can use at maximum the given amount of gas – the paying account will not be charged for any unspent gas.
+The transaction calls a function of the given smart contract instance, giving it `functionParameters` as its input. The call can use at maximum the given amount of gas – the paying account will not be charged for any unspent gas. The call can use at maximum the given amount of gas – the paying account will not be charged for any unspent gas.
 
 If this function results in data being stored, an amount of gas is calculated that reflects this storage burden.
 
@@ -44,6 +44,19 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v2.0.0
+
+//Sign with the client operator private key to pay for the transaction and submit the query to a Hedera network
+TransactionResponse txResponse = transaction.execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
 ```
 {% endtab %}
 
@@ -68,12 +81,29 @@ const transactionStatus = receipt.status;
 console.log("The transaction consensus status is " +transactionStatus);
 
 //v2.0.0
+
+//Sign with the client operator private key to pay for the transaction and submit the query to a Hedera network
+const txResponse = await transaction.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
 ```
 {% endtab %}
 
 {% tab title="Go" %}
 ```go
 //Create the transaction
+transaction, err := hedera.NewContractExecuteTransaction().
+     SetContractID(newContractID).
+     SetGas(100000000).
+     //Create the transaction
 transaction, err := hedera.NewContractExecuteTransaction().
      SetContractID(newContractID).
      SetGas(100000000).

@@ -1,6 +1,6 @@
 # CustomFee
 
-A transfer fee to assess during a CryptoTransfer that transfers units of the token to which the fee is attached. A custom fee may be either fixed or fractional, and must specify a fee collector account to receive the assessed fees. Only positive fees may be assessed.
+A transfer fee to assess during a CryptoTransfer that transfers units of the token to which the fee is attached. A custom fee may be either fixed or fractional, and must specify a fee collector account to receive the assessed fees. Only positive fees may be assessed. A custom fee may be either fixed or fractional, and must specify a fee collector account to receive the assessed fees. Only positive fees may be assessed.
 
 | Field                      | Type                                        | Description                           |
 | -------------------------- | ------------------------------------------- | ------------------------------------- |

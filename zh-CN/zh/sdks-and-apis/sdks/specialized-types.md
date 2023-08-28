@@ -4,8 +4,8 @@
 
 An `AccountId` is composed of a \<shardNum>.\<realmNum>.\<accountNum> (eg. 0.0.10).
 
-* Shard number (`shardNum`**)** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
-* Realm number (`realmNum`) represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* Shard number (`shardNum`**)** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard. It will default to 0 today, as Hedera only performs in one shard.
+* Realm number (`realmNum`) represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported. It will default to 0 today, as realms are not yet supported.
 * Account represents either an account number or an account alias
   * Account number (`accountNum`) represents the account number (`accountId`)
   * Account alias (alias) represented by the public key bytes
@@ -14,7 +14,7 @@ An `AccountId` is composed of a \<shardNum>.\<realmNum>.\<accountNum> (eg. 0.0.1
     * Threshold keys, key list, contract ID, and delegatable\_contract\_id are not supported
     * The alias can only be used in place of an account ID in transfer transactions in its current version
 
-Together these values make up your `AccountId`. When an `AccountId` is specified, be sure all three values are included.
+Together these values make up your `AccountId`. Together these values make up your `AccountId`. When an `AccountId` is specified, be sure all three values are included.
 
 ### Constructor
 
@@ -71,11 +71,11 @@ hedera.AccountIDFromString("0.0.3")
 
 A `FileId` is composed of a \<shardNum>.\<realmNum>.\<fileNum> (eg. 0.0.15).
 
-* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard. It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported. It will default to 0 today, as realms are not yet supported.
 * **fileNum** represents the file number
 
-Together these values make up your accountId. When an `FileId` is requested, be sure all three values are included.
+Together these values make up your accountId. Together these values make up your accountId. When an `FileId` is requested, be sure all three values are included.
 
 ### Constructor
 
@@ -129,11 +129,11 @@ hedera.FileIDFromString("0.0.3")
 
 A `ContractId` is composed of a \<shardNum>.\<realmNum>.\<contractNum> (eg. 0.0.20).
 
-* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard. It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported. It will default to 0 today, as realms are not yet supported.
 * **contractNum** represents the contract number
 
-Together these values make up your `ContractId`. When an `ContractId` is requested, be sure all three values are included. ContractId's are automatically assigned when you create a new smart contract.
+Together these values make up your `ContractId`. When an `ContractId` is requested, be sure all three values are included. Together these values make up your `ContractId`. When an `ContractId` is requested, be sure all three values are included. ContractId's are automatically assigned when you create a new smart contract.
 
 ### Constructor
 
@@ -186,8 +186,8 @@ hedera.ContractIDFromString("0.0.3")
 
 A `topicId` is composed of a \<shardNum>.\<realmNum>.\<topicNum> (eg. 0.0.100).
 
-* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard. It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported. It will default to 0 today, as realms are not yet supported.
 * **topicNum** represents the topic number (`topicId`)
 
 ### Constructor

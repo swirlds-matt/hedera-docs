@@ -1,18 +1,18 @@
 # Modify transaction fields
 
-For every transaction submitted to a Hedera network you can modify the transaction ID, amount of time the transaction has to reach consensus, a memo field to attach a note, the account ID of the node the transaction will be submitted to, and the maximum fee the client is willing to pay for a given transaction. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values.
+For every transaction submitted to a Hedera network you can modify the transaction ID, amount of time the transaction has to reach consensus, a memo field to attach a note, the account ID of the node the transaction will be submitted to, and the maximum fee the client is willing to pay for a given transaction. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values.
 
 {% hint style="info" %}
 Note: The total size for a given transaction is limited to 6KiB
 {% endhint %}
 
-| **Fields**              | **Description**                                                                                                                                          |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Transaction ID**      | <p>Set the ID for this transaction. The transaction ID includes the operator's account ( the account paying the transaction fee). If two transactions have the same transaction ID, they won't both have an effect. One will complete normally and the other will fail with a duplicate transaction status.</p><p><br>Normally, you should not use this method. Just before a transaction is executed, a<br>transaction ID will be generated from the operator on the client.</p>                                                                                                       |
-| **Valid Duration**      | <p>Set the duration that this transaction is valid for</p><p>Note: Max network valid duration is 180 seconds. SDK default value is 120 seconds</p>                                                                                                       |
-| **Memo**                | Set a note or description that should be recorded in the transaction record (maximum length of 100 characters). Anyone can view this memo on the network |
-| **Node ID**             | Set the account ID of the node that this transaction will be submitted to.                                                                               |
-| **Max transaction fee** | <p>Set the max transaction fee for the operator (transaction fee payer account) is willing to pay</p><p>Default: 1 hbar</p>                                                                                                       |
+| **Fields**              | **Description**                                                                                                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Transaction ID**      | <p>Set the ID for this transaction. The transaction ID includes the operator's account ( the account paying the transaction fee). Set the ID for this transaction. The transaction ID includes the operator's account ( the account paying the transaction fee). If two transactions have the same transaction ID, they won't both have an effect. One will complete normally and the other will fail with a duplicate transaction status. One will complete normally and the other will fail with a duplicate transaction status.</p><p><br>Normally, you should not use this method. Normally, you should not use this method. Just before a transaction is executed, a<br>transaction ID will be generated from the operator on the client.</p>                                                                                                                                                |
+| **Valid Duration**      | <p>Set the duration that this transaction is valid for</p><p>Note: Max network valid duration is 180 seconds. SDK default value is 120 seconds SDK default value is 120 seconds</p>                                                                                                                                                |
+| **Memo**                | Set a note or description that should be recorded in the transaction record (maximum length of 100 characters). Anyone can view this memo on the network Anyone can view this memo on the network |
+| **Node ID**             | Set the account ID of the node that this transaction will be submitted to.                                                                                                                        |
+| **Max transaction fee** | <p>Set the max transaction fee for the operator (transaction fee payer account) is willing to pay</p><p>Default: 1 hbar</p>                                                                                                                                                |
 
 {% tabs %}
 {% tab title="V1" %}
@@ -54,6 +54,7 @@ const transaction = new AccountCreateTransaction() //Any transaction can be appl
 
 ## Get transaction properties
 
+{% tabs %}
 {% tabs %}
 {% tab title="V2" %}
 <table spaces-before="0">
@@ -214,6 +215,10 @@ const maxTransactionFee = transaction.getMaxTransactionFee();
 {% code title="Go" %}
 ```java
 //Create the transaction and set the transaction properties
+transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be applied here
+    SetKey(newKey.PublicKey()).
+    SetInitialBalance(hedera.NewHbar(1000)). 
+    SetMaxTransactionFee(hedera.NewHbar(2)). //Create the transaction and set the transaction properties
 transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be applied here
     SetKey(newKey.PublicKey()).
     SetInitialBalance(hedera.NewHbar(1000)). 

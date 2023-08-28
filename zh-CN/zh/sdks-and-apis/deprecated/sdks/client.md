@@ -1,8 +1,8 @@
 # Build your Hedera client
 
-## 1. Configure your Hedera network
+## 1. 1. Configure your Hedera network
 
-Build your client to interact with any of the Hedera network nodes. Mainnet, testnet, and previewnet are the three Hedera networks you can submit transactions and queries to.
+Build your client to interact with any of the Hedera network nodes. Build your client to interact with any of the Hedera network nodes. Mainnet, testnet, and previewnet are the three Hedera networks you can submit transactions and queries to.
 
 {% tabs %}
 {% tab title="V1" %}
@@ -43,9 +43,9 @@ const client = Client.forTestnet();
 {% endtab %}
 {% endtabs %}
 
-## 2. Define the operator account ID and private key
+## 2. 2. Define the operator account ID and private key
 
-The operator is the account that will, by default, pay the transaction fee for transactions and queries built with this client. The operator account ID is used to generate the default transaction ID for all transactions executed with this client. The operator private key is used to sign all transactions executed by this client.
+The operator is the account that will, by default, pay the transaction fee for transactions and queries built with this client. The operator is the account that will, by default, pay the transaction fee for transactions and queries built with this client. The operator account ID is used to generate the default transaction ID for all transactions executed with this client. The operator private key is used to sign all transactions executed by this client. The operator private key is used to sign all transactions executed by this client.
 
 | Method                                                                                     | Type                                                     |
 | ------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
@@ -107,7 +107,7 @@ client.SetOperator(operatorAccountID, operatorKey)
 
 ### From a .env file
 
-The .env file is created in the root directory of the SDK. The .env file stores account ID and the associated private key information to reference throughout your code. You will need to import the relevant dotenv module to your project files. The sample .env file may look something like this:
+The .env file is created in the root directory of the SDK. The .env file is created in the root directory of the SDK. The .env file stores account ID and the associated private key information to reference throughout your code. You will need to import the relevant dotenv module to your project files. The sample .env file may look something like this: You will need to import the relevant dotenv module to your project files. The sample .env file may look something like this:
 
 {% code title=".env" %}
 ```
@@ -165,23 +165,39 @@ client.setOperator(operatorAccount, operatorPrivateKey );
     operatorKey, err := hedera.PrivateKeyFromString(OPERATOR_KEY)
     if err != nil {
         panic(err)
+    } Error:\n%v\n", err))
+    }
+
+    //Get the operator ID and operator key
+    OPERATOR_ID := os.Getenv("OPERATOR_ID")
+    OPERATOR_KEY := os.Getenv("OPERATOR_KEY")
+
+
+    operatorAccountID, err := hedera.AccountIDFromString(OPERATOR_ID)
+    if err != nil {
+        panic(err)
+    }
+
+    operatorKey, err := hedera.PrivateKeyFromString(OPERATOR_KEY)
+    if err != nil {
+        panic(err)
     }
 ```
 {% endtab %}
 {% endtabs %}
 
-## 3. Additional client modifications
+## 3. 3. Additional client modifications
 
 {% hint style="warning" %}
-The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar (1 hbar). This amount can be modified by using `setDefaultMaxTransactionFee()`and `setDefaultMaxQueryPayment().`
+The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar (1 hbar). This amount can be modified by using `setDefaultMaxTransactionFee()`and `setDefaultMaxQueryPayment().` This amount can be modified by using `setDefaultMaxTransactionFee()`and `setDefaultMaxQueryPayment().`
 {% endhint %}
 
 {% tabs %}
 {% tab title="V1" %}
-| Method                                        | Type      | Description                                                               |
-| --------------------------------------------- | --------- | ------------------------------------------------------------------------- |
-| `setMaxTransactionFee(<fee>)`           | Hbar/long | The maximum transaction fee the client is willing to pay. Default: 1 hbar |
-| `setMaxQueryPayment(<maxQueryPayment>)` | Hbar/long | <p>The maximum query payment the client will pay.</p><p>Default: 1 hbar</p>                        |
+| Method                                        | Type      | Description                                                                               |
+| --------------------------------------------- | --------- | ----------------------------------------------------------------------------------------- |
+| `setMaxTransactionFee(<fee>)`           | Hbar/long | The maximum transaction fee the client is willing to pay. Default: 1 hbar Default: 1 hbar |
+| `setMaxQueryPayment(<maxQueryPayment>)` | Hbar/long | <p>The maximum query payment the client will pay.</p><p>Default: 1 hbar</p>                                        |
 
 {% code title="Java" %}
 ```java

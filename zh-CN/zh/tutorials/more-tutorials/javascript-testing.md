@@ -4,7 +4,7 @@ description: How to test Javascript, using Javascript
 
 # JavaScript Testing
 
-Developing [DApps](../../support-and-community/glossary.md#decentralized-application-dapp) typically involves using quite a lot of JavaScript. This can happen in several different areas:
+Developing [DApps](../../support-and-community/glossary.md#decentralized-application-dapp) typically involves using quite a lot of JavaScript. This can happen in several different areas: This can happen in several different areas:
 
 * The DApp [client](../../support-and-community/glossary.md#client) itself, when the DApp is browser-based
 * The backend APIs, when the DApp uses some web2 server components
@@ -12,7 +12,7 @@ Developing [DApps](../../support-and-community/glossary.md#decentralized-applica
 * Test code for DApp client
 * Test code for backend APIs
 
-Looking at the latter three, suffice it to say that learning testing with JavaScript is a fundamental skill for DApp developers. Unfortunately, it is one that is often overlooked. This tutorial aims to fill that gap. If you're planning to create a DApp on Hedera, but wish to brush up on the basics of testing first, start here!
+Looking at the latter three, suffice it to say that learning testing with JavaScript is a fundamental skill for DApp developers. Unfortunately, it is one that is often overlooked. This tutorial aims to fill that gap. If you're planning to create a DApp on Hedera, but wish to brush up on the basics of testing first, start here! Unfortunately, it is one that is often overlooked. This tutorial aims to fill that gap. If you're planning to create a DApp on Hedera, but wish to brush up on the basics of testing first, start here!
 
 ### What we will cover
 
@@ -22,7 +22,7 @@ A test runner is a developer tool that helps you to:
 * Execute your tests against a target application (known as the _system under test_).
 * Report the results of the tests.
 
-One of the most popular JavaScript test runners is [Mocha](https://mochajs.org/); and this is what you will be using in this tutorial. We picked this because both [Hardhat](https://hardhat.org/) and [Truffle](https://trufflesuite.com/), two of the most popular smart contract development frameworks, use Mocha under the hood in their built-in smart contract testing features. This means that the syntax you learn here will be familiar and useful when building smart contracts for the Hedera Smart Contract Service (HSCS).
+One of the most popular JavaScript test runners is [Mocha](https://mochajs.org/); and this is what you will be using in this tutorial. We picked this because both [Hardhat](https://hardhat.org/) and [Truffle](https://trufflesuite.com/), two of the most popular smart contract development frameworks, use Mocha under the hood in their built-in smart contract testing features. This means that the syntax you learn here will be familiar and useful when building smart contracts for the Hedera Smart Contract Service (HSCS). We picked this because both [Hardhat](https://hardhat.org/) and [Truffle](https://trufflesuite.com/), two of the most popular smart contract development frameworks, use Mocha under the hood in their built-in smart contract testing features. This means that the syntax you learn here will be familiar and useful when building smart contracts for the Hedera Smart Contract Service (HSCS).
 
 In this tutorial, let's start with a very simple application and modify its implementation to cover four different scenarios you'll encounter during development.
 
@@ -67,7 +67,7 @@ System
 
 ### Step 1: Set up the project
 
-This has already been (mostly) done. All that's left for you to do is clone the [accompanying tutorial GitHub repository](https://github.com/hedera-dev/js-testing) and install the dependencies:
+This has already been (mostly) done. This has already been (mostly) done. All that's left for you to do is clone the [accompanying tutorial GitHub repository](https://github.com/hedera-dev/js-testing) and install the dependencies:
 
 ```sh
 git clone git@github.com:hedera-dev/js-testing.git
@@ -101,7 +101,7 @@ Open this repository in your code editor, and you'll find the following files:
 
 ### Step 2: Implement the system under test
 
-In the `add` function within `my-app.js,` you should see a comment marking _Step 2_. It looks like this:
+In the `add` function within `my-app.js,` you should see a comment marking _Step 2_. It looks like this: It looks like this:
 
 ```javascript
     // TODO: Implement the system under test
@@ -109,7 +109,7 @@ In the `add` function within `my-app.js,` you should see a comment marking _Step
 
 ```
 
-This is where you'll add the code for this step. The implementation for addition is self-explanatory.
+This is where you'll add the code for this step. The implementation for addition is self-explanatory. The implementation for addition is self-explanatory.
 
 ```javascript
 return x + y;
@@ -121,10 +121,11 @@ It should now look like this:
     // TODO: Implement the system under test
     // Follow step (2) in tutorial to complete the following section.
     return x + y;
+    return x + y;
 ```
 
 {% hint style="info" %}
-**Note**: In the subsequent steps of this tutorial, you will follow the same pattern as above. However, you will not copy the comments marking the steps for the remainder of the tutorial and instead only include the new/changed lines of code.
+**Note**: In the subsequent steps of this tutorial, you will follow the same pattern as above. However, you will not copy the comments marking the steps for the remainder of the tutorial and instead only include the new/changed lines of code. However, you will not copy the comments marking the steps for the remainder of the tutorial and instead only include the new/changed lines of code.
 {% endhint %}
 
 Now you have completed your system under test!
@@ -181,7 +182,7 @@ In `my-app.js`, comment out the existing code from _Step 2_, and add this new im
 return x + y + 1;
 ```
 
-In `my-app.spec.js`, comment out the assertion from _Step 3_ (keep the other 2 lines of code), and add this new line of code for _Step 4_. (Note that this happens to be the same as before.)
+In `my-app.spec.js`, comment out the assertion from _Step 3_ (keep the other 2 lines of code), and add this new line of code for _Step 4_. (Note that this happens to be the same as before.) (Note that this happens to be the same as before.)
 
 ```javascript
 assert.equal(actual, expected);
@@ -222,14 +223,14 @@ You should now see some output that looks similar to the following:&#x20;
 This shows that the `actual` value was `4`, while the `expected` value was `3`. While this is an error, it is actually a good thing - the main point of writing tests is to catch errors in your application, and that is precisely what has happened here. Even though this is a contrived example, as the error in the implementation is so obvious, it nevertheless illustrates the developer workflow involved: Finding bugs in the implementation of an application by specifying how it should behave, and using a test runner to detect where there are problems.
 
 {% hint style="info" %}
-Interestingly, the tests for associativity and commutativity do not fail, even with this bug in the implementation. This illustrates that not all tests are able to catch bugs, and why several different tests are necessary. This can be the case even for simple/ "obvious" bugs.
+Interestingly, the tests for associativity and commutativity do not fail, even with this bug in the implementation. This illustrates that not all tests are able to catch bugs, and why several different tests are necessary. This can be the case even for simple/ "obvious" bugs. This illustrates that not all tests are able to catch bugs, and why several different tests are necessary. This can be the case even for simple/ "obvious" bugs.
 {% endhint %}
 
 As a developer, at this point, you would typically _fix_ the error in the _implementation_, and then _re-run the tests_ to ensure that they pass once again. You will do so eventually, towards the end of this tutorial. However, for now, you'll move on to another scenario.
 
 ### Step 5: Switch to a false negative scenario
 
-In the **false negative scenario**,  the implementation is correct, and the specification is wrong. This is not as common of a scenario that you'll encounter during development as the false positive, but it is nonetheless important to be able to recognize it when it does occur and rectify it accordingly.
+In the **true negative scenario**, the implementation is wrong, and the specification is correct. This is probably the most common test failure scenario you'll encounter during development. This is not as common of a scenario that you'll encounter during development as the false positive, but it is nonetheless important to be able to recognize it when it does occur and rectify it accordingly.
 
 In `my-app.js`, comment out the existing code from _Step 4_, and add this new implementation for _Step 5_.
 
@@ -275,9 +276,9 @@ You should now see some output that looks similar to the following:
       +4
 ```
 
-This time, the error shows that the `actual` value was `3`, while the `expected` value was `4`. This is the _opposite_ of previous test error - the `actual` and `expected` values have swapped positions. The somewhat tricky thing here is to not "default" to assuming that the error must be in the implementation, and therefore only look into finding a bug in the implementation. The correct thing to do, whenever the test runner reports a test failure is to _analyse both_ the implementation and specification, and _identify which one_ of them contains an error.
+This time, the error shows that the `actual` value was `3`, while the `expected` value was `4`. This time, the error shows that the `actual` value was `3`, while the `expected` value was `4`. This is the _opposite_ of previous test error - the `actual` and `expected` values have swapped positions. The somewhat tricky thing here is to not "default" to assuming that the error must be in the implementation, and therefore only look into finding a bug in the implementation. The correct thing to do, whenever the test runner reports a test failure is to _analyse both_ the implementation and specification, and _identify which one_ of them contains an error. The somewhat tricky thing here is to not "default" to assuming that the error must be in the implementation, and therefore only look into finding a bug in the implementation. The correct thing to do, whenever the test runner reports a test failure is to _analyse both_ the implementation and specification, and _identify which one_ of them contains an error.
 
-As a developer, at this point, you would typically _fix_ the error in the _specification_, and then _re-run the tests_ to see if they pass once again. Instead, let's move on to another scenario.
+As a developer, at this point, you would typically _fix_ the error in the _specification_, and then _re-run the tests_ to see if they pass once again. Instead, let's move on to another scenario. Instead, let's move on to another scenario.
 
 ### Step 6: Switch to a false positive scenario
 
@@ -316,19 +317,19 @@ You should now see some output that looks similar to the following:
   3 passing (2ms)
 ```
 
-Somewhat surprising is it not? Even though both the implementation and specification were wrong, all the tests pass. In fact, the output from the test runner looks _identical_ to when both the implementation and specification were correct. This occurs because the implementation code and the specification code coincidentally happen to make the same error, and they "cancel" each other out.
+Somewhat surprising is it not? Even though both the implementation and specification were wrong, all the tests pass. Somewhat surprising is it not? Even though both the implementation and specification were wrong, all the tests pass. In fact, the output from the test runner looks _identical_ to when both the implementation and specification were correct. This occurs because the implementation code and the specification code coincidentally happen to make the same error, and they "cancel" each other out. This occurs because the implementation code and the specification code coincidentally happen to make the same error, and they "cancel" each other out.
 
-While in this case it may be obvious, that is only because of the simplicity of this tutorial. Spotting false positive scenarios in a complex application is _much harder_. More than just tricky, this scenario is insidious due to its ability to have bugs and yet pass the tests meant to catch them. In fact, there is no way for a developer to identify a false positive scenario from the test results alone.
+While in this case it may be obvious, that is only because of the simplicity of this tutorial. While in this case it may be obvious, that is only because of the simplicity of this tutorial. Spotting false positive scenarios in a complex application is _much harder_. More than just tricky, this scenario is insidious due to its ability to have bugs and yet pass the tests meant to catch them. In fact, there is no way for a developer to identify a false positive scenario from the test results alone. More than just tricky, this scenario is insidious due to its ability to have bugs and yet pass the tests meant to catch them. In fact, there is no way for a developer to identify a false positive scenario from the test results alone.
 
 {% hint style="info" %}
-False positive scenarios are typically spotted through manual reviews of the both the implementation and specification code, or other code quality processes such as static/ dynamic analyses and code code coverage. These are beyond the scope of this tutorial.
+False positive scenarios are typically spotted through manual reviews of the both the implementation and specification code, or other code quality processes such as static/ dynamic analyses and code code coverage. These are beyond the scope of this tutorial. These are beyond the scope of this tutorial.
 {% endhint %}
 
 Now let's finally fix the code, and go back to the true positive scenario, where you started off.&#x20;
 
 ### Step 7: Switch back to a true positive scenario
 
-In the **true positive scenario**,  the implementation is correct, and the specification is correct as well. This is the **ideal** scenario among the 4 possible ones that you've covered thus far. Whenever there are errors identified in either the implementation or specification, the goal is to fix them such that you _return_ to this true positive scenario.
+In the **true positive scenario**,  the implementation is correct, and the specification is correct as well. This is the **ideal** scenario among the 4 possible ones that you've covered thus far. Whenever there are errors identified in either the implementation or specification, the goal is to fix them such that you _return_ to this true positive scenario. This is the **ideal** scenario among the 4 possible ones that you've covered thus far. Whenever there are errors identified in either the implementation or specification, the goal is to fix them such that you _return_ to this true positive scenario.
 
 In `my-app.js`, comment out the existing code from _Step 6_, and add this new implementation for _Step 7_.
 
@@ -367,15 +368,15 @@ Back to all tests passing (for the right reasons)!
 
 ### Step 8: Bonus - Add generative testing
 
-Thus far, all the tests that you have written (in `my-app.spec.js`) are example based tests. Essentially your tests consist of one or more interactions with the system under test actual value, an expected value, and an assertion that the actual value matches the expected value. In this step, we'll add a _different type of tests_ to this project: Generative testing.
+Thus far, all the tests that you have written (in `my-app.spec.js`) are example based tests. Essentially your tests consist of one or more interactions with the system under test actual value, an expected value, and an assertion that the actual value matches the expected value. In this step, we'll add a _different type of tests_ to this project: Generative testing. Essentially your tests consist of one or more interactions with the system under test actual value, an expected value, and an assertion that the actual value matches the expected value. In this step, we'll add a _different type of tests_ to this project: Generative testing.
 
 {% hint style="info" %}
-Generative testing may be thought of as an abstract form of example based testing, where you write the tests in such a way that they do not require you to specify any input values for the examples that you write tests for. Instead you let the test runner generate value at random as the input value used in your tests. In other words, the tested examples are generated by the test runner, instead of being manually specified.
+Generative testing may be thought of as an abstract form of example based testing, where you write the tests in such a way that they do not require you to specify any input values for the examples that you write tests for. Instead you let the test runner generate value at random as the input value used in your tests. In other words, the tested examples are generated by the test runner, instead of being manually specified. Instead you let the test runner generate value at random as the input value used in your tests. In other words, the tested examples are generated by the test runner, instead of being manually specified.
 {% endhint %}
 
-The demo repo for this tutorial has already been wired up with a dependency named [`testcheck.js`](https://github.com/leebyron/testcheck-js). This provides a plugin that augments Mocha with a new `check.it()` function that behaves in a very similar manner to `it()` in Mocha. The key difference being that it contains some _generator functions_ that produce _random values_ of a specified type. You will be using `gen.int` to produce random Integer values to use as inputs for the parameters of the `add()` function the application.
+The demo repo for this tutorial has already been wired up with a dependency named [`testcheck.js`](https://github.com/leebyron/testcheck-js). This provides a plugin that augments Mocha with a new `check.it()` function that behaves in a very similar manner to `it()` in Mocha. The key difference being that it contains some _generator functions_ that produce _random values_ of a specified type. You will be using `gen.int` to produce random Integer values to use as inputs for the parameters of the `add()` function the application. This provides a plugin that augments Mocha with a new `check.it()` function that behaves in a very similar manner to `it()` in Mocha. The key difference being that it contains some _generator functions_ that produce _random values_ of a specified type. You will be using `gen.int` to produce random Integer values to use as inputs for the parameters of the `add()` function the application.
 
-Checkout the `my-app.genspec.js` file, where this has already been set up for you. The  'commutative' and 'associative' tests have been copied over from `my-app.spec.js`, and modified to use `check.it()` plus `gen.int`. Compare the method signatures of the callback functions, and the difference between example based testing and generative testing should be clear.
+Checkout the `my-app.genspec.js` file, where this has already been set up for you. Checkout the `my-app.genspec.js` file, where this has already been set up for you. The  'commutative' and 'associative' tests have been copied over from `my-app.spec.js`, and modified to use `check.it()` plus `gen.int`. Compare the method signatures of the callback functions, and the difference between example based testing and generative testing should be clear. Compare the method signatures of the callback functions, and the difference between example based testing and generative testing should be clear.
 
 In `my-app.genspec.js`, replace these two lines of code for [_Step 8_](javascript-testing.md#step-8-bonus-add-generative-testing), in the 'is associative' test.
 
@@ -394,9 +395,9 @@ const rhsOfEquation = add(b, a);
 Note that in both tests, the assertions do not need to be modified, you can keep them as is.
 
 {% hint style="info" %}
-Compare this to the similar example based tests for associativity and commutativity within `my-app.spec.js`. These will use the same literal/ hard-coded values every time you run the tests, unlike the generative tests within `my-app.genspec.js`.
+Compare this to the similar example based tests for associativity and commutativity within `my-app.spec.js`. These will use the same literal/ hard-coded values every time you run the tests, unlike the generative tests within `my-app.genspec.js`. These will use the same literal/ hard-coded values every time you run the tests, unlike the generative tests within `my-app.genspec.js`.
 
-Note that the values of `a`, `b`, and `c` above are the randomly generated integers. This means that every time you run the generative tests, you will be testing the `add()` function using a new set of input values.
+Note that the values of `a`, `b`, and `c` above are the randomly generated integers. Note that the values of `a`, `b`, and `c` above are the randomly generated integers. This means that every time you run the generative tests, you will be testing the `add()` function using a new set of input values.
 {% endhint %}
 
 Now let's run the new generative tests.
@@ -419,12 +420,12 @@ bas
   2 passing (17ms)
 ```
 
-These generative tests are passing as well and form an additional layer of verification of the system under test. You can now be extra sure that the implementation is indeed correct.
+These generative tests are passing as well and form an additional layer of verification of the system under test. You can now be extra sure that the implementation is indeed correct. You can now be extra sure that the implementation is indeed correct.
 
 ### Congrats!
 
-You've completed this tutorial! :tada: :tada: :tada:
+You've completed this tutorial! :tada: :tada: :tada: :tada: :tada: :tada:
 
-Now that you have covered the basics of testing, you're ready to test more complex applications. If you have smart contracts that you intend to deploy to Hedera Smart Contract Service (HSCS), it is best practice to test them before deployment. If you use Hardhat or Truffle, you will already be familiar with much of the syntax for the specification code.&#x20;
+Now that you have covered the basics of testing, you're ready to test more complex applications. Now that you have covered the basics of testing, you're ready to test more complex applications. If you have smart contracts that you intend to deploy to Hedera Smart Contract Service (HSCS), it is best practice to test them before deployment. If you use Hardhat or Truffle, you will already be familiar with much of the syntax for the specification code.&#x20; If you use Hardhat or Truffle, you will already be familiar with much of the syntax for the specification code.&#x20;
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><p>Writer: Brendan, DevRel Engineer</p><p><a href="https://github.com/bguiz">GitHub</a> | <a href="https://blog.bguiz.com">Blog</a></p></td><td><a href="https://blog.bguiz.com/">https://blog.bguiz.com/</a></td></tr><tr><td align="center"><p>Editor: Abi Castro, DevRel Engineer</p><p><a href="https://github.com/a-ridley">GitHub</a> | <a href="https://twitter.com/ridley___">Twitter</a></p></td><td><a href="https://twitter.com/ridley___">https://twitter.com/ridley___</a></td></tr></tbody></table>

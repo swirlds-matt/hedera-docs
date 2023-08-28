@@ -1,6 +1,6 @@
 # How to Auto-Create Hedera Accounts with HBAR and Token Transfers
 
-[HIP-32](https://hips.hedera.com/hip/hip-32) introduced the ability to auto-create accounts when sending HBAR to an [alias](https://docs.hedera.com/hedera/sdks-and-apis/sdks/cryptocurrency/create-an-account#create-an-account-via-an-account-alias) that does not exist on the network. When HBAR is sent to an alias that does not exist on the network, the account creation fee is deducted from the HBAR sent and the account is auto-created. The new account's initial balance is (sent HBAR - account creation fee). This new method of account creation allowed wallet providers to create free "accounts" to users. However, if a user sends fungible tokens or NFT's to an alias, it would result in an _INVALID\_ACCOUNT\_ID_ error because the alias does not exist on the network. The auto-account creation flow could not deduct the account creation fee from an HTS token; the account creation fee must be paid in HBAR.
+[HIP-32](https://hips.hedera.com/hip/hip-32) introduced the ability to auto-create accounts when sending HBAR to an [alias](https://docs.hedera.com/hedera/sdks-and-apis/sdks/cryptocurrency/create-an-account#create-an-account-via-an-account-alias) that does not exist on the network. When HBAR is sent to an alias that does not exist on the network, the account creation fee is deducted from the HBAR sent and the account is auto-created. The new account's initial balance is (sent HBAR - account creation fee). This new method of account creation allowed wallet providers to create free "accounts" to users. However, if a user sends fungible tokens or NFT's to an alias, it would result in an _INVALID\_ACCOUNT\_ID_ error because the alias does not exist on the network. The auto-account creation flow could not deduct the account creation fee from an HTS token; the account creation fee must be paid in HBAR. Furthermore, this change also applies to sending HBAR to an alias. Instead of deducting the creation fee from the sent HBAR, it will be deducted from the payer of the transfer transaction. The new account balance will receive the sent HBAR amount in full. Learn more [here](https://hedera.com/blog/auto-create-a-hedera-account-with-hbar-and-token-transfers). The new account's initial balance is (sent HBAR - account creation fee). This new method of account creation allowed wallet providers to create free "accounts" to users. However, if a user sends fungible tokens or NFT's to an alias, it would result in an _INVALID\_ACCOUNT\_ID_ error because the alias does not exist on the network. The auto-account creation flow could not deduct the account creation fee from an HTS token; the account creation fee must be paid in HBAR.
 
 [HIP-542](https://hips.hedera.com/hip/hip-542) provides a solution to allow sending HTS tokens to an alias that does not exist on the network. This is achieved by charging the account creation fee to the transfer transaction payer. In addition, there will be one auto-association slot included in the transaction for the new account to associate with the HTS token. You won't have to first create the account, complete a token association, and then finally do a token transfer.
 
@@ -12,7 +12,7 @@ The figure below highlights the transaction flow before HIP-542 and after.
 
 ![](https://images.hedera.com/hip-542-updated.png?w=1298&auto=compress%2Cformat&fit=crop&dm=1680225836&s=6739c20c796b4bde9b716fdb9042b1a3)<figcaption></figcaption></figure>
 
-In this tutorial, a treasury account will be created to transfer HTS tokens to Bob's ECDSA public key alias, involving a transfer of 10 FT and 1 NFT. The tutorial will also cover creating fungible tokens and an NFT collection (1000 FT / 5 NFT), creating Bob's ECDSA public key alias, and returning Bob's new account ID while confirming their ownership of the transferred tokens and NFT.
+In this tutorial, a treasury account will be created to transfer HTS tokens to Bob's ECDSA public key alias, involving a transfer of 10 FT and 1 NFT. The tutorial will also cover creating fungible tokens and an NFT collection (1000 FT / 5 NFT), creating Bob's ECDSA public key alias, and returning Bob's new account ID while confirming their ownership of the transferred tokens and NFT. The tutorial will also cover creating fungible tokens and an NFT collection (1000 FT / 5 NFT), creating Bob's ECDSA public key alias, and returning Bob's new account ID while confirming their ownership of the transferred tokens and NFT.
 
 <table data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><strong>1.</strong>  <a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#prerequisites"><strong>PREREQUISITES</strong></a></td><td><a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#prerequisites">#prerequisites</a></td></tr><tr><td align="center"><strong>2.</strong> <a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#create-treasury-account"><strong>CREATE TREASURY</strong></a></td><td><a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#create-treasury-account">#create-treasury-account</a></td></tr><tr><td align="center"><strong>3.</strong> <a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#create-fts-and-create-an-nft-collection"><strong>CREATE TOKENS</strong></a></td><td><a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#create-fts-and-create-an-nft-collection">#create-fts-and-create-an-nft-collection</a></td></tr><tr><td align="center"><strong>4.</strong> <a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#create-bobs-ecdsa-public-key-alias"><strong>CREATE ECDSA</strong></a></td><td><a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#create-bobs-ecdsa-public-key-alias">#create-bobs-ecdsa-public-key-alias</a></td></tr><tr><td align="center"><strong>5.</strong> <a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#return-new-account-id"><strong>RETURN ACCOUNT ID</strong></a></td><td><a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#return-new-account-id">#return-new-account-id</a></td></tr><tr><td align="center"><strong>6.</strong> <a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#get-the-example-code-on-github"><strong>PROJECT REPO</strong></a></td><td><a href="how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers.md#get-the-example-code-on-github">#get-the-example-code-on-github</a></td></tr></tbody></table>
 
@@ -32,7 +32,7 @@ In this tutorial, a treasury account will be created to transfer HTS tokens to B
 
 ## Create Treasury Account
 
-We create the treasury account which will be the holder of the fungible and non-fungible tokens. The treasury account will be created with an initial balance of 100 HBAR.
+We create the treasury account which will be the holder of the fungible and non-fungible tokens. We create the treasury account which will be the holder of the fungible and non-fungible tokens. The treasury account will be created with an initial balance of 100 HBAR.
 
 ```javascript
 const [treasuryAccId, treasuryAccPvKey] = await createAccount(client, 100);
@@ -40,7 +40,7 @@ const [treasuryAccId, treasuryAccPvKey] = await createAccount(client, 100);
 
 #### Set Up Helper Functions
 
-We will create the functions necessary to create a new account, create fungible tokens, and create a new NFT collection. Use the tabs to see the helper functions.
+We will create the functions necessary to create a new account, create fungible tokens, and create a new NFT collection. Use the tabs to see the helper functions. Use the tabs to see the helper functions.
 
 {% tabs %}
 {% tab title="Create Account With Initial Balance" %}
@@ -107,7 +107,7 @@ export const createFungibleToken = async (
 
 {% tab title="Create Simple Non-Fungible Token" %}
 ```javascript
-export const createNonFungibleToken = async (
+export const createFungibleToken = async (
  client: Client,
  treasureyAccId: string | AccountId,
  supplyKey: PrivateKey,
@@ -115,22 +115,38 @@ export const createNonFungibleToken = async (
  initialSupply: number,
  tokenName: string,
  tokenSymbol: string,
-): Promise<[TokenId | null, string]> => {
+): Promise<TokenId> => {
  /*
    * Create a transaction with token type fungible
-   * Returns Fungible Token Id and Token Id in solidity format
+   * Returns Fungible Token Id
  */
  const createTokenTxn = await new TokenCreateTransaction()
    .setTokenName(tokenName)
    .setTokenSymbol(tokenSymbol)
-   .setTokenType(TokenType.NonFungibleUnique)
-   .setDecimals(0)
+   .setTokenType(TokenType.FungibleCommon)
    .setInitialSupply(initialSupply)
    .setTreasuryAccountId(treasureyAccId)
    .setSupplyKey(supplyKey)
-   .setAdminKey(treasuryAccPvKey)
    .setMaxTransactionFee(new Hbar(30))
    .freezeWith(client); //freeze tx from from any further mods.
+
+ const createTokenTxnSigned = await createTokenTxn.sign(treasuryAccPvKey);
+ // submit txn to heder network
+ const txnResponse = await createTokenTxnSigned.execute(client);
+ // request receipt of txn
+ const txnRx = await txnResponse.getReceipt(client);
+ const txnStatus = txnRx.status.toString();
+ const tokenId = txnRx.tokenId;
+ if (tokenId === null) {
+   throw new Error("Somehow tokenId is null");
+ }
+
+ console.log(
+   `Token Type Creation was a ${txnStatus} and was created with token id: ${tokenId}`
+ );
+
+ return tokenId;
+};
 
  const createTokenTxnSigned = await createTokenTxn.sign(treasuryAccPvKey);
  // submit txn to hedera network
@@ -205,7 +221,7 @@ export const createNewNftCollection = async (
 
 ## Create FTs and Create an NFT Collection
 
-Leverage the _**createFungibleToken**_ helper function defined above to create 10000 "Hip-542 example" fungible tokens. Use the code tab switch on the upper left of the code block to see how we use _**createNewNftCollection**_ to create our new NFT collection consisting of 5 NFTs.
+Leverage the _**createFungibleToken**_ helper function defined above to create 10000 "Hip-542 example" fungible tokens. Leverage the _**createFungibleToken**_ helper function defined above to create 10000 "Hip-542 example" fungible tokens. Use the code tab switch on the upper left of the code block to see how we use _**createNewNftCollection**_ to create our new NFT collection consisting of 5 NFTs.
 
 {% tabs %}
 {% tab title="CreateFungibleToken" %}
@@ -236,11 +252,16 @@ const tokenId = await createFungibleToken(client, treasuryAccId, supplyKey, trea
 
 ## Create Bob's ECDSA Public Key Alias
 
-An alias is an initial public key that will convert into a Hedera account through auto-account creation. An alias consists of \<shard>.\<realm>.\<bytes>.
+An alias is an initial public key that will convert into a Hedera account through auto-account creation. An alias consists of \<shard>.\<realm>.\<bytes>. An alias consists of \<shard>.\<realm>.\<bytes>.
 
 To learn more about accounts created via an account alias go [here](../../sdks-and-apis/sdks/cryptocurrency/create-an-account.md).
 
 ```javascript
+ const privateKey = PrivateKey.generateECDSA();
+ const publicKey = privateKey.publicKey;
+
+ // Assuming that the target shard and realm are known.
+ // For now they are virtually always 0 and 0.
  const privateKey = PrivateKey.generateECDSA();
  const publicKey = privateKey.publicKey;
 
@@ -259,7 +280,7 @@ To learn more about accounts created via an account alias go [here](../../sdks-a
 
 #### Set up helper functions for transferring HTS tokens
 
-Once we have our treasury account with FT and a new NFT collection created, our next step is to transfer them to Bob using their alias. We'll create the _**sendToken**_ helper function to send fungible tokens and create _**transferNft**_ to send a single NFT.&#x20;
+Once we have our treasury account with FT and a new NFT collection created, our next step is to transfer them to Bob using their alias. We'll create the _**sendToken**_ helper function to send fungible tokens and create _**transferNft**_ to send a single NFT.&#x20; We'll create the _**sendToken**_ helper function to send fungible tokens and create _**transferNft**_ to send a single NFT.&#x20;
 
 A quick reminder to use the tab on the left of the code block to switch between the two helper functions.
 
@@ -380,6 +401,24 @@ Complete an AccountBalanceQuery to show that Bob's new account owns the 10 fungi
    );
 
  client.close();
+ }
+
+ const tokenBalanceAccountId = accountBalances.tokens._map
+   .get(tokenId.toString());
+
+ if (!tokenBalanceAccountId) {
+   throw new Error(`account balance does not have tokens for token id: ${tokenId}.`);
+ }
+
+ tokenBalanceAccountId.toInt() === 10
+   ? console.log(
+     `Account is created successfully using HTS 'TransferTransaction'`
+   )
+   : console.log(
+     "Creating account with HTS using public key alias failed"
+   );
+
+ client.close();
 ```
 
 <figure>
@@ -400,6 +439,10 @@ export const getNftOwnerByNftId = async (client: Client, nftTokenId: TokenId, ex
  const nftOwnerAccountId = nftInfo[0].accountId.toString();
  console.log(`- Current owner account id: ${nftOwnerAccountId} for NFT with serial number: ${exampleNftId}`);
   return nftOwnerAccountId;
+} }
+ const nftOwnerAccountId = nftInfo[0].accountId.toString();
+ console.log(`- Current owner account id: ${nftOwnerAccountId} for NFT with serial number: ${exampleNftId}`);
+  return nftOwnerAccountId;
 }
 ```
 
@@ -410,6 +453,11 @@ Then call _**getNftOwnerByNft**_ and do a simple check to ensure the account id 
 
  nftOwnerAccountId === accountId
    ? console.log(
+     `The NFT owner accountId matches the accountId created with the HTS\n`
+   )
+   : console.log(`The two account IDs does not match\n`);
+
+ client.close(); console.log(
      `The NFT owner accountId matches the accountId created with the HTS\n`
    )
    : console.log(`The two account IDs does not match\n`);
@@ -427,9 +475,11 @@ Then call _**getNftOwnerByNft**_ and do a simple check to ensure the account id 
 
 ![](https://images.hedera.com/account-create-with-hts-tokens-output.png?w=1104&auto=compress%2Cformat&fit=crop&dm=1680222036&s=531aa614802acac1166d1849cb0158fe)<figcaption></figcaption></figure>
 
-And that's a wrap! 🎬 You've completed sending HTS tokens to an alias and triggering an auto-account creation! As well as learned that the account creation fee is paid by the payer of the transfer transaction.&#x20;
+And that's a wrap! And that's a wrap! 🎬 You've completed sending HTS tokens to an alias and triggering an auto-account creation! As well as learned that the account creation fee is paid by the payer of the transfer transaction.&#x20; As well as learned that the account creation fee is paid by the payer of the transfer transaction.&#x20;
 
 Join and collaborate with Hedera Developers on the [Hedera Discord Server](https://hedera.com/discord)! \
+\
+Happy Building! 🛠️ \
 \
 Happy Building! 🛠️
 

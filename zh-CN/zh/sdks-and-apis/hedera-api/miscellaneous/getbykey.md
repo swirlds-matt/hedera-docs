@@ -13,12 +13,12 @@ the ID for a single entity (account, claim, file, or smart contract instance)
 
 ## GetByKeyQuery
 
-Get all accounts, claims, files, and smart contract instances whose associated keys include the given Key. The given Key must not be a contractID or a ThresholdKey. This is not yet implemented in the API, but will be in the future.
+Get all accounts, claims, files, and smart contract instances whose associated keys include the given Key. The given Key must not be a contractID or a ThresholdKey. This is not yet implemented in the API, but will be in the future. The given Key must not be a contractID or a ThresholdKey. This is not yet implemented in the API, but will be in the future.
 
 | Field    | Type                          | Description                                                                                                                                         |
 | -------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `header` | [QueryHeader](queryheader.md) | Standard info sent from client to node, including the signed payment, and what kind of response is requested (cost, state proof, both, or neither). |
-| `key`    | [Key](../basic-types/key.md)  | The key to search for. It must not contain a contractID nor a ThresholdSignature.                                                                   |
+| `key`    | [Key](../basic-types/key.md)  | The key to search for. The key to search for. It must not contain a contractID nor a ThresholdSignature.                                            |
 
 ## GetByKeyResponse
 

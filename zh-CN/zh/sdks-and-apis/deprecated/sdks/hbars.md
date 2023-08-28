@@ -51,10 +51,10 @@ Convert hbars to a different unit/format.
 
 {% tabs %}
 {% tab title="V1" %}
-| **Method**         | **Type** | **Description**                                          |
-| ------------------ | -------- | -------------------------------------------------------- |
-| `as(<unit>)` | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. |
-| `toString()`       | Long     | Hbar value converted to tinybars                         |
+| **Method**         | **Type** | **Description**                                                           |
+| ------------------ | -------- | ------------------------------------------------------------------------- |
+| `as(<unit>)` | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. Use `As` for Go. |
+| `toString()`       | Long     | Hbar value converted to tinybars                                          |
 
 {% code title="Java" %}
 ```java

@@ -1,6 +1,6 @@
 # Dissociate tokens from an account
 
-Disassociates the provided Hedera account from the provided Hedera tokens. This transaction must be signed by the provided account's key. Once the association is removed, no token related operation can be performed to that account. AccountBalanceQuery and AccountInfoQuery will not return anything related to the token that was disassociated.
+Disassociates the provided Hedera account from the provided Hedera tokens. This transaction must be signed by the provided account's key. Once the association is removed, no token related operation can be performed to that account. Disassociates the provided Hedera account from the provided Hedera tokens. This transaction must be signed by the provided account's key. Once the association is removed, no token related operation can be performed to that account. AccountBalanceQuery and AccountInfoQuery will not return anything related to the token that was disassociated.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
@@ -10,7 +10,7 @@ Disassociates the provided Hedera account from the provided Hedera tokens. This 
 * On success, associations between the provided account and tokens are removed.
 
 {% hint style="info" %}
-The account is required to have a zero balance of the token you wish to disassociate. If a token balance is present, you will receive a TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES error.
+The account is required to have a zero balance of the token you wish to disassociate. The account is required to have a zero balance of the token you wish to disassociate. If a token balance is present, you will receive a TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES error.
 {% endhint %}
 
 **Transaction Signing Requirements**
@@ -81,6 +81,10 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 {% tab title="Go" %}
 ```go
 //Dissociate the token from an account and freeze the unsigned transaction for signing
+transaction, err := hedera.NewTokenDissociateTransaction().
+        SetAccountID(accountId).
+        SetTokenIDs(tokenId).
+        //Dissociate the token from an account and freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenDissociateTransaction().
         SetAccountID(accountId).
         SetTokenIDs(tokenId).

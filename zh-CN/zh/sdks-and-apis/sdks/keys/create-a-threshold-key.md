@@ -1,6 +1,6 @@
 # Create a threshold key
 
-Create a key structure that requires the defined threshold value to sign. A threshold key can contain a [Ed25519](generate-a-new-key-pair.md#ed25519) or [ECDSA](generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1\_)\_ key type. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
+Create a key structure that requires the defined threshold value to sign. Create a key structure that requires the defined threshold value to sign. A threshold key can contain a [Ed25519](generate-a-new-key-pair.md#ed25519) or [ECDSA](generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1\_)\_ key type. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
 
 | **Method**                                      | **Type** | **Description**                                                                                    |
 | ----------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------- |
@@ -9,6 +9,8 @@ Create a key structure that requires the defined threshold value to sign. A thre
 {% tabs %}
 {% tab title="Java" %}
 ```java
+//Generate 3 keys
+PrivateKey key1 = PrivateKey.generate();.
 //Generate 3 keys
 PrivateKey key1 = PrivateKey.generate();.
 PublicKey publicKey1 = key1.getPublicKey();
@@ -112,6 +114,11 @@ keys[2] = publicKey3
 
 //A key structure that requires one of the 3 keys to sign
 thresholdKey := hedera.KeyListWithThreshold(1).
+        AddAllPublicKeys(keys)
+
+fmt.Printf("The 1/3 threshold key structure %v\n", thresholdKey)
+
+//v2.0.0
         AddAllPublicKeys(keys)
 
 fmt.Printf("The 1/3 threshold key structure %v\n", thresholdKey)

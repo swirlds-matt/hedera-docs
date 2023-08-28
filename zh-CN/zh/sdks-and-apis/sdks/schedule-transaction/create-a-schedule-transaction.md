@@ -1,10 +1,10 @@
 # Create a scheduled transaction
 
 {% hint style="info" %}
-TokenTransfer, ConsensusSubmitMessage, CryptoApproveAllowance, TokenMint and TokenBurn transactions are the transaction types that can be scheduled. Additional schedulable transactions will be added in future releases.
+TokenTransfer, ConsensusSubmitMessage, CryptoApproveAllowance, TokenMint and TokenBurn transactions are the transaction types that can be scheduled. Additional schedulable transactions will be added in future releases. Additional schedulable transactions will be added in future releases.
 {% endhint %}
 
-A transaction that creates a schedule entity on a Hedera network. The entity ID for a schedule transaction is referred to as the ScheduleID. After successfully executing a schedule create transaction, you can obtain the ScheduleID by requesting the receipt of the transaction immediately after the transaction was executed. The receipt also contains the scheduled transaction ID. The scheduled transaction ID is used to to request the record of the scheduled transaction if it is successfully executed.
+A transaction that creates a schedule entity on a Hedera network. The entity ID for a schedule transaction is referred to as the ScheduleID. After successfully executing a schedule create transaction, you can obtain the ScheduleID by requesting the receipt of the transaction immediately after the transaction was executed. The receipt also contains the scheduled transaction ID. The scheduled transaction ID is used to to request the record of the scheduled transaction if it is successfully executed. The entity ID for a schedule transaction is referred to as the ScheduleID. After successfully executing a schedule create transaction, you can obtain the ScheduleID by requesting the receipt of the transaction immediately after the transaction was executed. The receipt also contains the scheduled transaction ID. The scheduled transaction ID is used to to request the record of the scheduled transaction if it is successfully executed.
 
 When creating a transaction to schedule you do not need to use `.freezeWith(client)` method.
 
@@ -18,18 +18,18 @@ TransferTransaction transactionToSchedule = new TransferTransaction()
 
 **Schedule Transaction Duplicate**
 
-If two users submit the same schedule create transaction, the first one to reach consensus will create the schedule ID and the second one will have the schedule ID returned in the receipt of the transaction. The receipt status of the second identical schedule transaction will return a "`IDENTICAL_SCHEDULE_ALREADY_CREATED`" response from the network. The user who submits the second transaction would need to submit a ScheduleSign transaction to add their signature to the schedule transaction.
+If two users submit the same schedule create transaction, the first one to reach consensus will create the schedule ID and the second one will have the schedule ID returned in the receipt of the transaction. The receipt status of the second identical schedule transaction will return a "`IDENTICAL_SCHEDULE_ALREADY_CREATED`" response from the network. The user who submits the second transaction would need to submit a ScheduleSign transaction to add their signature to the schedule transaction. The receipt status of the second identical schedule transaction will return a "`IDENTICAL_SCHEDULE_ALREADY_CREATED`" response from the network. The user who submits the second transaction would need to submit a ScheduleSign transaction to add their signature to the schedule transaction.
 
 **Schedule Transaction Deletion**
 
-To retain the ability to delete a schedule transaction, you will need to populate the admin key field when creating a schedule transaction. The admin key will be required to sign the ScheduleDelete transaction to delete the scheduled transaction from the network. If you do not assign an admin key during the creation of the schedule transaction, you will have an immutable schedule transaction.
+To retain the ability to delete a schedule transaction, you will need to populate the admin key field when creating a schedule transaction. The admin key will be required to sign the ScheduleDelete transaction to delete the scheduled transaction from the network. If you do not assign an admin key during the creation of the schedule transaction, you will have an immutable schedule transaction. The admin key will be required to sign the ScheduleDelete transaction to delete the scheduled transaction from the network. If you do not assign an admin key during the creation of the schedule transaction, you will have an immutable schedule transaction.
 
 **Transaction Signing Requirements**
 
 * The key of the account paying for the creation of the schedule transaction
-* The key of the payer account ID paying for the execution of the scheduled transaction. If the payer account is not specified, the operator account will be used to pay for the execution by default.
+* The key of the payer account ID paying for the execution of the scheduled transaction. The key of the payer account ID paying for the execution of the scheduled transaction. If the payer account is not specified, the operator account will be used to pay for the execution by default.
 * The admin key if set
-* You can optionally sign with any of the required signatures for the scheduled (inner) transaction. Freeze the schedule transaction and call the `.sign()` method to add signatures.
+* You can optionally sign with any of the required signatures for the scheduled (inner) transaction. You can optionally sign with any of the required signatures for the scheduled (inner) transaction. Freeze the schedule transaction and call the `.sign()` method to add signatures.
 
 **Transaction Properties**
 
@@ -37,12 +37,12 @@ To retain the ability to delete a schedule transaction, you will need to populat
 Note: If you do not set the payer account ID the schedule transaction is immutable.
 {% endhint %}
 
-| Field                            | Description                                                                                                                                       |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Schedulable Transaction Body** | The transaction body of the transaction that is being scheduled                                                                                   |
-| **Admin Key**                    | A key that can delete the schedule transaction prior to execution or expiration                                                                   |
-| **Payer Account ID**             | The account which is going to pay for the execution of the scheduled transaction. If not populated, the scheduling account is charged (optional). |
-| **Memo**                         | Publicly visible information about the schedule entity, up to 100 bytes. No guarantee of uniqueness (optional).                                   |
+| Field                            | Description                                                                                                                                                                                                                         |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Schedulable Transaction Body** | The transaction body of the transaction that is being scheduled                                                                                                                                                                     |
+| **Admin Key**                    | A key that can delete the schedule transaction prior to execution or expiration                                                                                                                                                     |
+| **Payer Account ID**             | The account which is going to pay for the execution of the scheduled transaction. The account which is going to pay for the execution of the scheduled transaction. If not populated, the scheduling account is charged (optional). |
+| **Memo**                         | Publicly visible information about the schedule entity, up to 100 bytes. No guarantee of uniqueness (optional). No guarantee of uniqueness (optional).                                                                              |
 
 | Constructor                       | Description                                      |
 | --------------------------------- | ------------------------------------------------ |

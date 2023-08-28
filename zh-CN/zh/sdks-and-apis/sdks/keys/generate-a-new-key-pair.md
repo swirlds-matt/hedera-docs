@@ -2,7 +2,7 @@
 
 ## ED25519
 
-Create a new _**ED25519**_ key pair used to sign transactions and queries on the Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network.
+Create a new _**ED25519**_ key pair used to sign transactions and queries on the Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network.
 
 | **Method**                                                                          | **Type**   | **Description**                                              |
 | ----------------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------ |
@@ -63,7 +63,7 @@ public key = 302d300706052b8104000a0322000224d3700dc68fc9061457c5f50b66442c73367
 
 ## ECDSA (secp256k1\_)
 
-Create a new _**ECDSA**_ (secp256k1) key pair used to sign transactions and queries on a Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network.
+Create a new _**ECDSA**_ (secp256k1) key pair used to sign transactions and queries on a Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network.
 
 | **Method**                                                                         | **Type**   | **Description**                                          |
 | ---------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------- |

@@ -1,6 +1,6 @@
 # Disable KYC account flag
 
-Revokes the KYC flag to the Hedera account for the given Hedera token. This transaction must be signed by the token's KYC Key. If this key is not set, you can submit a TokenUpdateTransaction to provide the token with this key.
+Revokes the KYC flag to the Hedera account for the given Hedera token. This transaction must be signed by the token's KYC Key. Revokes the KYC flag to the Hedera account for the given Hedera token. This transaction must be signed by the token's KYC Key. If this key is not set, you can submit a TokenUpdateTransaction to provide the token with this key.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.

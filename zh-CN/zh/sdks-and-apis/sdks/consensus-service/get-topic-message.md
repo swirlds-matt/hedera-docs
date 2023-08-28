@@ -1,6 +1,6 @@
 # Get topic messages
 
-Subscribe to a topic ID's messages from a mirror node. You will receive all messages for the specified topic or within the defined start and end time.
+Subscribe to a topic ID's messages from a mirror node. Subscribe to a topic ID's messages from a mirror node. You will receive all messages for the specified topic or within the defined start and end time.
 
 **Query Fees**
 
@@ -150,6 +150,9 @@ new TopicMessageQuery()
 {% tab title="Go" %}
 ```java
 //Create the query
+_, err = hedera.NewTopicMessageQuery().
+    SetTopicID(topicID).
+    //Create the query
 _, err = hedera.NewTopicMessageQuery().
     SetTopicID(topicID).
     Subscribe(client, func(message hedera.TopicMessage) {

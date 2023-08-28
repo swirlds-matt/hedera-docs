@@ -1,6 +1,6 @@
 # Staking
 
-The Hedera public ledger uses a [proof-of-stake](../../support-and-community/glossary.md#proof-of-stake-pos) consensus mechanism, in which each node’s influence on consensus is proportional to the amount of cryptocurrency it has staked. A transaction is validated and placed into consensus after it is validated by nodes representing an aggregate stake of over two-thirds of the total amount of HBAR currently staked and dedicated to securing the network. Stake is expressed as an amount in HBAR. It is important to ensure that most of the cryptocurrency is actually being staked, so that the network continues to run. This information can be referenced from the latest Hedera [whitepaper](https://hedera.com/hh\_whitepaper\_v2.1-20200815.pdf).
+The Hedera public ledger uses a [proof-of-stake](../../support-and-community/glossary.md#proof-of-stake-pos) consensus mechanism, in which each node’s influence on consensus is proportional to the amount of cryptocurrency it has staked. A transaction is validated and placed into consensus after it is validated by nodes representing an aggregate stake of over two-thirds of the total amount of HBAR currently staked and dedicated to securing the network. Stake is expressed as an amount in HBAR. It is important to ensure that most of the cryptocurrency is actually being staked, so that the network continues to run. This information can be referenced from the latest Hedera [whitepaper](https://hedera.com/hh\_whitepaper\_v2.1-20200815.pdf). A transaction is validated and placed into consensus after it is validated by nodes representing an aggregate stake of over two-thirds of the total amount of HBAR currently staked and dedicated to securing the network. Stake is expressed as an amount in HBAR. It is important to ensure that most of the cryptocurrency is actually being staked, so that the network continues to run. This information can be referenced from the latest Hedera [whitepaper](https://hedera.com/hh\_whitepaper\_v2.1-20200815.pdf).
 
 ## FAQ
 
@@ -16,7 +16,7 @@ Staking is the process of participating in a [proof-of-stake](../../support-and-
 
 <summary>Is there a lock-up period when accounts are staked to a node?</summary>
 
-No, there is no lock-up period when accounts are staked to a node. The staked account balance is liquid at all times.
+No, there is no lock-up period when accounts are staked to a node. The staked account balance is liquid at all times. The staked account balance is liquid at all times.
 
 </details>
 
@@ -24,7 +24,7 @@ No, there is no lock-up period when accounts are staked to a node. The staked ac
 
 <summary>How are staking rewards calculated?</summary>
 
-The staking reward rate is determined by the Hedera Governing Council and updated on the mainnet. Learn more about staking rewards [here](staking.md).
+The staking reward rate is determined by the Hedera Governing Council and updated on the mainnet. Learn more about staking rewards [here](staking.md). Learn more about staking rewards [here](staking.md).
 
 </details>
 
@@ -40,6 +40,6 @@ The staking reward rate is determined by the Hedera Governing Council and update
 
 <summary>Do staking rewards expire?</summary>
 
-Staking rewards do not expire but can only be collected for up to 365 days without a rewards payment being triggered. If more than 365 days pass without a rewards payment, rewards can only be collected for the latest 365 days periods.
+Staking rewards do not expire but can only be collected for up to 365 days without a rewards payment being triggered. If more than 365 days pass without a rewards payment, rewards can only be collected for the latest 365 days periods. If more than 365 days pass without a rewards payment, rewards can only be collected for the latest 365 days periods.
 
 </details>

@@ -1,6 +1,6 @@
 # Hedera Mirror Node
 
-The Hedera Consensus Service (HCS) is a gRPC API endpoint on the mirror node to stream HCS messages. It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed to. API docs for the mirror nodes can be found here:
+The Hedera Consensus Service (HCS) is a gRPC API endpoint on the mirror node to stream HCS messages. It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed to. API docs for the mirror nodes can be found here: It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed to. API docs for the mirror nodes can be found here:
 
 {% content-ref url="../../sdks-and-apis/rest-api.md" %}
 [rest-api.md](../../sdks-and-apis/rest-api.md)
@@ -12,14 +12,14 @@ The Hedera Consensus Service (HCS) is a gRPC API endpoint on the mirror node to 
 
 ## Mainnet
 
-The non-production public mainnet mirror node serves to help developers build their applications without having to run their own mirror node. For production-ready mainnet mirror nodes, please check out [Arkhia](https://www.arkhia.io/), [Dragonglass](https://dragonglass.me/), or [Ledger Works](http://lworks.io/). When building your Hedera client via [SDK](../../sdks-and-apis/sdks/), you can use `setMirrorNetwork()` and enter the public mainnet mirror node endpoint. The gRPC API requires TLS. The following SDK versions support TLS:
+The non-production public mainnet mirror node serves to help developers build their applications without having to run their own mirror node. The non-production public mainnet mirror node serves to help developers build their applications without having to run their own mirror node. For production-ready mainnet mirror nodes, please check out [Arkhia](https://www.arkhia.io/), [Dragonglass](https://dragonglass.me/), or [Ledger Works](http://lworks.io/). When building your Hedera client via [SDK](../../sdks-and-apis/sdks/), you can use `setMirrorNetwork()` and enter the public mainnet mirror node endpoint. The gRPC API requires TLS. The following SDK versions support TLS: When building your Hedera client via [SDK](../../sdks-and-apis/sdks/), you can use `setMirrorNetwork()` and enter the public mainnet mirror node endpoint. The gRPC API requires TLS. The following SDK versions support TLS:
 
 * **Java:** v2.0.6+
 * **JavaScript:** v2.0.23+
 * **Go:** v2.1.9+
 
 {% hint style="warning" %}
-Requests are throttled at 100 requests per second (rps). This may change in the future depending on performance or security considerations. At this time, no authentication is required.
+Requests are throttled at 100 requests per second (rps). This may change in the future depending on performance or security considerations. At this time, no authentication is required. This may change in the future depending on performance or security considerations. At this time, no authentication is required.
 {% endhint %}
 
 {% tabs %}

@@ -2,7 +2,7 @@
 
 ## FileUpdateTransactionBody
 
-Modify the metadata and/or contents of a file. If a field is not set in the transaction body, the corresponding file attribute will be unchanged. This transaction must be signed by all the keys in the key list of the file being updated. If the keys themselves are being update, then the transaction must also be signed by all the new keys.
+Modify the metadata and/or contents of a file. If a field is not set in the transaction body, the corresponding file attribute will be unchanged. Modify the metadata and/or contents of a file. If a field is not set in the transaction body, the corresponding file attribute will be unchanged. This transaction must be signed by all the keys in the key list of the file being updated. If the keys themselves are being update, then the transaction must also be signed by all the new keys. If the keys themselves are being update, then the transaction must also be signed by all the new keys.
 
 | Field            | Type                                       | Description                                                        |
 | ---------------- | ------------------------------------------ | ------------------------------------------------------------------ |

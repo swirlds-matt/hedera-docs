@@ -1,6 +1,6 @@
 # Queries
 
-Queries are requests that do not require network consensus. Queries are processed only by the single node the request is sent to. Below is a list of network queries by service.
+Queries are requests that do not require network consensus. Queries are requests that do not require network consensus. Queries are processed only by the single node the request is sent to. Below is a list of network queries by service. Below is a list of network queries by service.
 
 | Cryptocurrency Accounts                                      | Consensus                                                   | Tokens                                                     | File Service                                           | Smart Contracts                                                          | Schedule Service                                               |
 | ------------------------------------------------------------ | ----------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------ | -------------------------------------------------------------- |
@@ -9,7 +9,7 @@ Queries are requests that do not require network consensus. Queries are processe
 
 ## Get Query Cost
 
-A query that returns the cost of a query prior to submitting the query to the network node for processing. If the cost of the query is greater than the default max query payment (1 HBAR) you can use `setMaxQueryPayment(<hbar>)` to change the default.
+A query that returns the cost of a query prior to submitting the query to the network node for processing. A query that returns the cost of a query prior to submitting the query to the network node for processing. If the cost of the query is greater than the default max query payment (1 HBAR) you can use `setMaxQueryPayment(<hbar>)` to change the default.
 
 <table><thead><tr><th width="310.3333333333333">Method</th><th width="152">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>getCost(&#x3C;client>)</code></td><td>Client</td><td>Get the cost of the query in HBAR</td></tr><tr><td><code>getCost(&#x3C;client, timeout>)</code></td><td>Client, Duration</td><td>The max length of time the SDK will attempt to retry in the event of repeated busy responses from the node(s)</td></tr><tr><td><code>getCostAsync(&#x3C;client>)</code></td><td>Client</td><td>Get the cost of a query asynchronously</td></tr></tbody></table>
 
@@ -47,6 +47,8 @@ console.log("The account balance query cost is " +queryCost);
 {% tab title="Go" %}
 ```java
 //Create the query request
+query := hedera.NewAccountBalanceQuery().
+     //Create the query request
 query := hedera.NewAccountBalanceQuery().
      SetAccountID(newAccountId)
 

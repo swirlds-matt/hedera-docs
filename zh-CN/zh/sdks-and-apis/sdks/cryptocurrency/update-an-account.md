@@ -1,6 +1,6 @@
 # Update an account
 
-A transaction that updates the properties of an existing account. The network will store the latest updates on the account. If you would like to retrieve the state of an account in the past, you can query a mirror node.
+A transaction that updates the properties of an existing account. The network will store the latest updates on the account. A transaction that updates the properties of an existing account. The network will store the latest updates on the account. If you would like to retrieve the state of an account in the past, you can query a mirror node.
 
 **Account Properties**
 
@@ -87,7 +87,18 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 
 {% tab title="Go" %}
 ```go
-//Create the transaction to update the key on the account
+//Create the transaction 
+transaction, err := hedera.NewAccountUpdateTransaction().
+        SetAccountID(newAccountId).
+        SetKey(updateKey.PublicKey())
+
+//Get the key of an account
+accountKey := transaction.GetKey()
+
+//v2.0.0
+        SetAccountID(newAccountId).
+        SetKey(updateKey.PublicKey()).
+        //Create the transaction to update the key on the account
 transaction, err := hedera.NewAccountUpdateTransaction().
         SetAccountID(newAccountId).
         SetKey(updateKey.PublicKey()).

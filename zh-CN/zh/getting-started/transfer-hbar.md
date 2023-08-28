@@ -9,12 +9,12 @@ In this section, you will learn how to transfer **HBAR** from your account to an
 <table data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><a href="introduction.md"><mark style="color:purple;"><strong>INTRODUCTION</strong></mark></a></td><td><a href="introduction.md">introduction.md</a></td></tr><tr><td align="center"><a href="environment-set-up.md"><mark style="color:purple;"><strong>ENVIRONMENT SETUP</strong></mark></a></td><td><a href="environment-set-up.md">environment-set-up.md</a></td></tr><tr><td align="center"><a href="create-an-account.md"><mark style="color:purple;"><strong>CREATE AN ACCOUNT</strong></mark></a></td><td><a href="create-an-account.md">create-an-account.md</a></td></tr></tbody></table>
 
 {% hint style="info" %}
-_**Note:** You can always check the "_[_Code Check ✅_](transfer-hbar.md#code-check) _" section at the bottom of each page to view the entire code if you run into issues. You can also post your issue to the respective SDK channel in our Discord community* [_here_](http://hedera.com/discord) _or on the GitHub repository_ [_here_](https://github.com/hashgraph/hedera-docs)_._
+_**Note:** You can always check the "_[_Code Check ✅_](transfer-hbar.md#code-check) _" section at the bottom of each page to view the entire code if you run into issues. You can also post your issue to the respective SDK channel in our Discord community* [_here_](http://hedera.com/discord) _or on the GitHub repository* [_here_](https://github.com/hashgraph/hedera-docs)_._ You can also post your issue to the respective SDK channel in our Discord community</em> [_here_](http://hedera.com/discord) _or on the GitHub repository_ [_here_](https://github.com/hashgraph/hedera-docs)_._
 {% endhint %}
 
-## Step 1. Create a transfer transaction
+## Step 1. Step 1. Create a transfer transaction
 
-Use your new account created in the "[Create an account](create-an-account.md)" section and transfer 1,000 **tinybars** from your account to the new account. The account sending the **HBAR** needs to sign the transaction using its private keys to authorize the transfer. Since you are transferring from the account associated with the client, you do not need to explicitly sign the transaction as the operator account(account transferring the **HBAR**) signs all transactions to authorize the payment of the transaction fee.
+Use your new account created in the "[Create an account](create-an-account.md)" section and transfer 1,000 **tinybars** from your account to the new account. The account sending the **HBAR** needs to sign the transaction using its private keys to authorize the transfer. Since you are transferring from the account associated with the client, you do not need to explicitly sign the transaction as the operator account(account transferring the **HBAR**) signs all transactions to authorize the payment of the transaction fee. The account sending the **HBAR** needs to sign the transaction using its private keys to authorize the transfer. Since you are transferring from the account associated with the client, you do not need to explicitly sign the transaction as the operator account(account transferring the **HBAR**) signs all transactions to authorize the payment of the transaction fee.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -60,6 +60,15 @@ txResponse, err := transaction.Execute(client)
 if err != nil {
     panic(err)
 }
+        AddHbarTransfer(myAccountId, hedera.HbarFrom(-1000, hedera.HbarUnits.Tinybar)).
+        AddHbarTransfer(newAccountId,hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar))
+
+//Submit the transaction to a Hedera network
+txResponse, err := transaction.Execute(client)
+
+if err != nil {
+    panic(err)
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -68,9 +77,9 @@ if err != nil {
 _**Note:** The net value of the transfer must equal zero (the total number of_ **HBAR** _sent by the sender must equal the total number of_ **HBAR** _received by the recipient)._
 {% endhint %}
 
-## Step 2. Verify the transfer transaction reached consensus
+## Step 2. Step 2. Verify the transfer transaction reached consensus
 
-To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transaction. The receipt status will let you know if the transaction was successful (reached consensus) or not.
+To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transaction. The receipt status will let you know if the transaction was successful (reached consensus) or not. The receipt status will let you know if the transaction was successful (reached consensus) or not.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -262,6 +271,22 @@ async function environmentSetup() {
   );
 }
 environmentSetup();
+  );
+
+  // Create the transfer transaction
+  const sendHbar = await new TransferTransaction()
+    .addHbarTransfer(myAccountId, Hbar.fromTinybars(-1000))
+    .addHbarTransfer(newAccountId, Hbar.fromTinybars(1000))
+    .execute(client);
+
+  // Verify the transaction reached consensus
+  const transactionReceipt = await sendHbar.getReceipt(client);
+  console.log(
+    "\nThe transfer transaction from my account to the new account was: " +
+      transactionReceipt.status.toString()
+  );
+}
+environmentSetup();
 ```
 {% endcode %}
 
@@ -273,6 +298,21 @@ environmentSetup();
 
 ```go
 package main
+
+import (
+    "fmt"
+    "os"
+
+    "github.com/hashgraph/hedera-sdk-go/v2"
+    "github.com/joho/godotenv"
+)
+
+func main() {
+
+    //Loads the .env file and throws an error if it cannot load the variables from that file correctly
+    err := godotenv.Load(".env")
+    if err != nil {
+        panic(fmt.Errorf("Unable to load environment variables from .env file. package main
 
 import (
     "fmt"
@@ -372,6 +412,59 @@ func main() {
 
     fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 }
+        SetKey(newAccountPublicKey).
+        SetInitialBalance(hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar)).
+        Execute(client)
+
+    //Request the receipt of the transaction
+    receipt, err := newAccount.GetReceipt(client)
+    if err != nil {
+        panic(err)
+    }
+
+    //Get the new account ID from the receipt
+    newAccountId := *receipt.AccountID
+
+    //Print the new account ID to the console
+    fmt.Printf("The new account ID is %v\n", newAccountId)
+
+    //Create the account balance query
+    query := hedera.NewAccountBalanceQuery().
+        SetAccountID(newAccountId)
+
+    //Sign with client operator private key and submit the query to a Hedera network
+    accountBalance, err := query.Execute(client)
+    if err != nil {
+        panic(err)
+    }
+
+    //Print the balance of tinybars
+    fmt.Println("The account balance for the new account is", accountBalance.Hbars.AsTinybar())
+
+    //Transfer hbar from your testnet account to the new account
+    transaction := hedera.NewTransferTransaction().
+        AddHbarTransfer(myAccountId, hedera.HbarFrom(-1000, hedera.HbarUnits.Tinybar)).
+        AddHbarTransfer(newAccountId, hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar))
+
+    //Submit the transaction to a Hedera network
+    txResponse, err := transaction.Execute(client)
+
+    if err != nil {
+        panic(err)
+    }
+
+    //Request the receipt of the transaction
+    transferReceipt, err := txResponse.GetReceipt(client)
+
+    if err != nil {
+        panic(err)
+    }
+
+    //Get the transaction consensus status
+    transactionStatus := transferReceipt.Status
+
+    fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
+}
 ```
 
 </details>
@@ -383,5 +476,5 @@ The transfer transaction from my account to the new account was: SUCCESS
 ```
 
 {% hint style="info" %}
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

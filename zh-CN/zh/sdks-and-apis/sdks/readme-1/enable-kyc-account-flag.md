@@ -1,6 +1,6 @@
 # Enable KYC account flag
 
-Grants KYC to the Hedera accounts for the given Hedera token. This transaction must be signed by the token's KYC Key.
+Grants KYC to the Hedera accounts for the given Hedera token. Grants KYC to the Hedera accounts for the given Hedera token. This transaction must be signed by the token's KYC Key.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
@@ -79,6 +79,10 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 {% tab title="Go" %}
 ```go
 //Enable KYC flag on account and freeze the transaction for manual signing
+transaction, err = hedera.NewTokenGrantKycTransaction().
+        SetAccountID(accountId).
+        SetTokenID(tokenId).
+        //Enable KYC flag on account and freeze the transaction for manual signing
 transaction, err = hedera.NewTokenGrantKycTransaction().
         SetAccountID(accountId).
         SetTokenID(tokenId).

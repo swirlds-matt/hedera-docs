@@ -1,7 +1,7 @@
 # Signer
 
 {% hint style="info" %}
-This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0).
+This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0). (version >=2.14.0).
 {% endhint %}
 
 The **Signer** class an interface and is responsible for signing requests.
@@ -50,11 +50,11 @@ Signs a transaction, returning the signed transaction
 
 <mark style="color:purple;">**`checkTransaction<T extends Transaction>`**</mark><mark style="color:purple;">\*\*</mark> ( `transaction`: `T` )-> `Promise<T>`\*\*
 
-Check whether all the required fields are set appropriately. Fields such as the transaction ID's account ID should either be `null` or be equal to the signer's account ID, and the node account IDs on the request should exist within the signer's network.
+Check whether all the required fields are set appropriately. Check whether all the required fields are set appropriately. Fields such as the transaction ID's account ID should either be `null` or be equal to the signer's account ID, and the node account IDs on the request should exist within the signer's network.
 
 <mark style="color:purple;">**`populateTransaction<T extends Transaction>`**</mark><mark style="color:purple;">\*\*</mark> ( `transaction`: `T` )-> `Promise<T>`\*\*
 
-Populate the requests with the required fields. The transaction ID should be constructed from the signer's account ID, and the node account IDs should be set using the signer's network.
+Populate the requests with the required fields. Populate the requests with the required fields. The transaction ID should be constructed from the signer's account ID, and the node account IDs should be set using the signer's network.
 
 <mark style="color:purple;">**`call(`**</mark>**`<RequestT, ResponseT, OutputT>(request: Executable<RequestT, ResponseT, OutputT>`**<mark style="color:purple;">**`)`**</mark><mark style="color:purple;">**->**</mark>\*\* `Promise <Output>`\*\*
 

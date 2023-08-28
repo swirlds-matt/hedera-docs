@@ -1,6 +1,6 @@
 # TokenSupplyType
 
-Possible Token Supply Types (IWA Compatibility). Indicates how many tokens can have during its lifetime.
+Possible Token Supply Types (IWA Compatibility). Possible Token Supply Types (IWA Compatibility). Indicates how many tokens can have during its lifetime.
 
 | Enum Name  | Description                                                                                      |
 | ---------- | ------------------------------------------------------------------------------------------------ |

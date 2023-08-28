@@ -1,6 +1,6 @@
 # Delete a file
 
-A transaction that deletes a file from a Hedera network. When deleted, a file's contents are truncated to zero length and it can no longer be updated or appended to, or its expiration time extended. When you request the contents or info of a deleted file, the network will return FILE\_DELETED.
+A transaction that deletes a file from a Hedera network. When deleted, a file's contents are truncated to zero length and it can no longer be updated or appended to, or its expiration time extended. When you request the contents or info of a deleted file, the network will return FILE\_DELETED. When deleted, a file's contents are truncated to zero length and it can no longer be updated or appended to, or its expiration time extended. When you request the contents or info of a deleted file, the network will return FILE\_DELETED.
 
 **Transaction Signing Requirements**
 
@@ -81,6 +81,8 @@ console.log("The transaction consensus status " +transactionStatus3.toString());
 ```java
 //Create the transaction
 transaction := hedera.NewFileDeleteTransaction().
+      //Create the transaction
+transaction := hedera.NewFileDeleteTransaction().
       SetFileID(fileId)
 
 //Modify the default max transaction fee to from 1 to 2 hbars
@@ -147,6 +149,10 @@ FileId getFileId = transaction.getFileId();
 ```java
 //Create the transaction
 transaction := hedera.NewFileDeleteTransaction().
+      SetFileID(fileId)
+
+//Get the file ID
+getFileId := transaction.GetFileID()
       SetFileID(fileId)
 
 //Get the file ID

@@ -1,6 +1,6 @@
 ---
 description: >-
-  Hedera SDK JS tutorial - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
+  Hedera SDK JS tutorial - HSCS workshop. Learn how to enable custom logic & processing on Hedera through smart contracts. Learn how to enable custom logic & processing on Hedera through smart contracts.
 ---
 
 # Hedera SDK JS
@@ -20,7 +20,7 @@ The Hedera network offers multiple services:
 * Hedera Token Service (HTS)
 * Hedera Consensus Service (HCS)
 
-Each service defines a number of different ways you can interact with it as a developer, and these comprise the Hedera Application Programming Interfaces (HAPIs). However, HAPIs are very close to the metal, and a developer needs to handle gRPCs and protocol buffers (among other things) to work with them successfully. Thankfully there are Hedera SDKs, which abstract these low-level complexities away. These SDKs allow you to interact with the various Hedera services via APIs exposed in a variety of different programming languages.
+Each service defines a number of different ways you can interact with it as a developer, and these comprise the Hedera Application Programming Interfaces (HAPIs). However, HAPIs are very close to the metal, and a developer needs to handle gRPCs and protocol buffers (among other things) to work with them successfully. Thankfully there are Hedera SDKs, which abstract these low-level complexities away. These SDKs allow you to interact with the various Hedera services via APIs exposed in a variety of different programming languages. However, HAPIs are very close to the metal, and a developer needs to handle gRPCs and protocol buffers (among other things) to work with them successfully. Thankfully there are Hedera SDKs, which abstract these low-level complexities away. These SDKs allow you to interact with the various Hedera services via APIs exposed in a variety of different programming languages.
 
 
 
@@ -39,7 +39,7 @@ Please refer to [SDKs](../../../hedera/sdks-and-apis/sdks/) for an up to date li
 
 </details>
 
-In this tutorial, you will be using Hedera SDK JS to interact with HSCS. Specifically, you will use it to deploy a smart contract, query its state by invoking functions, and modify its state by invoking other functions.
+In this tutorial, you will be using Hedera SDK JS to interact with HSCS. Specifically, you will use it to deploy a smart contract, query its state by invoking functions, and modify its state by invoking other functions. Specifically, you will use it to deploy a smart contract, query its state by invoking functions, and modify its state by invoking other functions.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ npm install
 
 ### Step D1: Copy smart contract
 
-We have already written the smart contract in the Intro section of this tutorial. Let's copy that into this directory so that we may continue working on it.
+We have already written the smart contract in the Intro section of this tutorial. Let's copy that into this directory so that we may continue working on it. Let's copy that into this directory so that we may continue working on it.
 
 ```shell
 cp ../intro/trogdor.sol ./trogdor.sol
@@ -72,7 +72,7 @@ Let's install the Solidity compiler, `solc` from npm.
 npm install --global solc@0.8.17
 ```
 
-You can verify that it has installed successfully by asking it to output its version. Note that while the package name on npm is `solc`, the executable present on `PATH` is spelled slightly diffently: `solcjs`.
+You can verify that it has installed successfully by asking it to output its version. You can verify that it has installed successfully by asking it to output its version. Note that while the package name on npm is `solc`, the executable present on `PATH` is spelled slightly diffently: `solcjs`.
 
 ```shell
 solcjs --version
@@ -90,7 +90,7 @@ Let's explore its command line interface:
 solcjs --help
 ```
 
-There are relatively few flags and options. In this tutorial, you will only be using `--bin`, and `--abi`.
+There are relatively few flags and options. There are relatively few flags and options. In this tutorial, you will only be using `--bin`, and `--abi`.
 
 ```
 Usage: solcjs [options]
@@ -125,7 +125,7 @@ solcjs --bin --abi ./trogdor.sol
 ls
 ```
 
-Those flags instruct `solcjs` to output both EVM bytecode and ABI. The `ls` command lists the files that are in the directory, and the following files should be present.
+Those flags instruct `solcjs` to output both EVM bytecode and ABI. The `ls` command lists the files that are in the directory, and the following files should be present. The `ls` command lists the files that are in the directory, and the following files should be present.
 
 ```
 # input file
@@ -138,7 +138,7 @@ trogdor_sol_Trogdor.bin
 
 ### Examine the EVM bytecode output
 
-The binary file contains the EVM bytecode: `trogdor_sol_Trogdor.bin`. This is _not_ intended to be human-readable.
+The binary file contains the EVM bytecode: `trogdor_sol_Trogdor.bin`. This is _not_ intended to be human-readable. This is _not_ intended to be human-readable.
 
 ```
 608060405234801561001057600080fd5b506104fe806100206000396000f3fe60806040526004361061003f5760003560e01c80633024480d1461004457806355a3b2c11461004e57806376c7a3c71461008b578063966ff650146100b6575b600080fd5b61004c6100e1565b005b34801561005a57600080fd5b50610075600480360381019061007091906102e3565b61025b565b6040516100829190610329565b60405180910390f35b34801561009757600080fd5b506100a0610273565b6040516100ad9190610329565b60405180910390f35b3480156100c257600080fd5b506100cb610278565b6040516100d89190610329565b60405180910390f35b600073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1603610150576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610147906103a1565b60405180910390fd5b6064341015610194576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161018b9061040d565b60405180910390fd5b346000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546101de919061045c565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055507f8c3babebbcaac346332dd6cd38200ce7b3a8a69e8d695c972a5b1099d8a275be333460405161025192919061049f565b60405180910390a1565b60006020528060005260406000206000915090505481565b606481565b600047905090565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006102b082610285565b9050919050565b6102c0816102a5565b81146102cb57600080fd5b50565b6000813590506102dd816102b7565b92915050565b6000602082840312156102f9576102f8610280565b5b6000610307848285016102ce565b91505092915050565b6000819050919050565b61032381610310565b82525050565b600060208201905061033e600083018461031a565b92915050565b600082825260208201905092915050565b7f7a65726f2061646472657373206e6f7420616c6c6f7765640000000000000000600082015250565b600061038b601883610344565b915061039682610355565b602082019050919050565b600060208201905081810360008301526103ba8161037e565b9050919050565b7f706179206174206c65617374206d696e696d756d206665650000000000000000600082015250565b60006103f7601883610344565b9150610402826103c1565b602082019050919050565b60006020820190508181036000830152610426816103ea565b9050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b600061046782610310565b915061047283610310565b925082820190508082111561048a5761048961042d565b5b92915050565b610499816102a5565b82525050565b60006040820190506104b46000830185610490565b6104c1602083018461031a565b939250505056fea264697066735822122018cb5f7072c3a79275ac6b6b70b93ee8cc4ad1a06554315aa3687c3d3a24b1b964736f6c63430008130033
@@ -172,7 +172,7 @@ If you are using a POSIX-compliant shell, and have `jq` installed, you can view 
 jq < ./trogdor_sol_Trogdor.abi
 ```
 
-The ABI essentially tells any user/ developer who wishes to interact with the EVM bytecode, what the exposed interface is. In fact ABI stands for Application Binary Interface. This interface will include any functions and events, which are need by any clients (e.g. DApps), or other smart contracts, to be able to interact with it.
+The ABI essentially tells any user/ developer who wishes to interact with the EVM bytecode, what the exposed interface is. In fact ABI stands for Application Binary Interface. This interface will include any functions and events, which are need by any clients (e.g. DApps), or other smart contracts, to be able to interact with it. In fact ABI stands for Application Binary Interface. This interface will include any functions and events, which are need by any clients (e.g. DApps), or other smart contracts, to be able to interact with it.
 
 {% hint style="info" %}
 * [Ref: Solidity - Contract ABI specification](https://docs.soliditylang.org/en/latest/abi-spec.html)
@@ -254,11 +254,11 @@ The ABI essentially tells any user/ developer who wishes to interact with the EV
 ]
 ```
 
-This is extremely useful, because by examining the bytecode, which is what is deployed onto the Hedera network, you are likely to have _no idea_ what it does, or how to interact with it. If you have the corresponding ABI in hand, however, you will have a _very good idea_ of how you can interact with this smart contract, and perhaps can infer what it does as well.
+This is extremely useful, because by examining the bytecode, which is what is deployed onto the Hedera network, you are likely to have _no idea_ what it does, or how to interact with it. If you have the corresponding ABI in hand, however, you will have a _very good idea_ of how you can interact with this smart contract, and perhaps can infer what it does as well. If you have the corresponding ABI in hand, however, you will have a _very good idea_ of how you can interact with this smart contract, and perhaps can infer what it does as well.
 
 ## Deploying smart contracts
 
-Let's edit the `deploy-sc.js` file. In this script, you'll use Hedera SDK JS to deploy your smart contract onto Hedera Testnet.
+Let's edit the `deploy-sc.js` file. Let's edit the `deploy-sc.js` file. In this script, you'll use Hedera SDK JS to deploy your smart contract onto Hedera Testnet.
 
 ### Step E1: Initialise operator account
 
@@ -275,7 +275,7 @@ client.setOperator(operatorId, operatorKey);
 
 ### Step E2: Read the EVM bytecode from file
 
-One of the outputs from running `solc` earlier was the binary file, which contains EVM bytecode. Let's read this from disk into memory.
+One of the outputs from running `solc` earlier was the binary file, which contains EVM bytecode. Let's read this from disk into memory. Let's read this from disk into memory.
 
 ```js
   const evmBytecode = await fs.readFile(
@@ -284,10 +284,10 @@ One of the outputs from running `solc` earlier was the binary file, which contai
 
 ### Step E3: Use HFS to store EVM bytecode on network
 
-Next, write the EVM bytecode onto Hedera Testnet using HFS. In order to do so, you will need to use `FileCreateTransaction`.
+Next, write the EVM bytecode onto Hedera Testnet using HFS. In order to do so, you will need to use `FileCreateTransaction`. In order to do so, you will need to use `FileCreateTransaction`.
 
 {% hint style="info" %}
-Note that you can use `FileCreateTransaction` for any type of file that is up to 1024KB in size. You are not restricted to only EVM bytecode.
+Note that you can use `FileCreateTransaction` for any type of file that is up to 1024KB in size. You are not restricted to only EVM bytecode. You are not restricted to only EVM bytecode.
 {% endhint %}
 
 ```js
@@ -303,7 +303,7 @@ In the final line above, obtain the file ID from the `FileCreateTransaction`'s r
 
 ### Step E4: Deploy a smart contract on HSCS by referencing the bytecode on HFS
 
-Now we're finally able to deploy the smart contract onto HSCS. In order to do so, you will need to use `ContractCreateTransaction`.
+Now we're finally able to deploy the smart contract onto HSCS. In order to do so, you will need to use `ContractCreateTransaction`. In order to do so, you will need to use `ContractCreateTransaction`.
 
 ```js
   const scDeploy = new ContractCreateTransaction()
@@ -315,7 +315,7 @@ Now we're finally able to deploy the smart contract onto HSCS. In order to do so
   const scId = scDeployReceipt.contractId;
 ```
 
-The `fileId` that you obtained in the previous step references the EVM bytecode stored on HFS. The `ContractCreateTransaction` references this file on HFS during the deployment process.
+The `fileId` that you obtained in the previous step references the EVM bytecode stored on HFS. The `ContractCreateTransaction` references this file on HFS during the deployment process. The `ContractCreateTransaction` references this file on HFS during the deployment process.
 
 In the final line above, obtain the smart contract ID from the `ContractCreateTransaction`'s receipt, as `scId` - you will need it later.
 
@@ -407,7 +407,7 @@ The `Deployed to` outputs the account ID of the smart contract that you have jus
 
 ## Interacting with smart contacts
 
-Let's edit the `interact-sc.js` file. In this script, you'll use Hedera SDK JS to interact with your smart contract on Hedera Testnet.
+Let's edit the `interact-sc.js` file. Let's edit the `interact-sc.js` file. In this script, you'll use Hedera SDK JS to interact with your smart contract on Hedera Testnet.
 
 ### Step F1: Specify deployed contract ID
 
@@ -430,7 +430,7 @@ client.setOperator(operatorId, operatorPrivateKey);
 
 ### Step F3: Invoke payable function with zero value
 
-The `burninate` function in this smart contract is `public` and `payable`. This means that the function may be invoked with a transaction that has a value (HBAR) attached to it - accessible as `msg.value` in Solidity. The value will be added to this smart contracts balance if this function is executed successfully.
+The `burninate` function in this smart contract is `public` and `payable`. The `burninate` function in this smart contract is `public` and `payable`. This means that the function may be invoked with a transaction that has a value (HBAR) attached to it - accessible as `msg.value` in Solidity. The value will be added to this smart contracts balance if this function is executed successfully. The value will be added to this smart contracts balance if this function is executed successfully.
 
 Recall that when you implemented the `burninate` function in the Intro section of this tutorial, that there is this require statement:
 
@@ -440,7 +440,7 @@ require(msg.value >= MIN_FEE, "pay at least minimum fee");
 
 This essentially specifies that the function will error, and therefore not execute successfully, when the value sent with the transaction is anything less than 100 tinybar (`MIN_FEE`).
 
-Now we're going to invoke this function with a zero value transaction, i.e. Invoke `burninate` with `msg.value = 0`. This is done on purpose, to trip up this require statement, so that we can witness the rejection.
+Now we're going to invoke this function with a zero value transaction, i.e. Invoke `burninate` with `msg.value = 0`. This is done on purpose, to trip up this require statement, so that we can witness the rejection. This is done on purpose, to trip up this require statement, so that we can witness the rejection.
 
 To do so, use `ContractExecuteTransaction`.
 
@@ -457,7 +457,7 @@ To do so, use `ContractExecuteTransaction`.
 
 This will send a transaction to Hedera Testnet, which contains a request to HSCS to (potentially) modify the state of this smart contract.
 
-When this is run, we expect the transaction to fail, with a `CONTRACT_REVERT_EXECUTED` error. The reason for this is the `require` statement in this function, as described above - we need to send some HBAR!
+When this is run, we expect the transaction to fail, with a `CONTRACT_REVERT_EXECUTED` error. The reason for this is the `require` statement in this function, as described above - we need to send some HBAR! The reason for this is the `require` statement in this function, as described above - we need to send some HBAR!
 
 ### Step F4: Invoke payable function with non-zero value
 
@@ -479,10 +479,10 @@ This time, the function invocation will succeed, as it passes that `require` sta
 
 ### Step F5: Invoke view function with no parameters
 
-The `burninate` function is one that can (and does) modify the persisted state of the smart contract. However there are other functions which do not do so, and instead merely read (query) the currently persisted state of the smart contract. These functions have the `view` modifier.
+The `burninate` function is one that can (and does) modify the persisted state of the smart contract. However there are other functions which do not do so, and instead merely read (query) the currently persisted state of the smart contract. These functions have the `view` modifier. However there are other functions which do not do so, and instead merely read (query) the currently persisted state of the smart contract. These functions have the `view` modifier.
 
 {% hint style="info" %}
-There are also other functions which neither read the currently nor modify the persisted state of the smart contract. These functions have the `pure` modifier.
+There are also other functions which neither read the currently nor modify the persisted state of the smart contract. These functions have the `pure` modifier. These functions have the `pure` modifier.
 
 These are typically used as utility functions, intended to be invoked by other functions within a smart contract.
 {% endhint %}
@@ -507,10 +507,10 @@ The `totalBurnt` is a `view` function, and to invoke that, let's use `ContractCa
   const scRead1ReturnValue = scRead1Tx.getUint256();
 ```
 
-Once the `ContractCallQuery` is executed, extract the its return value using the getter function with the appropriate type. Since the `totalBurnt` function specifies `returns(uint256)` in its signature, use `getUint256()` to extract that return value.
+Once the `ContractCallQuery` is executed, extract the its return value using the getter function with the appropriate type. Once the `ContractCallQuery` is executed, extract the its return value using the getter function with the appropriate type. Since the `totalBurnt` function specifies `returns(uint256)` in its signature, use `getUint256()` to extract that return value.
 
 {% hint style="info" %}
-The `ContractCallQuery` has `setQueryPayment`, which is to pay for the costs of querying the data. Note that this is different from other EVM-compatible networks, which allow you to query smart contract state without paying any fee.\
+The `ContractCallQuery` has `setQueryPayment`, which is to pay for the costs of querying the data. The `ContractCallQuery` has `setQueryPayment`, which is to pay for the costs of querying the data. Note that this is different from other EVM-compatible networks, which allow you to query smart contract state without paying any fee.\
 
 
 * [Ref: Hedera - Get the cost of requesting the query](https://docs.hedera.com/hedera/getting-started/query-data#get-the-cost-of-requesting-the-query)
@@ -518,9 +518,9 @@ The `ContractCallQuery` has `setQueryPayment`, which is to pay for the costs of 
 
 ### Step F6: Convert account ID to EVM address
 
-In the subsequent step, we will use the operator account as an input parameter in a function invocation. However, we need to convert this from an _Account ID_ format, which looks like `0.0.3996280`, to an _EVM address_ format, which looks like `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This is because the EVM (and by extension Solidity), does not understand Hedera-native accounts. Instead it only understands EVM accounts.
+In the subsequent step, we will use the operator account as an input parameter in a function invocation. In the subsequent step, we will use the operator account as an input parameter in a function invocation. However, we need to convert this from an _Account ID_ format, which looks like `0.0.3996280`, to an _EVM address_ format, which looks like `0x7394111093687e9710b7a7aeba3ba0f417c54474`. This is because the EVM (and by extension Solidity), does not understand Hedera-native accounts. Instead it only understands EVM accounts. This is because the EVM (and by extension Solidity), does not understand Hedera-native accounts. Instead it only understands EVM accounts.
 
-To do so, we start with the private key of the operator account, from that we derive its public key, and finally from that we derive its EVM account. Thankfully Hedera SDK JS has utility functions for these, and the conversion can be performed quite easily.
+To do so, we start with the private key of the operator account, from that we derive its public key, and finally from that we derive its EVM account. Thankfully Hedera SDK JS has utility functions for these, and the conversion can be performed quite easily. Thankfully Hedera SDK JS has utility functions for these, and the conversion can be performed quite easily.
 
 ```javascript
   const operatorPublicKey = operatorPrivateKey.publicKey;
@@ -529,7 +529,7 @@ To do so, we start with the private key of the operator account, from that we de
 
 ### Step F7: Invoke auto-generated view function with parameters
 
-In this smart contract `amounts` is a `view` function, and to invoke that, let's use `ContractCallQuery`. There are a couple of key differences though:
+In this smart contract `amounts` is a `view` function, and to invoke that, let's use `ContractCallQuery`. There are a couple of key differences though: There are a couple of key differences though:
 
 * The `amounts` function requires an input parameter, or type `address`
 * The `amounts` function was not written using Solidity code, But instead was auto-generated by the Solidity compiler for the `public` state variable with the same name.
@@ -557,9 +557,9 @@ This is what the auto-generated function for `amounts` _would have_ looked like,
 
 </details>
 
-Let's send a `ContractCallQuery` to the `amounts` function. Use the `operatorEvmAddress` obtained in the previous step as the input parameter.
+Let's send a `ContractCallQuery` to the `amounts` function. Let's send a `ContractCallQuery` to the `amounts` function. Use the `operatorEvmAddress` obtained in the previous step as the input parameter.
 
-There is a `ContractFunctionParameters`, which we've used in the previous smart contract invocations, but it was always "empty", in the sense that there were no parameters. Since `amounts` requires a single parameter of type `address`, use `addAddress()` to specify its value.
+There is a `ContractFunctionParameters`, which we've used in the previous smart contract invocations, but it was always "empty", in the sense that there were no parameters. Since `amounts` requires a single parameter of type `address`, use `addAddress()` to specify its value. Since `amounts` requires a single parameter of type `address`, use `addAddress()` to specify its value.
 
 ```js
   const scRead2 = new ContractCallQuery()
@@ -575,7 +575,7 @@ There is a `ContractFunctionParameters`, which we've used in the previous smart 
   const scRead2ReturnValue = scRead2Tx.getUint256();
 ```
 
-Once the `ContractCallQuery` is executed, extract the its return value using the getter function with the appropriate type. The `amounts` mapping specifies `uint256` as its value type, this is equivalent to a function specifying `returns(uint256)` in its signature. Use `getUint256()` to extract that return value.
+Once the `ContractCallQuery` is executed, extract the its return value using the getter function with the appropriate type. Once the `ContractCallQuery` is executed, extract the its return value using the getter function with the appropriate type. The `amounts` mapping specifies `uint256` as its value type, this is equivalent to a function specifying `returns(uint256)` in its signature. Use `getUint256()` to extract that return value. Use `getUint256()` to extract that return value.
 
 Run the script.
 
@@ -694,7 +694,7 @@ ContractCallQuery #1 ContractFunctionResult {
 return value 123
 ```
 
-Note that the first `ContractExecuteTransaction` fails, and this is expected. On the other hand, the second `ContractExecuteTransaction` passes, because this time we sent the `payable` the required number of HBAR.
+Note that the first `ContractExecuteTransaction` fails, and this is expected. Note that the first `ContractExecuteTransaction` fails, and this is expected. On the other hand, the second `ContractExecuteTransaction` passes, because this time we sent the `payable` the required number of HBAR.
 
 The `ContractFunctionResult` has queried the data, and `return value` simply extracts the relevant value from it.
 
@@ -707,9 +707,7 @@ The `ContractFunctionResult` has queried the data, and `return value` simply ext
 
 <figure>
 
-![Screenshot showing Recent Contract Calls - Smart Contract (on hashscan.io).](../../../.gitbook/assets/hashscan--smart-contract--recent-contract-calls.png)<figcaption>
-
-Screenshot showing Recent Contract Calls - Smart Contract (on hashscan.io).</figcaption></figure>
+![Screenshot showing Recent Contract Calls - Smart Contract (on hashscan.io).](../../../.gitbook/assets/hashscan--smart-contract--recent-contract-calls.png)!\[Screenshot showing Recent Contract Calls - Smart Contract (on hashscan.io).\](../../../.gitbook/assets/hashscan--smart-contract--recent-contract-calls.png)<figcaption> Screenshot showing Recent Contract Calls - Smart Contract (on hashscan.io).</figcaption></figure>
 
 * There should be a failed transaction, denoted by an exclamation mark in a red triangle, e.g. `https://hashscan.io/testnet/transaction/1689235951.444001003`
 * Click on the row for that failed transaction to navigate to its "Transaction" page
@@ -719,9 +717,7 @@ Screenshot showing Recent Contract Calls - Smart Contract (on hashscan.io).</fig
 
 <figure>
 
-![Screenshot showing Contract Result CONTRACT_REVERT_EXECUTED - Transaction (on hashscan.io).](../../../.gitbook/assets/hashscan--transaction--contract-result--contract-revert-executed.png)<figcaption>
-
-Screenshot showing Contract Result CONTRACT_REVERT_EXECUTED - Transaction (on hashscan.io).</figcaption></figure>
+![Screenshot showing Contract Result CONTRACT_REVERT_EXECUTED - Transaction (on hashscan.io).](../../../.gitbook/assets/hashscan--transaction--contract-result--contract-revert-executed.png)!\[Screenshot showing Contract Result CONTRACT_REVERT_EXECUTED - Transaction (on hashscan.io).\](../../../.gitbook/assets/hashscan--transaction--contract-result--contract-revert-executed.png)<figcaption> Screenshot showing Contract Result CONTRACT_REVERT_EXECUTED - Transaction (on hashscan.io).</figcaption></figure>
 
 * Go back to the "Contract" page
 * Scroll down to the "Recent Contract Calls" section
@@ -732,9 +728,7 @@ Screenshot showing Contract Result CONTRACT_REVERT_EXECUTED - Transaction (on ha
 
 <figure>
 
-![Screenshot showing Contract Result SUCCESS - Transaction (on hashscan.io).](../../../.gitbook/assets/hashscan--transaction--contract-result--success.png)<figcaption>
-
-Screenshot showing Contract Result SUCCESS - Transaction (on hashscan.io).</figcaption></figure>
+![Screenshot showing Contract Result SUCCESS - Transaction (on hashscan.io).](../../../.gitbook/assets/hashscan--transaction--contract-result--success.png)!\[Screenshot showing Contract Result SUCCESS - Transaction (on hashscan.io).\](../../../.gitbook/assets/hashscan--transaction--contract-result--success.png)<figcaption> Screenshot showing Contract Result SUCCESS - Transaction (on hashscan.io).</figcaption></figure>
 
 * Scroll down to the "Logs" section
 * You should see a single log entry (address, data, index, and topics)
@@ -747,6 +741,4 @@ Screenshot showing Contract Result SUCCESS - Transaction (on hashscan.io).</figc
 
 <figure>
 
-![Screenshot showing Logs - Transaction (on hashscan.io).](../../../.gitbook/assets/hashscan--transaction--logs.png)<figcaption>
-
-Screenshot showing Logs - Transaction (on hashscan.io).</figcaption></figure>
+![Screenshot showing Logs - Transaction (on hashscan.io).](../../../.gitbook/assets/hashscan--transaction--logs.png)!\[Screenshot showing Logs - Transaction (on hashscan.io).\](../../../.gitbook/assets/hashscan--transaction--logs.png)<figcaption> Screenshot showing Logs - Transaction (on hashscan.io).</figcaption></figure>

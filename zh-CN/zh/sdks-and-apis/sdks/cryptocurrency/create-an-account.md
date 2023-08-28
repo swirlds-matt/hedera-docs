@@ -7,6 +7,7 @@ A transaction that creates a Hedera account. A Hedera account is required to int
 {% hint style="info" %}
 When creating a **new account** using the<mark style="color:purple;">`AccountCreateTransaction()`</mark>API you will need an existing account to pay for the associated transaction fee.
 {% endhint %}
+{% endhint %}
 
 **Account Properties**
 
@@ -77,6 +78,9 @@ console.log("The new account ID is " +newAccountId);
 //Create the transaction
 transaction := hedera.NewAccountCreateTransaction().
         SetKey(privateKey.PublicKey()).
+        //Create the transaction
+transaction := hedera.NewAccountCreateTransaction().
+        SetKey(privateKey.PublicKey()).
         SetInitialBalance(hedera.NewHbar(1000))
 
 //Sign the transaction with the client operator private key and submit to a Hedera network
@@ -143,6 +147,9 @@ const accountKey = transaction.getKey();
 {% tab title="Go" %}
 ```go
 //Create an account with 1,000 hbar
+AccountCreateTransaction := hedera.NewAccountCreateTransaction().
+    SetKey(newKey.PublicKey()).
+        //Create an account with 1,000 hbar
 AccountCreateTransaction := hedera.NewAccountCreateTransaction().
     SetKey(newKey.PublicKey()).
         SetInitialBalance(hedera.NewHbar(1000))

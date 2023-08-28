@@ -1,6 +1,6 @@
 # Transfer cryptocurrency
 
-A transaction that transfers HBAR and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of HBAR between the sending accounts and receiving accounts must equal zero.
+A transaction that transfers HBAR and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of HBAR between the sending accounts and receiving accounts must equal zero. You can enter multiple transfers in a single transaction. The net value of HBAR between the sending accounts and receiving accounts must equal zero.
 
 For a CryptoTransferTransactionBody:
 
@@ -20,7 +20,7 @@ For a CryptoTransferTransactionBody:
 
 **Spender Account Allowances**
 
-An account can have [another account](approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transfer transaction by calling one of the following:
+An account can have [another account](approve-an-allowance.md) spend tokens on its behalf. An account can have [another account](approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transfer transaction by calling one of the following:
 
 * `addApprovedHbarTransfer()`
 * `addApprovedTokenTransfer()`
@@ -44,9 +44,9 @@ The debiting account is the owner's account when using this feature.
 | `addNftTransfer(<nftId>, <sender>, <receiver>)`                                           | [NftId](../readme-1/nft-id.md), [AcountId](../../deprecated/sdks/specialized-types.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid) | The NFT ID (token + serial number), the sending account, and receiving account. |
 | `addTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <int>)`              | [TokenId](../readme-1/token-id.md), AccountId, long, decimals                                                                                             | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p>                                                       |
 | `addApprovedHbarTransfer(<ownerAccountId>,<amount>)`                                            | [AccountId](../../deprecated/sdks/specialized-types.md#accountid), Hbar                                                                                   | <p>The owner account ID the spender is authorized to transfer from and the amount.<br>Applicable to allowance transfers only.</p>                                                       |
-| `addApprovedTokenTransfer(<tokenId>, <accountId>, <value>)`                               | [TokenId](../readme-1/token-id.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid), long                                               | <p>The owner account ID and token the spender is authorized to transfer from. The debiting account is the owner account.<br>Applicable to allowance transfers only.<br></p>                                                       |
-| `addApprovedTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <decimals>)` | [TokenId](../readme-1/token-id.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid), long, int                                          | <p>The owner account ID and token ID (with decimals) the spender is authorized to transfer from. The debit account is the account ID of the sender.<br>Applicable to allowance transfers only.<br></p>                                                       |
-| `addApprovedNftTransfer(<nftId>,<sender>, <receiver>)`                                    | [NftId](../readme-1/nft-id.md), [AcountId](../../deprecated/sdks/specialized-types.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid) | <p>The NFT ID the spender is authorized to transfer. The sender is the owner account and receiver is the receiving account.<br>Applicable to allowance transfers only.</p>                                                       |
+| `addApprovedTokenTransfer(<tokenId>, <accountId>, <value>)`                               | [TokenId](../readme-1/token-id.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid), long                                               | <p>The owner account ID and token the spender is authorized to transfer from. The debiting account is the owner account.<br>Applicable to allowance transfers only. The debiting account is the owner account.<br>Applicable to allowance transfers only.<br></p>                                                       |
+| `addApprovedTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <decimals>)` | [TokenId](../readme-1/token-id.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid), long, int                                          | <p>The owner account ID and token ID (with decimals) the spender is authorized to transfer from. The debit account is the account ID of the sender.<br>Applicable to allowance transfers only. The debit account is the account ID of the sender.<br>Applicable to allowance transfers only.<br></p>                                                       |
+| `addApprovedNftTransfer(<nftId>,<sender>, <receiver>)`                                    | [NftId](../readme-1/nft-id.md), [AcountId](../../deprecated/sdks/specialized-types.md), [AccountId](../../deprecated/sdks/specialized-types.md#accountid) | <p>The NFT ID the spender is authorized to transfer. The NFT ID the spender is authorized to transfer. The sender is the owner account and receiver is the receiving account.<br>Applicable to allowance transfers only.</p>                                                       |
 
 {% tabs %}
 {% tab title="Java" %}
@@ -96,6 +96,9 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 {% tab title="Go" %}
 ```java
 // Create a transaction to transfer 100 hbars
+transaction := hedera.NewTransferTransaction().
+        AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(-1)).
+        // Create a transaction to transfer 100 hbars
 transaction := hedera.NewTransferTransaction().
         AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(-1)).
         AddHbarTransfer(hedera.AccountID{Account: 3}, hedera.NewHbar(1))
@@ -202,6 +205,9 @@ const transfers = transaction.getTransfers();
 {% tab title="Go" %}
 ```go
 // Create a transaction 
+transaction := hedera.NewTransferTransaction().
+        AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(-1)).
+        // Create a transaction 
 transaction := hedera.NewTransferTransaction().
         AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(-1)).
         AddHbarTransfer(hedera.AccountID{Account: 3}, hedera.NewHbar(1))

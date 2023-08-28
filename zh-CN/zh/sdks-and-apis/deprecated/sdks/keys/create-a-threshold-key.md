@@ -1,6 +1,6 @@
 # Create a threshold key
 
-Create a key structure that requires the defined threshold value to sign. A threshold key can contain a [Ed25519](../../../sdks/keys/generate-a-new-key-pair.md#ed25519) or [ECDSA](../../../sdks/keys/generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1\_)\_ key type. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
+Create a key structure that requires the defined threshold value to sign. Create a key structure that requires the defined threshold value to sign. A threshold key can contain a [Ed25519](../../../sdks/keys/generate-a-new-key-pair.md#ed25519) or [ECDSA](../../../sdks/keys/generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1\_)\_ key type. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
 
 {% tabs %}
 {% tab title="V1" %}

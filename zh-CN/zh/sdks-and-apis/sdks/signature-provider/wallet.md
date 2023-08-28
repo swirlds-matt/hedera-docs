@@ -1,10 +1,10 @@
 # Wallet
 
 {% hint style="info" %}
-This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0).
+This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0). (version >=2.14.0).
 {% endhint %}
 
-The `Wallet` extends the `Signer`. The `Signer` is responsible for `Signing` requests while the `Provider` is responsible for communication between an application and a Hedera network, but is not required to communicate directly with a Hedera network. Note this means the `Provider` can for instance communicate with some third party service which finally communicates with a Hedera network.
+The `Wallet` extends the `Signer`. The `Wallet` extends the `Signer`. The `Signer` is responsible for `Signing` requests while the `Provider` is responsible for communication between an application and a Hedera network, but is not required to communicate directly with a Hedera network. Note this means the `Provider` can for instance communicate with some third party service which finally communicates with a Hedera network. Note this means the `Provider` can for instance communicate with some third party service which finally communicates with a Hedera network.
 
 ## class Wallet extends Signer
 
@@ -63,6 +63,12 @@ Signs a transaction, returning the signed transaction
 **NOTE**: This method is allowed to mutate the parameter being passed in so the returned transaction is not guaranteed to be a new instance of the transaction.
 
 <mark style="color:purple;">**`<Wallet>.checkTransaction<T extends Transaction>`**</mark><mark style="color:purple;">\*\*</mark> ( `transaction`: `T` )-> `Promise<T>`\*\*
+
+Check whether all the required fields are set appropriately. Fields such as the transaction ID's account ID should either be `null` or be equal to the signer's account ID, and the node account IDs on the request should exist within the signer's network.
+
+<mark style="color:purple;">**`<Wallet>.populateTransaction<T extends Transaction>`**</mark><mark style="color:purple;">\*\*</mark> ( `transaction`: `T` )-> `Promise<T>`\*\*
+
+Populate the requests with the required fields. **`<Wallet>.checkTransaction<T extends Transaction>`**</mark><mark style="color:purple;">\*\*</mark> ( `transaction`: `T` )-> `Promise<T>`\*\*
 
 Check whether all the required fields are set appropriately. Fields such as the transaction ID's account ID should either be `null` or be equal to the signer's account ID, and the node account IDs on the request should exist within the signer's network.
 

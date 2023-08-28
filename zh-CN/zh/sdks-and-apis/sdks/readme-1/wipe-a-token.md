@@ -1,6 +1,6 @@
 # Wipe a token
 
-Wipes the provided amount of fungible or non-fungible tokens from the specified Hedera account. This transaction does not delete tokens from the treasury account. This transaction must be signed by the token's Wipe Key. Wiping an account's tokens burns the tokens and decreases the total supply.
+Wipes the provided amount of fungible or non-fungible tokens from the specified Hedera account. This transaction does not delete tokens from the treasury account. This transaction must be signed by the token's Wipe Key. Wiping an account's tokens burns the tokens and decreases the total supply. This transaction does not delete tokens from the treasury account. This transaction must be signed by the token's Wipe Key. Wiping an account's tokens burns the tokens and decreases the total supply.
 
 * If the provided account is not found, the transaction will resolve to `INVALID_ACCOUNT_ID`.
 * If the provided account has been deleted, the transaction will resolve to `ACCOUNT_DELETED`
@@ -11,7 +11,7 @@ Wipes the provided amount of fungible or non-fungible tokens from the specified 
 * If the provided account is the token's Treasury Account, the transaction results in `CANNOT_WIPE_TOKEN_TREASURY_ACCOUNT`
 * On success, tokens are removed from the account and the total supply of the token is decreased by the wiped amount.
 * The amount provided is in the lowest denomination possible.
-  * Example: Token A has 2 decimals. In order to wipe 100 tokens from an account, one must provide an amount of 10000. In order to wipe 100.55 tokens, one must provide an amount of 10055.
+  * Example: Token A has 2 decimals. Example: Token A has 2 decimals. In order to wipe 100 tokens from an account, one must provide an amount of 10000. In order to wipe 100.55 tokens, one must provide an amount of 10055. In order to wipe 100.55 tokens, one must provide an amount of 10055.
 * This transaction accepts zero-unit token wipe operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564))
 
 **Transaction Signing Requirements:**
@@ -26,7 +26,7 @@ Wipes the provided amount of fungible or non-fungible tokens from the specified 
 
 ## Methods
 
-<table><thead><tr><th width="298">Method</th><th width="136">Type</th><th>Description</th><th>Requirement</th></tr></thead><tbody><tr><td><code>setTokenId(&#x3C;tokenId>)</code></td><td>TokenId</td><td>The ID of the fungible or non-fungible token to remove from the account.</td><td>Required</td></tr><tr><td><code>setAmount(&#x3C;amount>)</code></td><td>long</td><td>Applicable to tokens of type <code>FUNGIBLE_COMMON</code>.The amount of token to wipe from the specified account. The amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account.</td><td>Optional</td></tr><tr><td><code>setAccount(&#x3C;accountId>)</code></td><td>AccountId</td><td>The account the specified fungible or non-fungible token should be removed from.</td><td>Required</td></tr><tr><td><code>setSerials(&#x3C;serials>)</code></td><td>List&#x3C;long></td><td>Applicable to tokens of type <code>NON_FUNGIBLE_UNIQUE</code>.The list of NFTs to wipe.</td><td>Optional</td></tr><tr><td><code>addSerial(&#x3C;serial>)</code></td><td>long</td><td>Applicable to tokens of type <code>NON_FUNGIBLE_UNIQUE.</code>The NFT to wipe.</td><td>Optional</td></tr></tbody></table>
+<table><thead><tr><th width="298">Method</th><th width="136">Type</th><th>Description</th><th>Requirement</th></tr></thead><tbody><tr><td><code>setTokenId(&#x3C;tokenId>)</code></td><td>TokenId</td><td>The ID of the fungible or non-fungible token to remove from the account.</td><td>Required</td></tr><tr><td><code>setAmount(&#x3C;amount>)</code></td><td>long</td><td>Applicable to tokens of type <code>FUNGIBLE_COMMON</code>.The amount of token to wipe from the specified account. Applicable to tokens of type <code>FUNGIBLE_COMMON</code>.The amount of token to wipe from the specified account. The amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account.</td><td>Optional</td></tr><tr><td><code>setAccount(&#x3C;accountId>)</code></td><td>AccountId</td><td>The account the specified fungible or non-fungible token should be removed from.</td><td>Required</td></tr><tr><td><code>setSerials(&#x3C;serials>)</code></td><td>List&#x3C;long></td><td>Applicable to tokens of type <code>NON_FUNGIBLE_UNIQUE</code>.The list of NFTs to wipe.</td><td>Optional</td></tr><tr><td><code>addSerial(&#x3C;serial>)</code></td><td>long</td><td>Applicable to tokens of type <code>NON_FUNGIBLE_UNIQUE.</code>The NFT to wipe.</td><td>Optional</td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Java" %}
@@ -79,6 +79,11 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 {% tab title="Go" %}
 ```go
 //Wipe 100 tokens and freeze the unsigned transaction for manual signing
+transaction, err = hedera.NewTokenBurnTransaction().
+        SetAccountId(accountId).
+        SetTokenID(tokenId).
+        SetAmount(1000).
+        //Wipe 100 tokens and freeze the unsigned transaction for manual signing
 transaction, err = hedera.NewTokenBurnTransaction().
         SetAccountId(accountId).
         SetTokenID(tokenId).

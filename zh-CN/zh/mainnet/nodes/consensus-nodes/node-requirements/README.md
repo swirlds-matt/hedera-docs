@@ -5,11 +5,11 @@ description: >-
 
 # Node Requirements
 
-The following is provided to help Hedera Governing Council members deploy their permissioned mainnet consensus node. Please note, this information is not intended to apply to Hedera's transition to a permissionless network.
+The following is provided to help Hedera Governing Council members deploy their permissioned mainnet consensus node. Please note, this information is not intended to apply to Hedera's transition to a permissionless network. Please note, this information is not intended to apply to Hedera's transition to a permissionless network.
 
 ## Minimum Node Requirements
 
-Currently, the Hedera mainnet will perform at a rate determined by the lowest performing node. To ensure a common level of performance minimum hardware, connectivity and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
+Currently, the Hedera mainnet will perform at a rate determined by the lowest performing node. Currently, the Hedera mainnet will perform at a rate determined by the lowest performing node. To ensure a common level of performance minimum hardware, connectivity and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
 
 {% hint style="warning" %}
 To ensure accurate conformity with the minimum requirements, please provide node hardware, connectivity, and hosting details to Hedera prior to purchase \(devops@hedera.com\).
@@ -50,7 +50,7 @@ Reference Configurations available in Appendices B, C, D
 
 ### Proxy
 
-Access to the node via public APIs must be mediated by an in-line proxy. Below are the specifications for establishing this proxy.
+Access to the node via public APIs must be mediated by an in-line proxy. Below are the specifications for establishing this proxy. Below are the specifications for establishing this proxy.
 
 * 2-CPU
 * 2GB RAM
@@ -100,7 +100,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDt50KHgircRbqfukIFUElFd6BBSNHdcA7k Qabb4o
 ```
 
 {% hint style="warning" %}
-External SSH access from hgcadmin will not be required for ongoing production\(mainnet\). This is temporary to allow for configuration of the nodes to support new members and features during the testing and initial production deployment phases.
+External SSH access from hgcadmin will not be required for ongoing production\(mainnet\). External SSH access from hgcadmin will not be required for ongoing production\(mainnet\). This is temporary to allow for configuration of the nodes to support new members and features during the testing and initial production deployment phases.
 {% endhint %}
 
 Once the hardware with base O/S is deployed, please email \(devops@hedera.com\) us the following

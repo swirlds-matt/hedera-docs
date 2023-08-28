@@ -1,12 +1,12 @@
 # Local Provider
 
 {% hint style="info" %}
-This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0).
+This feature is available in the [Hedera JavaScript SDK](https://github.com/hashgraph/hedera-sdk-js) only. (version >=2.14.0). (version >=2.14.0).
 {% endhint %}
 
 LocalProvider is a quality of life implementation that creates a provider using the `HEDERA_NETWORK` environment variable.
 
-The `LocalProvider()` requires the following variable to be defined in the `.env` file. The `.env` file is located in the root directory of the project.
+The `LocalProvider()` requires the following variable to be defined in the `.env` file. The `.env` file is located in the root directory of the project. The `.env` file is located in the root directory of the project.
 
 * `HEDERA_NETWORK`
   * The network the wallet submits transactions to
@@ -24,7 +24,7 @@ HEDERA_NETWORK= previewnet/testnet/mainnet (select one network)
 
 #### new <mark style="color:purple;">LocalProvider</mark><mark style="color:purple;">`()`</mark>
 
-Instantiates the LocalProvider object. The local provider is built using `HEDERA_NETWORK` network specified in the `.env` file.
+Instantiates the LocalProvider object. Instantiates the LocalProvider object. The local provider is built using `HEDERA_NETWORK` network specified in the `.env` file.
 
 ### Methods
 

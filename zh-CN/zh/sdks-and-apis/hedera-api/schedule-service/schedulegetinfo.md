@@ -1,6 +1,6 @@
 # ScheduleGetInfo
 
-Gets information about a schedule in the network's action queue. Responds with INVALID\_SCHEDULE\_ID if the requested schedule doesn't exist.
+Gets information about a schedule in the network's action queue. Gets information about a schedule in the network's action queue. Responds with INVALID\_SCHEDULE\_ID if the requested schedule doesn't exist.
 
 ## ScheduleGetInfoQuery
 

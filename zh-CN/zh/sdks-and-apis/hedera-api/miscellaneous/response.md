@@ -1,6 +1,6 @@
 # Response
 
-A single response, which is returned from the node to the client, after the client sent the node a query. This includes all responses.
+A single response, which is returned from the node to the client, after the client sent the node a query. This includes all responses. This includes all responses.
 
 | Field                         | Type                                                                                                                                                          | Description                                                                             |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |

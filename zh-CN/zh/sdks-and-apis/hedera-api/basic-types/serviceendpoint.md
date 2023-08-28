@@ -1,6 +1,6 @@
 # ServiceEndpoint
 
-Contains the IP address and the port representing a service endpoint of a Node in a network. Used to reach the Hedera API and submit transactions to the network.
+Contains the IP address and the port representing a service endpoint of a Node in a network. Used to reach the Hedera API and submit transactions to the network. Used to reach the Hedera API and submit transactions to the network.
 
 | Field         | Type  | Description                                                                                                   | Hedera Services Version |
 | ------------- | ----- | ------------------------------------------------------------------------------------------------------------- | ----------------------- |

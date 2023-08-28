@@ -1,11 +1,11 @@
 ---
 description: >-
-  Hedera Smart Contract Service (HSCS) workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
+  Hedera Smart Contract Service (HSCS) workshop. Hedera Smart Contract Service (HSCS) workshop. Learn how to enable custom logic & processing on Hedera through smart contracts.
 ---
 
 # Hedera Smart Contracts Workshop
 
-Smart contracts are a means to enable custom logic and processing in a DLT. Developers can harness their power to build their own decentralized applications (DApps). Learn how to get started with the Hedera Smart Contract Service (HSCS) in this workshop.
+Smart contracts are a means to enable custom logic and processing in a DLT. Developers can harness their power to build their own decentralized applications (DApps). Learn how to get started with the Hedera Smart Contract Service (HSCS) in this workshop. Developers can harness their power to build their own decentralized applications (DApps). Learn how to get started with the Hedera Smart Contract Service (HSCS) in this workshop.
 
 ## What we will cover
 
@@ -39,8 +39,8 @@ System setup:
   * Recommended for Linux & Mac: [`nvm`](https://github.com/nvm-sh/nvm)
   * Recommended for Windows: [`nvm-windows`](https://github.com/coreybutler/nvm-windows)
 * ✅ POSIX-compliant shell
-  * For Linux & Mac: The shell that ships with the operating system will work. Either `bash` or `zsh` will work.
-  * For Windows: The shell that ships with the operating system (`cmd.exe`, `powershell.exe`) will _not_ work. Recommended alternatives: WSL/2, or git-bash which ships with git-for-windows.
+  * For Linux & Mac: The shell that ships with the operating system will work. For Linux & Mac: The shell that ships with the operating system will work. Either `bash` or `zsh` will work.
+  * For Windows: The shell that ships with the operating system (`cmd.exe`, `powershell.exe`) will _not_ work. Recommended alternatives: WSL/2, or git-bash which ships with git-for-windows. Recommended alternatives: WSL/2, or git-bash which ships with git-for-windows.
 * ✅ Internet connection
 * ✅ Optionally, `jq`
   * For Linux: Use OS package manager
@@ -51,11 +51,11 @@ System setup:
 
 Before we begin coding, let's take a look at the various software libraries and developer tools that you will need to be familiar with when working with smart contracts on HSCS.
 
-[Hedera SDK JS](https://github.com/hashgraph/hedera-sdk-js) is a software library that contains functions designed to interact the all of the services available on the Hedera network: HCS, HTS, HFS, and HSCS. That includes smart contracts.
+[Hedera SDK JS](https://github.com/hashgraph/hedera-sdk-js) is a software library that contains functions designed to interact the all of the services available on the Hedera network: HCS, HTS, HFS, and HSCS. That includes smart contracts. That includes smart contracts.
 
-Both [EthersJs](https://docs.ethers.org/v5/) and [Web3Js](https://web3js.readthedocs.io/en/v1.10.0/) are software libraries that contain functions designed to interact with the Ethereum network, and any other EVM-compatible networks. This means that you can use them to interact with HSCS as well (but not with HCS, HTS, or HFS).
+Both [EthersJs](https://docs.ethers.org/v5/) and [Web3Js](https://web3js.readthedocs.io/en/v1.10.0/) are software libraries that contain functions designed to interact with the Ethereum network, and any other EVM-compatible networks. This means that you can use them to interact with HSCS as well (but not with HCS, HTS, or HFS). This means that you can use them to interact with HSCS as well (but not with HCS, HTS, or HFS).
 
-Smart contracts are written using Solidity, but we cannot just take the Solidity code and ask HSCS, or any other EVM implementation, to run it. Instead we need [`solc`](https://docs.soliditylang.org/en/v0.8.19/), the Solidity compiler, to compile it into EVM bytecode, which can then be executed by any EVM implementation, including the one in HSCS.
+Smart contracts are written using Solidity, but we cannot just take the Solidity code and ask HSCS, or any other EVM implementation, to run it. Instead we need [`solc`](https://docs.soliditylang.org/en/v0.8.19/), the Solidity compiler, to compile it into EVM bytecode, which can then be executed by any EVM implementation, including the one in HSCS. Instead we need [`solc`](https://docs.soliditylang.org/en/v0.8.19/), the Solidity compiler, to compile it into EVM bytecode, which can then be executed by any EVM implementation, including the one in HSCS.
 
 <details>
 

@@ -2,7 +2,7 @@
 
 ## FreezeTransactionBody
 
-Set the freezing period in which the platform will stop creating events and accepting transactions. This is used before safely shut down the platform for maintenance.
+Set the freezing period in which the platform will stop creating events and accepting transactions. This is used before safely shut down the platform for maintenance. This is used before safely shut down the platform for maintenance.
 
 | Field                        | Description                                                                                                 |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -19,6 +19,6 @@ Set the freezing period in which the platform will stop creating events and acce
 
 #### FreezeService
 
-| RPC      | Request     | Response                                      | Comments                                                                                         |
-| -------- | ----------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `freeze` | Transaction | [TransactionResponse](transactionresponse.md) | Freezes the nodes by submitting the transaction. The grpc server returns the TransactionResponse |
+| RPC      | Request     | Response                                      | Comments                                                                                                                                          |
+| -------- | ----------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `freeze` | Transaction | [TransactionResponse](transactionresponse.md) | Freezes the nodes by submitting the transaction. Freezes the nodes by submitting the transaction. The grpc server returns the TransactionResponse |

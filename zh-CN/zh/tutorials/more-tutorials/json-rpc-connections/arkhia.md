@@ -5,7 +5,7 @@ description: >-
 
 # Configuring Arkhia RPC endpoints
 
-[Arkhia](https://www.arkhia.io/features/#api-services) is a third-party organization that runs a JSON-RPC managed service. It is a "freemium" offering, meaning it has a free tier with paid components. As a managed service, it:
+[Arkhia](https://www.arkhia.io/features/#api-services) is a third-party organization that runs a JSON-RPC managed service. It is a "freemium" offering, meaning it has a free tier with paid components. As a managed service, it: It is a "freemium" offering, meaning it has a free tier with paid components. As a managed service, it:
 
 * Is free to use up to a point
 * Does not have any sign-up requirements

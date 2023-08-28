@@ -4,13 +4,13 @@ description: Hedera network fees
 
 # Fees
 
-The Hedera testnet fees tables found below offer a low-end estimate of transaction and query fees for all network services. The tables below contain USD, HBAR, and Tinybar (tℏ) values per each API call. All operation fees on the Hedera testnet are paid in test HBAR, which is freely available and only useful for development purposes.
+The Hedera testnet fees tables found below offer a low-end estimate of transaction and query fees for all network services. The tables below contain USD, HBAR, and Tinybar (tℏ) values per each API call. All operation fees on the Hedera testnet are paid in test HBAR, which is freely available and only useful for development purposes. The tables below contain USD, HBAR, and Tinybar (tℏ) values per each API call. All operation fees on the Hedera testnet are paid in test HBAR, which is freely available and only useful for development purposes.
 
 Fee estimates are based on assumptions about the details of a specific API call. For instance, the fee for an HBAR cryptocurrency transfer (CryptoTransfer) assumes a single signature on the transaction and the fee for storing a file assumes a 48-byte sized file stored for 30 days. Transactions exceeding these base assumptions will be more expensive; we recommend increasing your maximum allowable fee to accommodate additional complexity.
 
 ### Mainnet Fees
 
-Mainnet transaction and query fees can be estimated using the [Hedera Fee Estimator](https://www.hedera.com/fees). The Fee Estimator allows you to determine fees (in both USD and HBAR, using the current exchange rate live on the mainnet) for individual transactions & queries based on their characteristics, as well as projected costs based on expected volume for those transactions. The estimations may not be 100% accurate and the underlying prices are subject to change without prior notice.
+Mainnet transaction and query fees can be estimated using the [Hedera Fee Estimator](https://www.hedera.com/fees). The Fee Estimator allows you to determine fees (in both USD and HBAR, using the current exchange rate live on the mainnet) for individual transactions & queries based on their characteristics, as well as projected costs based on expected volume for those transactions. The estimations may not be 100% accurate and the underlying prices are subject to change without prior notice. The Fee Estimator allows you to determine fees (in both USD and HBAR, using the current exchange rate live on the mainnet) for individual transactions & queries based on their characteristics, as well as projected costs based on expected volume for those transactions. The estimations may not be 100% accurate and the underlying prices are subject to change without prior notice.
 
 ## HBAR Denominations and Abbreviations
 
@@ -26,10 +26,10 @@ Mainnet transaction and query fees can be estimated using the [Hedera Fee Estima
 
 ## Transaction and Query Fees
 
-All fees are subject to change. The fees below reflect a base price for the transaction or query. Transaction characteristics may increase the price from the base price shown below. Transaction characteristics include having more than one signature, a memo field, etc. Please reference the [Hedera fee estimator](https://hedera.com/fees) to estimate the transaction or query fee.
+All fees are subject to change. The fees below reflect a base price for the transaction or query. Transaction characteristics may increase the price from the base price shown below. Transaction characteristics include having more than one signature, a memo field, etc. All fees are subject to change. The fees below reflect a base price for the transaction or query. Transaction characteristics may increase the price from the base price shown below. Transaction characteristics include having more than one signature, a memo field, etc. Please reference the [Hedera fee estimator](https://hedera.com/fees) to estimate the transaction or query fee.
 
 {% hint style="info" %}
-🔔 **NOTE:** Reflecting significant growth in Hedera's NFT ecosystem, network fee changes for bulk minting NFTs will be implemented in the v0.41 release. See [this](https://hedera.com/blog/hederas-expanding-nft-ecosystem-new-pricing-to-meet-growing-demand) blog post for more details.
+🔔 **NOTE:** Reflecting significant growth in Hedera's NFT ecosystem, network fee changes for bulk minting NFTs will be implemented in the v0.41 release. See [this](https://hedera.com/blog/hederas-expanding-nft-ecosystem-new-pricing-to-meet-growing-demand) blog post for more details. See [this](https://hedera.com/blog/hederas-expanding-nft-ecosystem-new-pricing-to-meet-growing-demand) blog post for more details.
 {% endhint %}
 
 ### Cryptocurrency Service

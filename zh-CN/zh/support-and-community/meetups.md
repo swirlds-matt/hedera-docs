@@ -5,7 +5,7 @@ description: >-
 
 # Meetups
 
-We currently have 54 Meetup groups worldwide, including one online group for virtual meetups. Check out our extensive Meetup list below and join a group that supports your needs. We are very excited to see you there!
+We currently have 54 Meetup groups worldwide, including one online group for virtual meetups. Check out our extensive Meetup list below and join a group that supports your needs. We are very excited to see you there! Check out our extensive Meetup list below and join a group that supports your needs. We are very excited to see you there!
 
 ## Online
 
@@ -47,7 +47,7 @@ We currently have 54 Meetup groups worldwide, including one online group for vir
 
 <summary>What should I expect at a Hedera meetup?</summary>
 
-We intend to share information about best development practices, how to use Hedera network services, how hashgraph works, and hear from the teams building an entirely new class of applications on Hedera. Some topics covered in past meetups include: Solidity smart contracts 101, examples of SDK code, and practical use cases.
+We intend to share information about best development practices, how to use Hedera network services, how hashgraph works, and hear from the teams building an entirely new class of applications on Hedera. Some topics covered in past meetups include: Solidity smart contracts 101, examples of SDK code, and practical use cases. Some topics covered in past meetups include: Solidity smart contracts 101, examples of SDK code, and practical use cases.
 
 </details>
 

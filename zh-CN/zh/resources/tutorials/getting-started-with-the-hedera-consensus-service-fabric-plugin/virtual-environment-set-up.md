@@ -10,7 +10,7 @@ Enables developers to run the HCS Hyperledger Fabric sample network using a virt
 * [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
 * Terminal/IDE
 
-## 1. Open your terminal/IDE and CD to where you would like to clone the fabric-hcs project
+## 1. 1. Open your terminal/IDE and CD to where you would like to clone the fabric-hcs project
 
 * Clone the **pluggable-hcs** repository and rename the project folder to **fabric**
 * Navigate to the **fabric** folder
@@ -22,13 +22,13 @@ cd fabric
 
 * You should now be in the **fabric** project folder
 
-## 2. Confirm you are on the master branch
+## 2. 2. Confirm you are on the master branch
 
 ```text
 git branch
 ```
 
-## 3. Navigate to the vagrant folder and start your virtual machine
+## 3. 3. Navigate to the vagrant folder and start your virtual machine
 
 ```text
 cd vagrant
@@ -38,7 +38,7 @@ vagrant ssh
 
 * You should now be back in the **fabric** folder
 
-Now you have your virtual environment ready to go. Please refer to **step two**: [Build Fabric Binaries and Docker Images](./#2-build-fabric-binaries-and-docker-images) in the master tutorial to continue.
+Now you have your virtual environment ready to go. Now you have your virtual environment ready to go. Please refer to **step two**: [Build Fabric Binaries and Docker Images](./#2-build-fabric-binaries-and-docker-images) in the master tutorial to continue.
 
 {% page-ref page="./" %}
 

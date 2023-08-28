@@ -1,6 +1,6 @@
 # Get account token balance
 
-To get the balance of tokens for an account, you can submit an account balance query. The account balance query will return the tokens the account holds in a list format.
+To get the balance of tokens for an account, you can submit an account balance query. To get the balance of tokens for an account, you can submit an account balance query. The account balance query will return the tokens the account holds in a list format.
 
 **Query Fees**
 
@@ -45,6 +45,8 @@ console.log("The token balance(s) for this account: " +tokenBalance.tokens.toStr
 {% tab title="Go" %}
 ```go
 //Create the query
+query := hedera.NewAccountBalanceQuery().
+     //Create the query
 query := hedera.NewAccountBalanceQuery().
      SetAccountID(accountId)
 

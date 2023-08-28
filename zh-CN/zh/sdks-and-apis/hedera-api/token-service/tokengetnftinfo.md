@@ -11,7 +11,7 @@ Represents an NFT on the Ledger.
 
 ## TokenGetNftInfoQuery
 
-Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID (of type `NON_FUNGIBLE_UNIQUE`) and serial number.
+Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID (of type `NON_FUNGIBLE_UNIQUE`) and serial number.
 
 | Field    | Type                                           | Description                                                                                                                                        |
 | -------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,21 +1,21 @@
 # Get Started with the Hedera Consensus Service Fabric Plugin
 
 {% hint style="warning" %}
-You must have a basic understanding of the Hyperledger Fabric network, its key concepts, first-network sample, and transaction flow. Please visit the Hyperledger Fabric [docs](https://hyperledger-fabric.readthedocs.io/en/release-2.0/) to familiarize yourself with these concepts if you have not done so already.
+You must have a basic understanding of the Hyperledger Fabric network, its key concepts, first-network sample, and transaction flow. Please visit the Hyperledger Fabric [docs](https://hyperledger-fabric.readthedocs.io/en/release-2.0/) to familiarize yourself with these concepts if you have not done so already. Please visit the Hyperledger Fabric [docs](https://hyperledger-fabric.readthedocs.io/en/release-2.0/) to familiarize yourself with these concepts if you have not done so already.
 {% endhint %}
 
 ## Background
 
-Hyperledger Fabric is one of the most popular private/permissioned enterprise blockchain frameworks available today. Fabric's modular architecture approach enables users to specify network components like network members and choice of consensus protocol (ordering service).
+Hyperledger Fabric is one of the most popular private/permissioned enterprise blockchain frameworks available today. Hyperledger Fabric is one of the most popular private/permissioned enterprise blockchain frameworks available today. Fabric's modular architecture approach enables users to specify network components like network members and choice of consensus protocol (ordering service).
 
-In this tutorial, you will create a Hyperledger Fabric network that leverages the Hedera Consensus Service Fabric plug-in to use Hedera as the ordering service via the first-network sample. The HCS Hyperledger Fabric network will be composed of two organizations. Each organization will host two peer nodes. The two organizations will privately communicate and transact within a Hyperledger Fabric channel.
+In this tutorial, you will create a Hyperledger Fabric network that leverages the Hedera Consensus Service Fabric plug-in to use Hedera as the ordering service via the first-network sample. The HCS Hyperledger Fabric network will be composed of two organizations. Each organization will host two peer nodes. The two organizations will privately communicate and transact within a Hyperledger Fabric channel. The HCS Hyperledger Fabric network will be composed of two organizations. Each organization will host two peer nodes. The two organizations will privately communicate and transact within a Hyperledger Fabric channel.
 
 If you already have experience with the Hyperledger Fabric network and the first-network sample, you can skip down to the requirements section to get started.
 
 ## Transaction Flow
 
-1. A client application creates a transaction proposal and sends it to Hyperledger Fabric network peers. The transaction proposal is endorsed (signed) by the Hyperledger Fabric network peers. The endorsed transaction proposal is sent back to the client application.
-2. Client application submits the endorsed transaction to the Hyperledger Fabric network HCS ordering node. That Hyperledger Fabric ordering node interacts with the HCS fabric plugin as the ordering service
+1. A client application creates a transaction proposal and sends it to Hyperledger Fabric network peers. The transaction proposal is endorsed (signed) by the Hyperledger Fabric network peers. The endorsed transaction proposal is sent back to the client application. The transaction proposal is endorsed (signed) by the Hyperledger Fabric network peers. The endorsed transaction proposal is sent back to the client application.
+2. Client application submits the endorsed transaction to the Hyperledger Fabric network HCS ordering node. That Hyperledger Fabric ordering node interacts with the HCS fabric plugin as the ordering service That Hyperledger Fabric ordering node interacts with the HCS fabric plugin as the ordering service
 3. Fabric transactions are fragmented into many messages and submitted to the Hedera network against a particular topic ID
 4. Hedera mainnet nodes timestamp and order the fragmented messages
 5. Hedera mirror nodes read the fragmented messages in consensus order from the Hedera mainnet
@@ -31,7 +31,7 @@ A basic description of the concepts for the purposes of this tutorial.
 
 **Client Application**
 
-A client application communicates to a Hyperledger Fabric peer node to submit a transaction proposal and collects the endorsed (signed) transaction proposal. The transaction proposal may initiate a modification of the current state of the distributed ledger.
+A client application communicates to a Hyperledger Fabric peer node to submit a transaction proposal and collects the endorsed (signed) transaction proposal. A client application communicates to a Hyperledger Fabric peer node to submit a transaction proposal and collects the endorsed (signed) transaction proposal. The transaction proposal may initiate a modification of the current state of the distributed ledger.
 
 **Hedera Consensus Service Fabric Plugin**
 
@@ -39,7 +39,7 @@ A consensus service plugin for the Hyperledger Fabric network that leverages the
 
 **Hedera Mirror Node**
 
-A Hedera mirror node reads the ordered messages from a Hedera mainnet node and communicates that information back to the Hyperledger Fabric network. Each message has the following information:
+A Hedera mirror node reads the ordered messages from a Hedera mainnet node and communicates that information back to the Hyperledger Fabric network. Each message has the following information: Each message has the following information:
 
 * ConsensusTimestamp
 * Message Body
@@ -48,7 +48,7 @@ A Hedera mirror node reads the ordered messages from a Hedera mainnet node and c
 
 **Hedera Mainnet Node**
 
-A Hedera mainnet node receives the Fabric transaction in fragmented message transactions from the HCS Hyperledger ordering node. That mainnet node gossips the transactions to the other mainnet nodes which collectively assigns the transactions a consensus timestamp and order within the corresponding topic.
+A Hedera mainnet node receives the Fabric transaction in fragmented message transactions from the HCS Hyperledger ordering node. That mainnet node gossips the transactions to the other mainnet nodes which collectively assigns the transactions a consensus timestamp and order within the corresponding topic. That mainnet node gossips the transactions to the other mainnet nodes which collectively assigns the transactions a consensus timestamp and order within the corresponding topic.
 
 **fabric-hcs Repository**
 
@@ -60,7 +60,7 @@ The Hyperledger Fabric network is composed of peer nodes, ordering nodes, chainc
 
 **Hyperledger Fabric Network Peers**
 
-Peers are nodes in the Hyperledger Fabric network that host instances of the ledger and instances of the chaincode. Client applications interact with the peer nodes to endorse a transaction proposal.
+Peers are nodes in the Hyperledger Fabric network that host instances of the ledger and instances of the chaincode. Client applications interact with the peer nodes to endorse a transaction proposal. Client applications interact with the peer nodes to endorse a transaction proposal.
 
 **Hyperledger Fabric Channels**
 
@@ -72,7 +72,7 @@ Organizations are participants that would like to communicate and transact priva
 
 **Hyperledger Fabric Orderer**
 
-A node that orders the transactions received from a client application (also known as an "ordering node"). In this case, the ordering node interacts with the HCS fabric plugin as the ordering service.
+A node that orders the transactions received from a client application (also known as an "ordering node"). A node that orders the transactions received from a client application (also known as an "ordering node"). In this case, the ordering node interacts with the HCS fabric plugin as the ordering service.
 
 ## Requirements:
 
@@ -126,7 +126,7 @@ Additionally, you may reference Hyperledger Fabric's documentation for the [prer
 
 You should be able to use the commands provided in this tutorial in terminal prompt or IDE of choice.
 
-## 1. Clone the [pluggable-hcs](https://github.com/hyperledger-labs/pluggable-hcs) Project
+## 1. 1. Clone the [pluggable-hcs](https://github.com/hyperledger-labs/pluggable-hcs) Project
 
 * Open your terminal or favorite IDE
 * Enter the following commands to set-up your environment variables (**required**)
@@ -159,7 +159,7 @@ $ git branch
 
 ⭐ You have now successfully set your Go path variables and installed the pluggable-hcs/fabric repository.
 
-## 2. Build Fabric Binaries and Docker Images
+## 2. 2. Build Fabric Binaries and Docker Images
 
 * cd to the **fabric** directory if you are not there already from your terminal or favorite IDE
 
@@ -169,16 +169,16 @@ $ cd fabric
 
 * Follow the commands below to build the required fabric binaries and docker images
   * Note: This process may take a few minutes to complete
-  * Note: Newer versions of Docker enable gRPC FUSE file sharing implementation by default which result in a failure. Switch to osxfs (Legacy) in Docker Settings
+  * Note: Newer versions of Docker enable gRPC FUSE file sharing implementation by default which result in a failure. Switch to osxfs (Legacy) in Docker Settings Switch to osxfs (Legacy) in Docker Settings
 
 ```
 $ make clean
 $ make configtxgen configtxlator cryptogen orderer peer docker
 ```
 
-## 3. Hedera Network & HCS Hyperledger Fabric Orderer Configuration
+## 3. 3. Hedera Network & HCS Hyperledger Fabric Orderer Configuration
 
-You will now enter your Hedera testnet account ID and private key information to the relevant configuration files. If you have not previously generated your testnet account, please follow the instructions [here](https://docs.hedera.com/guides/testnet/testnet-access).
+You will now enter your Hedera testnet account ID and private key information to the relevant configuration files. If you have not previously generated your testnet account, please follow the instructions [here](https://docs.hedera.com/guides/testnet/testnet-access). If you have not previously generated your testnet account, please follow the instructions [here](https://docs.hedera.com/guides/testnet/testnet-access).
 
 * Navigate to the **first-network** directory from your terminal or favorite IDE
 
@@ -187,7 +187,7 @@ $ cd first-network
 ```
 
 * Edit the **hedera\_env.json** file via the terminal or IDE
-  * This sets up the Hedera environment and allows you to create topics and submit messages to the Hedera network. The Hedera account entered here pays for the transaction fees associated with creating and submitting messages.
+  * This sets up the Hedera environment and allows you to create topics and submit messages to the Hedera network. The Hedera account entered here pays for the transaction fees associated with creating and submitting messages. The Hedera account entered here pays for the transaction fees associated with creating and submitting messages.
   * If you are using an IDE, you may skip this command and edit the file
 
 ```
@@ -248,7 +248,7 @@ Please make sure you have entered your Hedera information correctly with no synt
 
 ⭐ You have now successfully set up your configuration variables for the Hedera operator and for the HCS Hyperledger ordering node.
 
-## 4. Run Your Network
+## 4. 4. Run Your Network
 
 In this step you will create your HCS Hyperledger Fabric Network.
 
@@ -274,7 +274,7 @@ Please note it's necessary to set the timeout to 20 seconds since otherwise some
 * Transactions submitted to either of these channels will be visible from a mirror node [explorer](https://docs.hedera.com/guides/testnet/mirror-nodes)
   * Transactions can be fragmented into smaller chunks resulting in multiple HCS messages for a single transaction
 
-The sample is almost identical with the upstream first-network sample as of 2.0.0 release. In summary, the modifications are:
+The sample is almost identical with the upstream first-network sample as of 2.0.0 release. In summary, the modifications are: In summary, the modifications are:
 
 1. Updated docker compose files to use hcs-based orderers.
 2. Added a function in `byfn.sh` to generate a 256-bit AES key for data encryption/decryption between fabric orderers and hedera testnet.
@@ -289,7 +289,7 @@ A successful run will end with the following message:
 **\_**| |\*\*\_ | | | | |_| |_\
 _|\_\__| |_| \\_| |_\_\__/\`
 
-## 5. Tear down the network
+## 5. 5. Tear down the network
 
 * It is required to run the following command to tear down the network
 * If you do not tear down the network and try to restart the network you may run into issues
@@ -298,7 +298,7 @@ _|\_\__| |_| \\_| |_\_\__/\`
 $ ./byfn.sh down
 ```
 
-## 6. Verify Topics & Messages
+## 6. 6. Verify Topics & Messages
 
 * Topics and messages created in this tutorial can be verified on any available mirror node explorer
 * At the start of the script, you can see the two HCS topic IDs that were created
@@ -323,4 +323,4 @@ You have successfully done the following:
 * Created a Hyperledger Fabric network using the HCS Fabric plugin as the ordering service
 * Verified the topics and messages created in this example network
 
-Running into issues or have suggestions? Visit the developer advocates in [Discord](http://hedera.com/discord) and post your comments to the hedera-consensus-service channel 🤓 .
+Running into issues or have suggestions? Running into issues or have suggestions? Visit the developer advocates in [Discord](http://hedera.com/discord) and post your comments to the hedera-consensus-service channel 🤓 .

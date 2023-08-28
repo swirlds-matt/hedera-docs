@@ -1,11 +1,11 @@
 # Burn a token
 
-Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY.
+Burns fungible and non-fungible tokens owned by the Treasury Account. Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY.
 
 * The operation decreases the Total Supply of the Token.
 * Total supply cannot go below zero.
 * The amount provided must be in the lowest denomination possible.
-  * Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
+  * Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
 * This transaction accepts zero unit token burn operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564))
 
 **Transaction Signing Requirements**
@@ -79,6 +79,10 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 {% tab title="Go" %}
 ```go
 //Burn 1,000 tokens and freeze the unsigned transaction for manual signing
+transaction, err = hedera.NewTokenBurnTransaction().
+        SetTokenID(tokenId).
+        SetAmount(1000).
+        //Burn 1,000 tokens and freeze the unsigned transaction for manual signing
 transaction, err = hedera.NewTokenBurnTransaction().
         SetTokenID(tokenId).
         SetAmount(1000).

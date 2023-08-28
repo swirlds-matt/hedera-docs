@@ -1,3 +1,3 @@
 # Languages
 
-* [Chinese (Simplified)](zn/)
+* [Chinese (Simplified)](zh-CN/zh/)

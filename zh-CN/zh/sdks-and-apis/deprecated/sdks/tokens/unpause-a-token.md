@@ -1,6 +1,6 @@
 # Unpause a token
 
-A token unpause transaction is a transaction that unpauses the token that was previously disabled from participating in transactions. The token's pause key is required to sign the transaction. Once the unpause transaction is submitted the token pause status is updated to `unpause`.
+A token unpause transaction is a transaction that unpauses the token that was previously disabled from participating in transactions. The token's pause key is required to sign the transaction. A token unpause transaction is a transaction that unpauses the token that was previously disabled from participating in transactions. The token's pause key is required to sign the transaction. Once the unpause transaction is submitted the token pause status is updated to `unpause`.
 
 **Transaction Signing Requirements:**
 
@@ -76,6 +76,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 {% code title="Go" %}
 ```go
 //Create the token unpause transaction, specify the token to pause, freeze the unsigned transaction for signing
+transaction, err := hedera.NewTokenUnpauseTransaction().
+        SetTokenID(tokenId).
+        //Create the token unpause transaction, specify the token to pause, freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenUnpauseTransaction().
         SetTokenID(tokenId).
         FreezeWith(client)

@@ -1,6 +1,6 @@
 # Deploy Smart Contracts on Hedera Using Truffle
 
-The [Hedera JSON RPC Relay](https://docs.hedera.com/hedera/core-concepts/smart-contracts/json-rpc-relay) enables developers to use their favorite EVM-compatible tools such as Truffle, Hardhat, Web3JS, EthersJS, to deploy and interact with smart contracts on the Hedera network. As highlighted in a [previous article](https://hedera.com/blog/anything-you-can-do-you-can-do-on-hedera-introducing-the-json-rpc-relay), the relay provides applications and tools seamless access to Hedera while masking implementation complexities and preventing reductions in performance, security, and scalability.
+The [Hedera JSON RPC Relay](https://docs.hedera.com/hedera/core-concepts/smart-contracts/json-rpc-relay) enables developers to use their favorite EVM-compatible tools such as Truffle, Hardhat, Web3JS, EthersJS, to deploy and interact with smart contracts on the Hedera network. As highlighted in a [previous article](https://hedera.com/blog/anything-you-can-do-you-can-do-on-hedera-introducing-the-json-rpc-relay), the relay provides applications and tools seamless access to Hedera while masking implementation complexities and preventing reductions in performance, security, and scalability. As highlighted in a [previous article](https://hedera.com/blog/anything-you-can-do-you-can-do-on-hedera-introducing-the-json-rpc-relay), the relay provides applications and tools seamless access to Hedera while masking implementation complexities and preventing reductions in performance, security, and scalability.
 
 This tutorial shows you how to deploy smart contracts on Hedera using Truffle and the [JSON RPC Relay](../../core-concepts/smart-contracts/json-rpc-relay.md) with the following steps:
 
@@ -25,7 +25,7 @@ You can find more examples using Truffle, Web3JS, and Hardhat in [this GitHub re
 
 ## Create an Account that Has ECDSA Keys
 
-Hedera supports two popular types of signature algorithms, ED25519 and ECDSA. Both are used in many blockchain platforms, including Bitcoin and Ethereum. **Currently, the JSON RPC Relay only supports Hedera accounts with an alias set (i.e. public address) based on its ECDSA public key.** To deploy a smart contract using Truffle, we first have to create a new account that meets these criteria. The _**main()**_ function in _**create-account.js**_ helps us do just that.
+Hedera supports two popular types of signature algorithms, ED25519 and ECDSA. Both are used in many blockchain platforms, including Bitcoin and Ethereum. Hedera supports two popular types of signature algorithms, ED25519 and ECDSA. Both are used in many blockchain platforms, including Bitcoin and Ethereum. **Currently, the JSON RPC Relay only supports Hedera accounts with an alias set (i.e. public address) based on its ECDSA public key.** To deploy a smart contract using Truffle, we first have to create a new account that meets these criteria. The _**main()**_ function in _**create-account.js**_ helps us do just that. The _**main()**_ function in _**create-account.js**_ helps us do just that.
 
 In case you’re interested in more details about auto account creation and alias, check out the [documentation](https://docs.hedera.com/hedera/sdks-and-apis/sdks/cryptocurrency/create-an-account#create-an-account-via-an-account-alias) and [HIP-32](https://hips.hedera.com/hip/hip-32).
 
@@ -62,7 +62,7 @@ async function main() {
 }
 ```
 
-Executing this code generates a new ECDSA key pair, displays the information about the keys in Hedera and EVM formats, and transfers HBAR to the account alias (_**newAliasAccountId**_) to auto-create a Hedera account that meets the criteria mentioned before. Information about the new account is obtained in two ways, a [transaction record query](https://docs.hedera.com/hedera/sdks-and-apis/sdks/transactions/get-a-transaction-record) and a [mirror node query](https://hedera.com/blog/how-to-look-up-transaction-history-on-hedera-using-mirror-nodes-back-to-the-basics).
+Executing this code generates a new ECDSA key pair, displays the information about the keys in Hedera and EVM formats, and transfers HBAR to the account alias (_**newAliasAccountId**_) to auto-create a Hedera account that meets the criteria mentioned before. Information about the new account is obtained in two ways, a [transaction record query](https://docs.hedera.com/hedera/sdks-and-apis/sdks/transactions/get-a-transaction-record) and a [mirror node query](https://hedera.com/blog/how-to-look-up-transaction-history-on-hedera-using-mirror-nodes-back-to-the-basics). You can obtain more information about the newly deployed contract using the [mirror node REST API](https://docs.hedera.com/hedera/sdks-and-apis/rest-api). Additional context for that API is provided in [this blog post](https://hedera.com/blog/how-to-look-up-transaction-history-on-hedera-using-mirror-nodes-back-to-the-basics). Based on the console output of the example above, here are two mirror node queries that provide more information about the new contract and account based on their respective Solidity addresses:
 
 _**Console Output:**_
 
@@ -70,7 +70,7 @@ _**Console Output:**_
 
 ![](https://images.hedera.com/2022-How-to-Deploy-Smart-Contracts-on-Hedera-Using-Truffle-Image-1.png?w=2340&auto=compress%2Cformat&fit=crop&dm=1676318292&s=33263665f06241dd4f37a321214058ea)<figcaption></figcaption></figure>
 
-**IMPORTANT NOTE**: Private keys for Testnet are displayed here for educational purposes only. Never share your private key(s) with others, as that may result in lost funds, or loss of control over your account.
+**IMPORTANT NOTE**: Private keys for Testnet are displayed here for educational purposes only. Never share your private key(s) with others, as that may result in lost funds, or loss of control over your account. Never share your private key(s) with others, as that may result in lost funds, or loss of control over your account.
 
 The next step is to deploy a smart contract using Truffle and the newly created Hedera account. Copy the value from “_**New private key (RAW EVM)**_” in the console output and paste it into the _**ETH\_PRIVATE\_KEY**_ variable in the _**.env**_ file (if you cloned the repository, you may need to rename the file from _**.env\_sample**_ to _**.env**_).
 
@@ -146,7 +146,7 @@ _**Console Output:**_
 
 ## Deploy the Smart Contract to Hedera Using Truffle
 
-Finally, deploy the contract on Hedera through the JSON RPC Relay. Be sure to configure the following parameters in your _**.env**_ file to be able to deploy to the Hedera testnet with Truffle.
+Finally, deploy the contract on Hedera through the JSON RPC Relay. Finally, deploy the contract on Hedera through the JSON RPC Relay. Be sure to configure the following parameters in your _**.env**_ file to be able to deploy to the Hedera testnet with Truffle.
 
 ```javascript
 NETWORK_ID = 296
@@ -154,7 +154,7 @@ JSON_RPC_RELAY_URL = https://testnet.hashio.io/api
 ETH_PRIVATE_KEY = 0x7a9e... [Run create-account.js and paste value of “New private key (RAW EVM)”]
 ```
 
-This example uses the [Hashio instance of the JSON RPC Relay](https://swirldslabs.com/hashio/), hosted by Swirlds Labs. URLs are also available for the Hedera Mainnet and Previewnet.
+This example uses the [Hashio instance of the JSON RPC Relay](https://swirldslabs.com/hashio/), hosted by Swirlds Labs. URLs are also available for the Hedera Mainnet and Previewnet. URLs are also available for the Hedera Mainnet and Previewnet.
 
 Deploy the contract with the following command:
 
@@ -180,7 +180,7 @@ You can obtain more information about the newly deployed contract using the [mir
 
 </details>
 
-Now you know how to deploy smart contracts on Hedera using Truffle and the JSON RPC Relay. The first part of this example used the Hedera [JavaScript SDK](../../sdks-and-apis/sdks/#hedera-services-code-sdks). However, you can try this with the other officially supported SDKs for Java and Go.&#x20;
+Now you know how to deploy smart contracts on Hedera using Truffle and the JSON RPC Relay. The first part of this example used the Hedera [JavaScript SDK](../../sdks-and-apis/sdks/#hedera-services-code-sdks). However, you can try this with the other officially supported SDKs for Java and Go.&#x20; The first part of this example used the Hedera [JavaScript SDK](../../sdks-and-apis/sdks/#hedera-services-code-sdks). However, you can try this with the other officially supported SDKs for Java and Go.&#x20;
 
 Feel free to reach out if you have any questions:
 

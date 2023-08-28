@@ -2,7 +2,7 @@
 
 ## Google Cloud Platform Marketplace
 
-Deploy your own mirror node with just a few clicks! The Hedera Mirror Node is open-source software and does not carry an associated license or deployment fee. However, users are responsible for paying for the compute resource used, the data retrieved from Google Cloud Storage buckets, and any other Google Cloud Platform services used during this deployment.&#x20;
+Deploy your own mirror node with just a few clicks! Deploy your own mirror node with just a few clicks! The Hedera Mirror Node is open-source software and does not carry an associated license or deployment fee. However, users are responsible for paying for the compute resource used, the data retrieved from Google Cloud Storage buckets, and any other Google Cloud Platform services used during this deployment.&#x20; However, users are responsible for paying for the compute resource used, the data retrieved from Google Cloud Storage buckets, and any other Google Cloud Platform services used during this deployment.&#x20;
 
 ► Before you proceed to the next step, obtain the GCP requester pay information:
 
@@ -10,7 +10,7 @@ Deploy your own mirror node with just a few clicks! The Hedera Mirror Node is op
 
 <summary>How To Obtain Google Cloud Platform Requester Pay Information</summary>
 
-In this step, you will generate your Google Cloud Platform HMAC access keys. These keys are needed to authenticate requests between your machine and Google Cloud Storage. They are similar to a username and password. Follow these steps to retrieve your **access key, secret**, and **project ID**:
+In this step, you will generate your Google Cloud Platform HMAC access keys. These keys are needed to authenticate requests between your machine and Google Cloud Storage. They are similar to a username and password. Follow these steps to retrieve your **access key, secret**, and **project ID**: These keys are needed to authenticate requests between your machine and Google Cloud Storage. They are similar to a username and password. Follow these steps to retrieve your **access key, secret**, and **project ID**:
 
 * Create a new [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) and link your [billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account).
 * From the left navigation bar, select **Cloud Storage > Settings.**

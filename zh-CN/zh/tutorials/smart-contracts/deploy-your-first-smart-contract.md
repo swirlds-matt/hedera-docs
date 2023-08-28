@@ -4,24 +4,24 @@
 
 In this tutorial, you will learn how to create a simple smart contract on Hedera using Solidity.
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples. This example does not build upon the previous examples.
 
 ## Prerequisites
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples. This example does not build upon the previous examples.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><a href="../../getting-started/introduction.md"><mark style="color:purple;"><strong>INTRODUCTION</strong></mark></a></td><td><a href="../../getting-started/introduction.md">introduction.md</a></td></tr><tr><td align="center"><a href="../../getting-started/environment-set-up.md"><mark style="color:purple;"><strong>ENVIRONMENT SETUP</strong></mark></a></td><td><a href="../../getting-started/environment-set-up.md">environment-set-up.md</a></td></tr></tbody></table>
 
 * Get a [Hedera testnet account](https://portal.hedera.com/register).
 * Set up your environment [here](../../getting-started/environment-set-up.md).
 
-## 1. Create a "Hello Hedera" Smart Contract
+## 1. 1. Create a "Hello Hedera" Smart Contract
 
-Create a smart contract in solidity using the [remix IDE](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js). The "Hello Hedera" contract Solidity file is sampled below along with the "Hello Hedera" JSON file that is produced after the contract has been compiled. You can use remix to create and compile the contract yourself or you can copy the files below into your project. If you are not familiar with Solidity you can check out the docs [here](https://docs.soliditylang.org/en/v0.8.9/). Hedera supports the latest version of Solidity (v0.8.9) on previewnet and testnet.
+Create a smart contract in solidity using the [remix IDE](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js). The "Hello Hedera" contract Solidity file is sampled below along with the "Hello Hedera" JSON file that is produced after the contract has been compiled. You can use remix to create and compile the contract yourself or you can copy the files below into your project. If you are not familiar with Solidity you can check out the docs [here](https://docs.soliditylang.org/en/v0.8.9/). Hedera supports the latest version of Solidity (v0.8.9) on previewnet and testnet. The "Hello Hedera" contract Solidity file is sampled below along with the "Hello Hedera" JSON file that is produced after the contract has been compiled. You can use remix to create and compile the contract yourself or you can copy the files below into your project. If you are not familiar with Solidity you can check out the docs [here](https://docs.soliditylang.org/en/v0.8.9/). Hedera supports the latest version of Solidity (v0.8.9) on previewnet and testnet.
 
-The contract stores two variables the <mark style="color:blue;">`owner`</mark> and <mark style="color:blue;">`message`</mark>. The constructor passes in the <mark style="color:blue;">`message`</mark> parameter. The <mark style="color:blue;">`set_message`</mark> function allows the owner to update the message variable and the <mark style="color:blue;">`get_message`</mark> function allows you to return the message.
+The contract stores two variables the <mark style="color:blue;">`owner`</mark> and <mark style="color:blue;">`message`</mark>. The constructor passes in the <mark style="color:blue;">`message`</mark> parameter. The <mark style="color:blue;">`set_message`</mark> function allows the owner to update the message variable and the <mark style="color:blue;">`get_message`</mark> function allows you to return the message. The constructor passes in the <mark style="color:blue;">`message`</mark> parameter. The <mark style="color:blue;">`set_message`</mark> function allows the owner to update the message variable and the <mark style="color:blue;">`get_message`</mark> function allows you to return the message.
 
-The HelloHedera.sol will serve as a reference to the contract that was compiled. The HelloHedera.json file contains the <mark style="color:blue;">`data.bytecode.object`</mark> field that will be used to store the contract bytecode in a file on the Hedera network.
+The HelloHedera.sol will serve as a reference to the contract that was compiled. The HelloHedera.sol will serve as a reference to the contract that was compiled. The HelloHedera.json file contains the <mark style="color:blue;">`data.bytecode.object`</mark> field that will be used to store the contract bytecode in a file on the Hedera network.
 
 {% tabs %}
 {% tab title="HelloHedera.sol" %}
@@ -165,14 +165,14 @@ contract HelloHedera {
 {% endtab %}
 {% endtabs %}
 
-## 2. Store the Smart Contract Bytecode on Hedera
+## 2. 2. Store the Smart Contract Bytecode on Hedera
 
-Create a file using the <mark style="color:blue;">`FileCreateTransaction()`</mark> API to store the hex-encoded byte code of the "Hello Hedera" contract. Once the file is created, you can obtain the file ID from the receipt of the transaction.
+Create a file using the <mark style="color:blue;">`FileCreateTransaction()`</mark> API to store the hex-encoded byte code of the "Hello Hedera" contract. Once the file is created, you can obtain the file ID from the receipt of the transaction. Once the file is created, you can obtain the file ID from the receipt of the transaction.
 
 You can alternatively use the [<mark style="color:purple;">`CreateContractFlow()`</mark>](../../sdks-and-apis/sdks/smart-contracts/create-a-smart-contract.md#contractcreateflow) API that creates the bytecode file for you and subsequently creates the contract on Hedera in a single API.
 
 {% hint style="warning" %}
-_**Note:** The bytecode is required to be hex-encoded. It should not be the actual data the hex represents._
+_**Note:** The bytecode is required to be hex-encoded. It should not be the actual data the hex represents. It should not be the actual data the hex represents._
 {% endhint %}
 
 
@@ -280,16 +280,38 @@ byteCodefileID := *fileReceipt.FileID
 
 //Log the file ID
 fmt.Printf("contract bytecode file: %v\n", bytecodeFileID)
+    //Set the bytecode of the contract
+    SetContents([]byte(bytecode)).
+    //Submit the transaction to a Hedera network
+    Execute(client)
+
+if err != nil {
+    println(err.Error(), ": error creating file")
+    return
+}
+
+//Get the receipt of the file create transaction
+fileReceipt, err := fileTx.GetReceipt(client)
+if err != nil {
+    println(err.Error(), ": error getting file create transaction receipt")
+    return
+}
+
+//Get the file ID
+byteCodefileID := *fileReceipt.FileID
+
+//Log the file ID
+fmt.Printf("contract bytecode file: %v\n", bytecodeFileID)
 ```
 {% endtab %}
 {% endtabs %}
 
-## 3. Deploy a Hedera Smart Contract
+## 3. 3. Deploy a Hedera Smart Contract
 
-Create the contract and set the file ID to the file ID that stores the hex-encoded byte code from the previous step. You will also need to set gas the value that will create the contract and pass the constructor parameters using <mark style="color:blue;">`ContractFunctionParameters()`</mark> API<mark style="color:purple;">.</mark> In this example, "hello from Hedera!" was passed to the constructor. After the transaction is successfully executed, you can get the contract ID from the receipt.
+Create the contract and set the file ID to the file ID that stores the hex-encoded byte code from the previous step. Create the contract and set the file ID to the file ID that stores the hex-encoded byte code from the previous step. You will also need to set gas the value that will create the contract and pass the constructor parameters using <mark style="color:blue;">`ContractFunctionParameters()`</mark> API<mark style="color:purple;">.</mark> In this example, "hello from Hedera!" was passed to the constructor. After the transaction is successfully executed, you can get the contract ID from the receipt. After the transaction is successfully executed, you can get the contract ID from the receipt.
 
 {% hint style="warning" %}
-_**Note:** You will need to set the gas value high enough to deploy the contract. If you don't have enough gas, you will receive an `INSUFFICIENT_GAS` response._
+_**Note:** You will need to set the gas value high enough to deploy the contract. If you don't have enough gas, you will receive an `INSUFFICIENT_GAS` response. If you don't have enough gas, you will receive an `INSUFFICIENT_GAS` response._
 {% endhint %}
 
 {% tabs %}
@@ -380,9 +402,9 @@ newContractID := *contractReceipt.ContractID
 {% endtab %}
 {% endtabs %}
 
-## 4. Call the <mark style="color:purple;">`get_message`</mark> contract function
+## 4. 4. Call the <mark style="color:purple;">`get_message`</mark> contract function
 
-In the previous step, the contract message variable was set to "hello from Hedera!." You can return this message from the contract by submitting a query that will return the stored message string. The <mark style="color:blue;">`ContractCallQuery()`</mark> similarly does not modify the state of the contract like other Hedera queries. It only reads stored values.
+In the previous step, the contract message variable was set to "hello from Hedera!." You can return this message from the contract by submitting a query that will return the stored message string. The <mark style="color:blue;">`ContractCallQuery()`</mark> similarly does not modify the state of the contract like other Hedera queries. It only reads stored values. You can return this message from the contract by submitting a query that will return the stored message string. The <mark style="color:blue;">`ContractCallQuery()`</mark> similarly does not modify the state of the contract like other Hedera queries. It only reads stored values.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -470,9 +492,9 @@ fmt.Printf("The contract message: ", getMessage)
 {% endtab %}
 {% endtabs %}
 
-## 5. Call the <mark style="color:purple;">`set_message`</mark> contract function
+## 5. 5. Call the <mark style="color:purple;">`set_message`</mark> contract function
 
-Call the <mark style="color:blue;">`set_message`</mark> function of the contract. To do this you will need to use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API. This transaction will update the contract message. Once the transaction is successfully submitted you can verify the message was updated by requesting <mark style="color:blue;">`ContractCallQuery()`</mark>. The message returned from the contract should now log "Hello from Hedera again!"
+Call the <mark style="color:blue;">`set_message`</mark> function of the contract. To do this you will need to use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API. This transaction will update the contract message. Call the <mark style="color:blue;">`set_message`</mark> function of the contract. To do this you will need to use the <mark style="color:blue;">`ContractExecuteTransaction()`</mark> API. This transaction will update the contract message. Once the transaction is successfully submitted you can verify the message was updated by requesting <mark style="color:blue;">`ContractCallQuery()`</mark>. The message returned from the contract should now log "Hello from Hedera again!" The message returned from the contract should now log "Hello from Hedera again!"
 
 {% tabs %}
 {% tab title="Java" %}
@@ -597,8 +619,18 @@ contractCallQuery, err := hedera.NewContractCallQuery().
         //This value must cover the cost of the request otherwise will fail
         SetQueryPayment(hedera.NewHbar(2)).
         //Set the contract function to call
-    SetFunction("get_message", nil). // nil -> no parameters
-    //Submit the query to a Hedera network node
+    SetFunction("get_message", nil). // Calls a function of the smart contract
+contractQuery, err := hedera.NewContractCallQuery().
+    //Set the contract ID to return the request for
+    SetContractID(newContractID).
+    //Set the gas for the query
+    SetGas(100000).
+    //Set the query payment for the node returning the request
+        //This value must cover the cost of the request otherwise will fail
+    SetQueryPayment(hedera.NewHbar(1)).
+    //Set the contract function to call
+    SetFunction("getMessage", nil). // nil -> no parameters
+    //Submit the query to a Hedera network
     Execute(client)
 
 if err != nil {
@@ -607,17 +639,17 @@ if err != nil {
 }
 
 // Get a string from the result at index 0
-getMessage2 := contractCallQuery.GetString(0)
+getMessage := contractQuery.GetString(0)
 
 //Log the message
-fmt.Printf("The updated contract message: ", getMessage2)
+fmt.Printf("The contract message: ", getMessage)
 
 //v2 Hedera Go SDK
 ```
 {% endtab %}
 {% endtabs %}
 
-#### Congratulations :tada:! You have completed the following:
+#### Congratulations :tada:! Congratulations :tada:! You have completed the following:
 
 * Created a simple smart contract on Hedera
 * Interacted with contract functions
@@ -627,7 +659,7 @@ Video tutorial
 {% endembed %}
 
 {% hint style="info" %}
-Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
+Have a question? Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><p>Writer: Simi, Sr. Software Manager </p><p><a href="https://github.com/ed-marquez">GitHub</a> | <a href="https://www.linkedin.com/in/shunjan">LinkedIn</a></p></td><td></td><td></td><td><a href="https://www.linkedin.com/in/shunjan">https://www.linkedin.com/in/shunjan</a></td></tr></tbody></table>

@@ -2,7 +2,7 @@
 
 ## FileGetContentsQuery
 
-Get the contents of a file. The content field is empty (no bytes) if the file is empty.
+Get the contents of a file. Get the contents of a file. The content field is empty (no bytes) if the file is empty.
 
 | Field    | Type                                                                                                                                          | Description                                                                                                                                         |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

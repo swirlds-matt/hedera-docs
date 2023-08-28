@@ -1,8 +1,8 @@
 # Freeze an account
 
-Freezes transfers of the specified token for the account. The transaction must be signed by the token's Freeze Key.
+Freezes transfers of the specified token for the account. Freezes transfers of the specified token for the account. The transaction must be signed by the token's Freeze Key.
 
-* If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID. If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
+* If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID. If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED. If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
 * If the provided token is not found, the transaction will resolve to INVALID\_TOKEN\_ID.
 * If the provided token has been deleted, the transaction will resolve to TOKEN\_WAS\_DELETED.
 * If an Association between the provided token and account is not found, the transaction will resolve to TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT.
@@ -78,6 +78,10 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 {% tab title="Go" %}
 ```go
 //Freeze an account from transferring a token
+transaction, err = hedera.NewTokenFreezeTransaction().
+      SetAccountID(accountId).
+        SetTokenID(tokenId).
+        //Freeze an account from transferring a token
 transaction, err = hedera.NewTokenFreezeTransaction().
       SetAccountID(accountId).
         SetTokenID(tokenId).

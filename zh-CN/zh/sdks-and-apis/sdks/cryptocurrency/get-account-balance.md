@@ -1,6 +1,6 @@
 # Get account balance
 
-A query that returns the account balance for the specified account. Requesting an account balance is currently free of charge. Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query.
+A query that returns the account balance for the specified account. Requesting an account balance is currently free of charge. A query that returns the account balance for the specified account. Requesting an account balance is currently free of charge. Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query. The information is returned from a single node processing the query.
 
 **Query Fees**
 
@@ -51,6 +51,8 @@ console.log("The hbar account balance for this account is " +accountBalance.hbar
 {% tab title="Go" %}
 ```go
 //Create the account balance query
+query := hedera.NewAccountBalanceQuery().
+     //Create the account balance query
 query := hedera.NewAccountBalanceQuery().
      SetAccountID(newAccountId)
 

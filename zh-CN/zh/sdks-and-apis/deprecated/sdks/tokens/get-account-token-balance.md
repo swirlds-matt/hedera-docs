@@ -1,6 +1,6 @@
 # Get account token balance
 
-To get the balance of tokens for an account, you can submit an account balance query. The account balance query will return the tokens the account holds in a list format.
+To get the balance of tokens for an account, you can submit an account balance query. To get the balance of tokens for an account, you can submit an account balance query. The account balance query will return the tokens the account holds in a list format.
 
 **Query Fees**
 

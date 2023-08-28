@@ -1,7 +1,7 @@
 # Transfer cryptocurrency
 
 A transaction that transfers hbars and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of hbars between the sending accounts and receiving accounts must equal zero.\
-For a CryptoTransferTransactionBody:
+For a CryptoTransferTransactionBody: You can enter multiple transfers in a single transaction. The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.
 
 {% hint style="warning" %}
 * A max of 10 balance adjustments in its hbar transferList
@@ -19,7 +19,7 @@ For a CryptoTransferTransactionBody:
 
 **Spender Account Allowances**
 
-An account can have [another account](../../../sdks/cryptocurrency/approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transfer transaction by calling one of the following:
+An account can have [another account](../../../sdks/cryptocurrency/approve-an-allowance.md) spend tokens on its behalf. An account can have [another account](../../../sdks/cryptocurrency/approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transfer transaction by calling one of the following:
 
 * `addApprovedHbarTransfer()`
 * `addApprovedTokenTransfer()`
@@ -46,10 +46,10 @@ new TransferTransaction()
 
 {% tabs %}
 {% tab title="V1" %}
-| Method                                               | Type                     | Description                                                                                                                                     |
-| ---------------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarTransfer(<accountId, value>)`          | AccountId, Hbar/long     | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.   |
-| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer. The sender and recipient values must net zero. |
+| Method                                               | Type                     | Description                                                                                                                                                                                    |
+| ---------------------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addHbarTransfer(<accountId, value>)`          | AccountId, Hbar/long     | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.                                                  |
+| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer. The sender and recipient values must net zero. The sender and recipient values must net zero. |
 
 {% code title="Java" %}
 ```java

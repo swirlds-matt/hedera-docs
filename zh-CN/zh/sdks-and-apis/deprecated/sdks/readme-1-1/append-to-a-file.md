@@ -1,6 +1,6 @@
 # Append to a file
 
-A transaction that appends new file content to the end of an existing file. The contents of the file can be viewed by submitting a FileContentsQuery request.
+A transaction that appends new file content to the end of an existing file. The contents of the file can be viewed by submitting a FileContentsQuery request. The contents of the file can be viewed by submitting a FileContentsQuery request.
 
 **Transaction Signing Requirements**
 
@@ -20,7 +20,7 @@ new FileAppendTransaction()
 ```
 
 {% hint style="info" %}
-The default max transaction fee (1 hbar) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. The default chunk size is 2,048 bytes.
+The default max transaction fee (1 hbar) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. The default chunk size is 2,048 bytes. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. The default chunk size is 2,048 bytes.
 {% endhint %}
 
 ### Methods
@@ -114,6 +114,13 @@ const getContents = transaction.getContents();
 ```java
 //Create the transaction
 transaction2 := hedera.NewFileAppendTransaction().
+    SetFileID(newFileId).
+        SetContents([]byte("The appended contents"))
+
+//Get the contents
+getContents2 := transaction2.GetContents()
+
+//v2.0.0
     SetFileID(newFileId).
         SetContents([]byte("The appended contents"))
 

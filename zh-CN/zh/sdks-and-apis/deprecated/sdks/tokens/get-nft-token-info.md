@@ -1,10 +1,10 @@
 # Get NFT info
 
-A query that returns information about a non-fungible token (NFT). You request the info for an NFT by specifying the NFT ID.
+A query that returns information about a non-fungible token (NFT). You request the info for an NFT by specifying the NFT ID. You request the info for an NFT by specifying the NFT ID.
 
 **Token Allowances**
 
-Only when a spender is set on an explicit NFT ID of a token, we return the spender ID in the`TokenNftInfoQuery` for the respective NFT. If `approveTokenNftAllowanceAllSerials` is used to approve all NFTs for a given token class and no NFT ID is specified, we will not return a spender ID for all the serial numbers of that token.
+Only when a spender is set on an explicit NFT ID of a token, we return the spender ID in the`TokenNftInfoQuery` for the respective NFT. If `approveTokenNftAllowanceAllSerials` is used to approve all NFTs for a given token class and no NFT ID is specified, we will not return a spender ID for all the serial numbers of that token. If `approveTokenNftAllowanceAllSerials` is used to approve all NFTs for a given token class and no NFT ID is specified, we will not return a spender ID for all the serial numbers of that token.
 
 **Query Fees**
 
@@ -17,14 +17,14 @@ Requesting NFT info by Token ID or Account ID is deprecated.
 
 The request returns the following information:
 
-| Item              | Description                                                                                                     |
-| ----------------- | --------------------------------------------------------------------------------------------------------------- |
-| **NFT ID**        | The ID of the non-fungible token in x.y.z format.                                                               |
-| **Account ID**    | The account ID of the current owner of the NFT                                                                  |
-| **Creation Time** | The effective consensus timestamp at which the NFT was minted                                                   |
-| **Metadata**      | Represents the unique metadata of the NFT                                                                       |
-| **Ledger ID**     | The ID of the network (mainnet, testnet, previewnet). Reference [HIP-198](https://hips.hedera.com/hip/hip-198). |
-| **Spender ID**    | The spender account ID for the NFT. This is only returned if the NFT ID was specifically approved.              |
+| Item              | Description                                                                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **NFT ID**        | The ID of the non-fungible token in x.y.z format.                                                                                                                         |
+| **Account ID**    | The account ID of the current owner of the NFT                                                                                                                            |
+| **Creation Time** | The effective consensus timestamp at which the NFT was minted                                                                                                             |
+| **Metadata**      | Represents the unique metadata of the NFT                                                                                                                                 |
+| **Ledger ID**     | The ID of the network (mainnet, testnet, previewnet). Reference [HIP-198](https://hips.hedera.com/hip/hip-198). Reference [HIP-198](https://hips.hedera.com/hip/hip-198). |
+| **Spender ID**    | The spender account ID for the NFT. The spender account ID for the NFT. This is only returned if the NFT ID was specifically approved.                                    |
 
 | Constructor               | Description                              |
 | ------------------------- | ---------------------------------------- |
@@ -38,9 +38,9 @@ new TokenNftInfoQuery()
 
 {% tabs %}
 {% tab title="V1" %}
-| Method                   | Type                                      | Description                                                                                                                                        | Requirement |
-| ------------------------ | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `byNftId(<nftId>)` | [NftId](../../../sdks/readme-1/nft-id.md) | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID (of type `NON_FUNGIBLE_UNIQUE`) and serial number. | Optional    |
+| Method                   | Type                                      | Description                                                                                                                                                                                                 | Requirement |
+| ------------------------ | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `byNftId(<nftId>)` | [NftId](../../../sdks/readme-1/nft-id.md) | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID (of type `NON_FUNGIBLE_UNIQUE`) and serial number. | Optional    |
 
 {% code title="Java" %}
 ```java

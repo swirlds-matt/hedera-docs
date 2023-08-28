@@ -2,7 +2,7 @@
 
 ## Summary
 
-Besides creating NFTs using Hedera SDK, you can use a Solidity Contract to create, mint, and transfer NFTs by calling contract functions directly. These are the contracts you will need to import into your working directory provided by Hedera that you can find in the **contracts** folder [here](https://github.com/hashgraph/hedera-smart-contracts):
+Besides creating NFTs using Hedera SDK, you can use a Solidity Contract to create, mint, and transfer NFTs by calling contract functions directly. These are the contracts you will need to import into your working directory provided by Hedera that you can find in the **contracts** folder [here](https://github.com/hashgraph/hedera-smart-contracts): These are the contracts you will need to import into your working directory provided by Hedera that you can find in the **contracts** folder [here](https://github.com/hashgraph/hedera-smart-contracts):
 
 * HederaTokenService.sol
 * HederaResponseCodes.sol
@@ -13,7 +13,7 @@ Besides creating NFTs using Hedera SDK, you can use a Solidity Contract to creat
 
 ## Prerequisites
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples. This example does not build upon the previous examples.
 
 * Get a [Hedera testnet account](https://portal.hedera.com/register).
 * Set up your environment [here](../../getting-started/environment-set-up.md).
@@ -22,11 +22,12 @@ If you are interested in creating, minting, and transferring NFTs using Hedera S
 
 {% hint style="warning" %}
 In this example, you will set gas for smart contract transactions multiple times. If you don't have enough gas you will receive an<mark style="color:blue;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction.
+{% endhint %} If you don't have enough gas you will receive an<mark style="color:blue;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction.
 {% endhint %}
 
-## 1. Create an “NFT Creator” Smart Contract
+## 1. 1. Create an “NFT Creator” Smart Contract
 
-You can find an NFTCreator Solidity contract sample below with the contract bytecode obtained by compiling the solidity contract using [Remix IDE](https://remix.ethereum.org/). If you are not familiar with Solidity, you can take a look at the docs [here](https://docs.soliditylang.org/en/v0.8.14/).
+You can find an NFTCreator Solidity contract sample below with the contract bytecode obtained by compiling the solidity contract using [Remix IDE](https://remix.ethereum.org/). If you are not familiar with Solidity, you can take a look at the docs [here](https://docs.soliditylang.org/en/v0.8.14/). If you are not familiar with Solidity, you can take a look at the docs [here](https://docs.soliditylang.org/en/v0.8.14/).
 
 The following contract is composed of three functions:
 
@@ -34,7 +35,7 @@ The following contract is composed of three functions:
 * <mark style="color:blue;">`mintNft`</mark>
 * <mark style="color:blue;">`transferNft`</mark>
 
-The important thing to know is that the NFT created in this example will have the contract itself as **Treasury Account, Supply Key,** and **Auto-renew account**. There’s **NO** admin key for the NFT or the contract.
+The important thing to know is that the NFT created in this example will have the contract itself as **Treasury Account, Supply Key,** and **Auto-renew account**. There’s **NO** admin key for the NFT or the contract. There’s **NO** admin key for the NFT or the contract.
 
 {% tabs %}
 {% tab title="NFTCreator.sol" %}
@@ -121,7 +122,7 @@ contract NFTCreator is ExpiryHelper, KeyHelper, HederaTokenService {
 {% endtab %}
 {% endtabs %}
 
-Store your contract on Hedera using <mark style="color:blue;">`ContractCreateFlow()`</mark>. This single call performs <mark style="color:blue;">`FileCreateTransaction()`</mark>,<mark style="color:blue;">`FileAppendTransaction()`</mark>, and <mark style="color:blue;">`ContractCreateTransaction()`</mark> for you. See the difference [here](https://docs.hedera.com/guides/docs/sdks/smart-contracts/create-a-smart-contract).
+Store your contract on Hedera using <mark style="color:blue;">`ContractCreateFlow()`</mark>. This single call performs <mark style="color:blue;">`FileCreateTransaction()`</mark>,<mark style="color:blue;">`FileAppendTransaction()`</mark>, and <mark style="color:blue;">`ContractCreateTransaction()`</mark> for you. See the difference [here](https://docs.hedera.com/guides/docs/sdks/smart-contracts/create-a-smart-contract). This single call performs <mark style="color:blue;">`FileCreateTransaction()`</mark>,<mark style="color:blue;">`FileAppendTransaction()`</mark>, and <mark style="color:blue;">`ContractCreateTransaction()`</mark> for you. See the difference [here](https://docs.hedera.com/guides/docs/sdks/smart-contracts/create-a-smart-contract).
 
 {% tabs %}
 {% tab title="Java" %}
@@ -181,12 +182,12 @@ fmt.Printf("The new contract ID is %v\n", newContractId)
 {% endtab %}
 {% endtabs %}
 
-## 3. Execute the Contract to Create an NFT
+## 3. 3. Execute the Contract to Create an NFT
 
 The parameters you need to specify for this contract call are Name, Symbol, Memo, Maximum Supply, and Expiration. The smart contract "rent" feature is currently _NOT_ enabled. Once enabled in the future, setting an expiration date _in seconds_ is required because entities on Hedera will need to pay "rent" to persist. In this case, the contract entity will pay all NFT auto-renewal fees.
 
 {% hint style="warning" %}
-**Note:** The expiration must be between 82 and 91 days, **specified in seconds**. This window will change when [HIP-372](https://hips.hedera.com/hip/hip-372) replaces [HIP-16](https://hips.hedera.com/hip/hip-16).
+**Note:** The expiration must be between 82 and 91 days, **specified in seconds**. This window will change when [HIP-372](https://hips.hedera.com/hip/hip-372) replaces [HIP-16](https://hips.hedera.com/hip/hip-16). This window will change when [HIP-372](https://hips.hedera.com/hip/hip-372) replaces [HIP-16](https://hips.hedera.com/hip/hip-16).
 {% endhint %}
 
 {% tabs %}
@@ -284,11 +285,11 @@ fmt.Printf("Token created with ID: %v\n", tokenId)
 {% endtab %}
 {% endtabs %}
 
-## 4. Execute the Contract to Mint a New NFT
+## 4. 4. Execute the Contract to Mint a New NFT
 
-After the token ID is created, you mint each NFT under that ID using the <mark style="color:blue;">`mintNft`</mark> function. For the minting, you must specify the token ID as a Solidity address and the NFT metadata.
+After the token ID is created, you mint each NFT under that ID using the <mark style="color:blue;">`mintNft`</mark> function. For the minting, you must specify the token ID as a Solidity address and the NFT metadata. For the minting, you must specify the token ID as a Solidity address and the NFT metadata.
 
-Both the NFT image and metadata live in the InterPlanetary File System (IPFS), which provides decentralized storage. The file metadata.json contains the metadata for the NFT. An IPFS URI pointing to the metadata file is used during minting of a new NFT. Notice that the metadata file contains a URI pointing to the NFT image.
+Both the NFT image and metadata live in the InterPlanetary File System (IPFS), which provides decentralized storage. The file metadata.json contains the metadata for the NFT. An IPFS URI pointing to the metadata file is used during minting of a new NFT. Notice that the metadata file contains a URI pointing to the NFT image. The file metadata.json contains the metadata for the NFT. An IPFS URI pointing to the metadata file is used during minting of a new NFT. Notice that the metadata file contains a URI pointing to the NFT image.
 
 {% hint style="info" %}
 _**Note:** For the latest NFT Token Metadata JSON Schema see_ [_HIP-412_](https://hips.hedera.com/hip/hip-412)_._
@@ -387,6 +388,45 @@ if err != nil {
 serial := mintResult.GetInt64(0)
 
 fmt.Printf("Minted NFT with serial: %v\n", serial)
+    AddAddress(tokenIdSolidityAddr)
+
+if err != nil {
+    panic(err)
+}
+
+// Add metadata to params
+mintParams = mintParams.AddBytesArray(bytesArray)
+
+// Mint NFT
+mintToken, err := hedera.NewContractExecuteTransaction().
+    //The contract ID
+    SetContractID(newContractId).
+    //The max gas
+    SetGas(4000000).
+    //The contract function to call and parameters
+    SetFunction("mintNft", mintParams).
+    //The max transaction fee. Use when HBAR is under 10 cents
+    SetMaxTransactionFee(hedera.HbarFrom(20, hedera.HbarUnits.Hbar)).
+    Execute(client)
+
+if err != nil {
+    panic(err)
+}
+
+//Get the record
+mintRecord, err := mintToken.GetRecord(client)
+if err != nil {
+    panic(err)
+}
+
+//Get transaction status
+mintResult, err := mintRecord.GetContractExecuteResult()
+if err != nil {
+    panic(err)
+}
+serial := mintResult.GetInt64(0)
+
+fmt.Printf("Minted NFT with serial: %v\n", serial)
 ```
 {% endtab %}
 {% endtabs %}
@@ -411,14 +451,14 @@ fmt.Printf("Minted NFT with serial: %v\n", serial)
 {% endtab %}
 {% endtabs %}
 
-## 5. Execute the Contract to Transfer the NFT
+## 5. 5. Execute the Contract to Transfer the NFT
 
-The NFT is minted to the contract address because the contract is the treasury for the token. Now transfer the NFT to another account or contract address. In this example, you will transfer the NFT to Alice. For the transfer, you must specify the token address and NFT serial number.
+The NFT is minted to the contract address because the contract is the treasury for the token. Now transfer the NFT to another account or contract address. In this example, you will transfer the NFT to Alice. The NFT is minted to the contract address because the contract is the treasury for the token. Now transfer the NFT to another account or contract address. In this example, you will transfer the NFT to Alice. For the transfer, you must specify the token address and NFT serial number.
 
-The <mark style="color:blue;">`transferNft`</mark> function in the Solidity contract contains a call to an <mark style="color:blue;">`associateToken`</mark> function that will automatically associate Alice to the token ID. This association transaction must be signed using Alice's private key. After signing, Alice will receive the NFT.
+The <mark style="color:blue;">`transferNft`</mark> function in the Solidity contract contains a call to an <mark style="color:blue;">`associateToken`</mark> function that will automatically associate Alice to the token ID. This association transaction must be signed using Alice's private key. After signing, Alice will receive the NFT. This association transaction must be signed using Alice's private key. After signing, Alice will receive the NFT.
 
 {% hint style="info" %}
-**Note:** For a more comprehensive explanation of how auto token association works, check out the _Auto Token Associations_ section [here](../../core-concepts/accounts/account-properties.md#automatic-token-associations). Reference Hedera Improvement Proposal: [HIP-23](https://hips.hedera.com/hip/hip-23)
+**Note:** For a more comprehensive explanation of how auto token association works, check out the _Auto Token Associations_ section [here](../../core-concepts/accounts/account-properties.md#automatic-token-associations). Reference Hedera Improvement Proposal: [HIP-23](https://hips.hedera.com/hip/hip-23) Reference Hedera Improvement Proposal: [HIP-23](https://hips.hedera.com/hip/hip-23)
 {% endhint %}
 
 {% tabs %}
@@ -836,26 +876,27 @@ func main() {
     //Create the transaction
     createContract := hedera.NewContractCreateFlow().
         SetGas(4000000).
-        SetBytecode([]byte(bytecode))
+        //Create the transaction
+createContract := hedera.NewContractCreateFlow().
+    SetGas(4000000).
+    SetBytecode([]byte(bytecode))
 
-    //Sign the transaction with the client operator key and submit to a Hedera network
-    txResponse, err := createContract.Execute(client)
-    if err != nil {
-        panic(err)
-    }
+//Sign the transaction with the client operator key and submit to a Hedera network
+txResponse, err := createContract.Execute(client)
+if err != nil {
+    panic(err)
+}
 
-    //Request the receipt of the transaction
-    receipt, err := txResponse.GetReceipt(client)
-    if err != nil {
-        panic(err)
-    }
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+    panic(err)
+}
 
-    //Get the contract ID
-    newContractId := *receipt.ContractID
+//Get the contract ID
+newContractId := *receipt.ContractID
 
-    fmt.Printf("The new contract ID is %v\n", newContractId)
-
-    contractParams := hedera.NewContractFunctionParameters().
+fmt.Printf("The new contract ID is %v\n", newContractId)
         AddString("Fall Collection"). // NFT name
         AddString("LEAF").            // NFT symbol
         AddString("Just a memo").     // NFT memo
@@ -940,16 +981,42 @@ func main() {
 
     // Add token address to params
     transferParams, err := hedera.NewContractFunctionParameters().
-        AddAddress(tokenIdSolidityAddr)
-    // Add Alice address to params
-    transferParams, err = transferParams.AddAddress(aliceAccountId.ToSolidityAddress())
-    if err != nil {
-        panic(err)
-    }
-    transferParams = transferParams.AddInt64(serial)
+        // Add token address to params
+transferParams, err := hedera.NewContractFunctionParameters().
+    AddAddress(tokenIdSolidityAddr)
+// Add Alice address to params
+transferParams, err = transferParams.AddAddress(aliceAccountId.ToSolidityAddress())
+if err != nil {
+    panic(err)
+}
+transferParams = transferParams.AddInt64(serial)
 
-    // Transfer NFT
-    transferToken, err := hedera.NewContractExecuteTransaction().
+// Transfer NFT
+transferToken, err := hedera.NewContractExecuteTransaction().
+    //The contract ID
+    SetContractID(newContractId).
+    //The max gas
+    SetGas(4000000).
+    //The contract function to call and parameters
+    SetFunction("transferNft", transferParams).
+    FreezeWith(client)
+
+if err != nil {
+    panic(err)
+}
+
+transferSubmit, err := transferToken.Sign(aliceKey).Execute(client)
+if err != nil {
+    panic(err)
+}
+
+//Get the record
+transferRecord, err := transferSubmit.GetReceipt(client)
+if err != nil {
+    panic(err)
+}
+
+fmt.Printf("Transfer status: %v\n", transferRecord.Status)
         //The contract ID
         SetContractID(newContractId).
         //The max gas

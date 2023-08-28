@@ -2,7 +2,7 @@
 
 ## Mainnet Node Address Book
 
-The **address book** contains the list of consensus nodes that can submit transactions to mainnet for a user. For each node, the node account ID is the ID of the node \(0.0.x\) and the node address is the IP address and port for that node. The mainnet address book file ID on mainnet is `0.0.102`.
+The **address book** contains the list of consensus nodes that can submit transactions to mainnet for a user. For each node, the node account ID is the ID of the node \(0.0.x\) and the node address is the IP address and port for that node. The mainnet address book file ID on mainnet is `0.0.102`. For each node, the node account ID is the ID of the node \(0.0.x\) and the node address is the IP address and port for that node. The mainnet address book file ID on mainnet is `0.0.102`.
 
 <table>
   <thead>

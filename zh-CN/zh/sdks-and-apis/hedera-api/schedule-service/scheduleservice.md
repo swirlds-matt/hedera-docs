@@ -6,7 +6,7 @@ The Schedule Service allows transactions to be submitted without all the require
 
 **Execution:**
 
-Scheduled Transactions are executed once all required signatures are collected and witnessed. Every time new signature is provided, a check is performed on the "readiness" of the execution.
+Scheduled Transactions are executed once all required signatures are collected and witnessed. Every time new signature is provided, a check is performed on the "readiness" of the execution. Every time new signature is provided, a check is performed on the "readiness" of the execution.
 
 The Scheduled Transaction will be executed immediately after the transaction that triggered it and will be externalized in a separate Transaction Record.
 
@@ -24,7 +24,7 @@ Once a given Scheduled Transaction executes, it will be removed from the ledger 
 
 **Expiry:**
 
-Scheduled Transactions have a global expiry time txExpiryTimeSecs (Currently set to 30 minutes). If txExpiryTimeSecs pass and the Scheduled Transaction haven't yet executed, it will be removed from the ledger as if ScheduleDelete operation is executed.
+Scheduled Transactions have a global expiry time txExpiryTimeSecs (Currently set to 30 minutes). Scheduled Transactions have a global expiry time txExpiryTimeSecs (Currently set to 30 minutes). If txExpiryTimeSecs pass and the Scheduled Transaction haven't yet executed, it will be removed from the ledger as if ScheduleDelete operation is executed.
 
 ## ScheduleService
 
